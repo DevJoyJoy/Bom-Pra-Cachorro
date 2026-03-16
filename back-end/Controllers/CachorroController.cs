@@ -5,7 +5,7 @@ namespace BomPraCachorro.Controllers;
 public class CachorroController(IPetService dogService) : ControllerBase
 {
     [HttpGet]
-    public async Task<IActionResult> PostScan([FromBody] int id)
+    public async Task<IActionResult> GetDog([FromBody] int id)
     {
         try
         {
