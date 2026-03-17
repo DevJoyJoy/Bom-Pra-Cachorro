@@ -1,28 +1,28 @@
 namespace BomPraCachorro.Services;
-
-public class CachorroService : IPetService
+using BomPraCachorro.Models;
+public class PetService : IPetService
 {
-    public async Task<Cachorro> GetCachorro (int id)
+    public async Task<Pet> GetPet (int id)
     {
         throw new NotImplementedException();
     }
 
-    public async Task<List<Cachorro>> GetAllCachorros()
+    public async Task<List<Pet>> GetAllPets()
     {
         throw new NotImplementedException();
     }
 
-    public async Task<Cachorro> AddCachorro (Cachorro dog)
+    public async Task<Pet> AddPet (Pet pet)
     {
         throw new NotImplementedException();
     }
 
-    public async Task<Cachorro> UpdateCachorro (Cachorro dog)
+    public async Task<Pet> UpdatePet (Pet pet)
     {
         throw new NotImplementedException();
     }
 
-    public async Task<bool> DeleteCachorro (int id)
+    public async Task<bool> DeletePet (int id)
     {
         throw new NotImplementedException();
     }
