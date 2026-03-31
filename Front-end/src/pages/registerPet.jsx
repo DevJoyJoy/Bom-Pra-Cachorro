@@ -9,7 +9,7 @@ export const RegisterPet = () => {
             {/* Header */}
             <div className='bg-[#ff66c4] w-full h-20 flex items-center px-4'>
                 <img src="../public/paw.png" alt="" className="h-[60%] md:h-[70%]" />
-                <h1 className="ml-2 font-bold text-white text-xl md:text-3xl">Bom pra cachorro</h1>
+                <h1 className="ml-2 font-bold text-white text-xl md:text-3xl arturo">Bom pra cachorro</h1>
             </div>
 
             {/* Main box for register */}
@@ -17,7 +17,7 @@ export const RegisterPet = () => {
 
                 {/* White box for components */}
                 <div className="bg-white h-[90%] w-[80%] md:h-[80%] md:w-[90%] rounded-4xl flex flex-col items-center justify-start p-5">
-                    <h1 className=" text-2xl md:text-3xl md:pb-3 pt-3">Cadastro de animais</h1>
+                    <h1 className=" text-2xl md:text-3xl md:pb-3 pt-3 breeSerif">Cadastro de animais</h1>
 
                     {/* Photo inputs box */}
                     <div className="flex flex-col w-[20%] h-[60%]">

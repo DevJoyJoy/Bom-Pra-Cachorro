@@ -1,1 +1,20 @@
 @import "tailwindcss";
+
+@font-face {
+  font-family: "ArturoRegular";
+  src: url("/fonts/Arturo-Regular Trial.ttf") format("truetype");
+
+}
+
+@font-face {
+  font-family: "BreeSerif";
+  src: url("/fonts/BreeSerif-Regular.ttf") format("truetype");
+} 
+
+.arturo{
+    font-family: "ArturoRegular", sans-serif;
+}
+
+.breeSerif {
+    font-family: "BreeSerif", sans-serif;
+}
