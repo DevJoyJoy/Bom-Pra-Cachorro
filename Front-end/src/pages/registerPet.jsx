@@ -9,6 +9,7 @@ export const RegisterPet = () => {
     const [isAnimalsOpen, setIsAnimalsOpen] = useState(false);
     const [isBreedsOpen, setIsBreedsOpen] = useState(false);
 
+    {/* Function to turn the input boxes into the input image*/}
     const handleImageChange = (e, setImg) => {
         const file = e.target.files[0];
         if (file) {
