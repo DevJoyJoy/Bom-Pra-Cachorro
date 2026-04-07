@@ -18,7 +18,7 @@ export const RegisterPet = () => {
     };
 
     return (
-        <div className="bg-[#ffef63] h-[120vh] md:h-[120vh] w-full flex flex-col">
+        <div className="bg-[#ffef63] h-screen md:h-screen w-full flex flex-col">
         {/* Header */}
         <div className="bg-[#ff66c4] w-full h-20 flex items-center px-4">
             <img src="../icon paw.png" alt="" className="h-[60%] md:h-[70%]" />
@@ -29,16 +29,16 @@ export const RegisterPet = () => {
         
         {/* White box */}
         <div className="h-[120%] w-full flex items-center justify-center">
-            <div className="bg-white h-[90%] w-[80%] md:h-[80%] md:w-[90%] rounded-4xl flex flex-col items-center justify-start p-5">
+            <div className="bg-white h-full w-full md:h-[70%] md:w-[70%] md:rounded-4xl flex flex-col items-center justify-start p-3">
             <h1 className="text-2xl md:text-3xl md:pb-3 pt-3 font-bold breeSerif">
                 Cadastro de animais
             </h1>
 
             {/* Box for all the image inputs */}
-            <div className="flex flex-col md:flex-row w-full h-full gap-10 mt-5">
-                <div className="flex flex-col items-center w-full h-[40%] md:w-[18%] md:h-[65%]">
+            <div className="flex flex-col md:flex-row w-full h-full gap-4 mt-3">
+                <div className="flex flex-col items-center w-full h-[50%] md:w-[18%] md:h-[65%]">
                 {/* Main image input box */}
-                <label className="relative overflow-hidden flex flex-col items-center justify-center w-full h-[75%] md:w-full md:h-[70%] border-4 border-dashed border-[#4b4b4b] rounded-2xl cursor-pointer hover:bg-[#e7e7e7] transition-colors">
+                <label className="relative overflow-hidden flex flex-col items-center justify-center w-[90%] h-[75%] md:w-full md:h-[70%] border-4 border-dashed border-[#4b4b4b] rounded-2xl cursor-pointer hover:bg-[#e7e7e7] transition-colors">
                     {image1 ? (
                     <img src={image1} className="w-full h-full object-cover" />
                     ) : (
@@ -51,10 +51,10 @@ export const RegisterPet = () => {
                 </label>
                 
                 {/* Box for the 3 secundary image inputs */}
-                <div className="flex flex-row justify-center w-full mt-3 gap-4">
+                <div className="flex flex-row justify-center w-full mt-3 gap-12 md:gap-7">
 
                     {/* Second image input */}
-                    <label className="relative overflow-hidden flex flex-col items-center justify-center w-12 h-12 md:w-20 md:h-15 border-4 border-dashed border-[#4b4b4b] rounded-2xl cursor-pointer hover:bg-[#e7e7e7] transition-colors">
+                    <label className="relative overflow-hidden flex flex-col items-center justify-center w-18 h-18 md:w-30 md:h-15 border-4 border-dashed border-[#4b4b4b] rounded-2xl cursor-pointer hover:bg-[#e7e7e7] transition-colors">
                     {image2 ? (
                         <img src={image2} className="w-full h-full object-cover" />
                     ) : (
@@ -64,7 +64,7 @@ export const RegisterPet = () => {
                     </label>
 
                     {/* Third image input */}
-                    <label className="relative overflow-hidden flex flex-col items-center justify-center w-12 h-12 md:w-20 md:h-15 border-4 border-dashed border-[#4b4b4b] rounded-2xl cursor-pointer hover:bg-[#e7e7e7] transition-colors">
+                    <label className="relative overflow-hidden flex flex-col items-center justify-center w-18 h-18 md:w-30 md:h-15 border-4 border-dashed border-[#4b4b4b] rounded-2xl cursor-pointer hover:bg-[#e7e7e7] transition-colors">
                     {image3 ? (
                         <img src={image3} className="w-full h-full object-cover" />
                     ) : (
@@ -74,7 +74,7 @@ export const RegisterPet = () => {
                     </label>
 
                     {/* Forth image input */}
-                    <label className="relative overflow-hidden flex flex-col items-center justify-center w-12 h-12 md:w-20 md:h-15 border-4 border-dashed border-[#4b4b4b] rounded-2xl cursor-pointer hover:bg-[#e7e7e7] transition-colors">
+                    <label className="relative overflow-hidden flex flex-col items-center justify-center w-18 h-18 md:w-30 md:h-15 border-4 border-dashed border-[#4b4b4b] rounded-2xl cursor-pointer hover:bg-[#e7e7e7] transition-colors">
                     {image4 ? (
                         <img src={image4} className="w-full h-full object-cover" />
                     ) : (
@@ -88,25 +88,25 @@ export const RegisterPet = () => {
                 {/* Box for all the text/animal info inputs */}
                 <div className="flex flex-row h-[40%] md:h-[60%] md:w-[90%]">
                     <div className="w-[50%] p-3">
-                        <p className="text-[70%] md:text-xl">Nome</p>
+                        <p className="text-[100%] md:text-xl">Nome</p>
                         <input type="text" className="bg-[#cfcccc] w-[110%] md:w-[90%]"/>
                         <br />
                         <br />
                         <div className="flex flex-row justify-between md:w-[90%]">
-                            <p className="text-[70%] md:text-xl">Animal</p>
-                            <button onClick={() => setIsAnimalsOpen(true)} className="text-[70%] md:text-xl">+</button>
+                            <p className="text-[100%] md:text-xl">Animal</p>
+                            <button onClick={() => setIsAnimalsOpen(true)} className="text-[100%] md:text-xl">+</button>
                         </div>
                         <select type="text" className="bg-[#cfcccc] w-[110%] md:w-[90%]"/>
                         <br />
                         <br />
                         <div className="flex flex-row justify-between md:w-[90%]">
-                            <p className="text-[70%] md:text-xl">Raça</p>
-                            <button onClick={() => setIsBreedsOpen(true)}className="text-[70%] md:text-xl">+</button>
+                            <p className="text-[100%] md:text-xl">Raça</p>
+                            <button onClick={() => setIsBreedsOpen(true)}className="text-[100%] md:text-xl">+</button>
                         </div>
                         <select type="text" className="bg-[#cfcccc] w-[110%] md:w-[90%]"/>
                         <br />
                         <br />
-                        <p className="text-[70%] md:text-xl">Porte</p>
+                        <p className="text-[100%] md:text-xl">Porte</p>
                         <select className="bg-[#cfcccc] w-[110%] md:w-[90%]">
                             <option value="">Grande</option>
                             <option value="">Médio</option>
@@ -115,25 +115,25 @@ export const RegisterPet = () => {
                         <br />
                     </div>
                     <div className="w-[50%] p-3 ">
-                        <p className="text-[70%] md:text-xl">Data de nascimento</p>
+                        <p className="text-[100%] md:text-xl">Data de nascimento</p>
                         <input type="date" className="bg-[#cfcccc] w-full md:w-[90%]"/>
                         <br />
                         <br />
                         <div className="flex flex-row">
-                            <p className="text-[70%] md:text-xl">Castrado?</p>
+                            <p className="text-[100%] md:text-xl">Castrado?</p>
                             <input type="checkbox" className="bg-[#cfcccc] w-[30%]"/>
                         </div>
                         <br />
                         <div className="flex flex-row">
-                            <p className="text-[70%] mr-3 md:text-xl md:mr-9.5">Sexo</p>
-                            <p className="text-[70%] md:text-xl">F</p>
+                            <p className="text-[100%] mr-3 md:text-xl md:mr-9.5">Sexo</p>
+                            <p className="text-[100%] md:text-xl">F</p>
                             <input type="checkbox" className="bg-[#cfcccc] w-[30%]"/>
-                            <p className="text-[70%] ml-2 md:text-xl">M</p>
+                            <p className="text-[100%] ml-2 md:text-xl">M</p>
                             <input type="checkbox" className="bg-[#cfcccc] w-[30%]"/>
                         </div>
                         <br />
-                        <p className="text-[70%] mr-3 md:text-xl">Descrição</p>
-                        <textarea type="text" className="bg-[#cfcccc] w-[110%] h-[33%] md:w-[90%] md:h-[37%]"/>
+                        <p className="text-[100%] mr-3 md:text-xl">Descrição</p>
+                        <textarea type="text" className="bg-[#cfcccc] w-[105%] h-[33%] md:w-[90%] md:h-[37%]"/>
                     </div>
                 </div>
             </div>
