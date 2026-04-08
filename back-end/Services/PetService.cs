@@ -129,7 +129,7 @@ public class PetService : IPetService
     {
         return new Pet
         {
-            Id = reader["Id"] != DBNull.Value ? (int?)reader["Id"] : null,
+            Id = (int)(reader["Id"] != DBNull.Value ? (int?)reader["Id"] : null),
             Nome = reader["Nome"]?.ToString() ?? string.Empty,
             ImagemUrl = reader["ImagemUrl"]?.ToString() ?? string.Empty,
             Idade = reader["Idade"] != DBNull.Value ? (int?)reader["Idade"] : null,
