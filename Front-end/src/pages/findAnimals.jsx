@@ -1,16 +1,12 @@
-
+import { Header } from "../components/header"
+import { Footer } from "../components/footer"
 
 export const FindAnimals = () => {
     return(
         <>
         <div className="w-full min-h-screen flex flex-col">
             {/* Header */}
-            <div className="bg-[#ff66c4] w-full h-20 flex items-center px-4">
-                <img src="../icon paw.png" alt="" className="h-[60%] md:h-[70%]" />
-                <h1 className="ml-2 font-bold text-xl md:text-3xl arturo text-white">
-                Bom pra cachorro
-                </h1>
-            </div>
+            <Header/>
 
             {/* Box title */}
             <div className="w-[90%] m-5">
@@ -62,20 +58,7 @@ export const FindAnimals = () => {
             </div>
 
             {/* Futer */}
-            <div className="bg-[#f3df2a] w-full h-[15%] md:h-[10%] bottom-0 flex flex-row items-center justify-between p-5">
-                <section className="text-white text-[80%] flex flex-col items-start md:text-xl">
-                    <button>Home</button>
-                    <button>Como ajudar</button>
-                    <button>Perguntas gerais</button>
-                </section>
-                <img src="../icon paw.png" alt="" className="h-10 md:h-20"/>
-                <section className="text-white text-[80%] flex flex-col items-end text-right md:text-xl">
-                    <button>Adotar</button>
-                    <button>Nossa história</button>
-                    <button>@bompracachorro</button>
-                    <h1>41 9 9660-2943</h1>
-                </section>
-            </div>
+            <Footer/>
         </div>
         </>
     )

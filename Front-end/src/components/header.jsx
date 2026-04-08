@@ -1,17 +1,19 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export const Header = () => {
+    const navigate = useNavigate()
+
     return(
         <>
-        <div className="h-[8vh] w-full bg-[#ff66c4] flex justify-between items-center px-4 text-white text-4xl font-arturo">
-           <section className="flex gap-4">
-               <img src="../public/icon paw.png" alt="" className="w-[4vw]"/>
+        <div className="h-[9vh] w-full bg-[#ff66c4] flex justify-between items-center text-center text-white text-4xl font-arturo p-[1%]">
+           <section className="flex gap-4 text-center flex items-center justify-center ">
+               <img onClick={() => navigate("/")} src="../public/icon paw.png" alt="" className="w-[4vw] mb-[2]"/>
                <h1>Bom pra Cachorro</h1>
            </section>
            <section className="flex gap-4 text-lg">
             <Link to="/Pets"> Adote </Link>
-            <Link to="">Como Ajudar</Link>
-            <Link to=""> Saiba Mais </Link>
+            <Link to="/Help">Como Ajudar</Link>
+            <Link to="/LearnMore"> Saiba Mais </Link>
            </section>
         </div>
         </>

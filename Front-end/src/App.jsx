@@ -3,6 +3,8 @@ import { MainPage } from "./pages/mainPage"
 import { RegisterLogin } from "./pages/registerLogin"
 import { RegisterPet } from "./pages/registerPet"
 import { FindAnimals } from "./pages/findAnimals"
+import { Help } from "./pages/helpPage"
+import { LearnMore } from "./pages/learnMore"
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
           <Route path='/Login' element={<RegisterLogin/>}></Route>
           <Route path='/Register' element={<RegisterPet/>}></Route>
           <Route path='/Pets' element={<FindAnimals/>}></Route>
+          <Route path="/Help" element={<Help/>}></Route>
+          <Route path="/LearnMore" element={<LearnMore/>}></Route>
         </Routes>
       </BrowserRouter>
     </>

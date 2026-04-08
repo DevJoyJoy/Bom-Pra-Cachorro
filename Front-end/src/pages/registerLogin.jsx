@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom"
+import { Header } from "../components/header";
 
 export const RegisterLogin = () => {
     const navigate = useNavigate();
@@ -7,10 +8,7 @@ export const RegisterLogin = () => {
         <div className='bg-[#ffef63] h-screen w-full flex flex-col'>
             
             {/* Header */}
-            <div className='bg-[#ff66c4] w-full h-20 flex items-center px-4'>
-                <img src="../public/paw.png" alt="" className="h-[60%] md:h-[70%]" />
-                <h1 className="ml-2 font-bold text-white text-xl md:text-3xl">Bom pra cachorro</h1>
-            </div>
+            <Header/>
 
             {/* Main box for login */}
             <div className="h-full w-full flex items-center justify-center">

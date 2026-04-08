@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Header } from "../components/header";
 
 export const RegisterPet = () => {
     const [image1, setImage1] = useState(null);
@@ -20,12 +21,7 @@ export const RegisterPet = () => {
     return (
         <div className="bg-[#ffef63] h-screen md:h-screen w-full flex flex-col">
         {/* Header */}
-        <div className="bg-[#ff66c4] w-full h-20 flex items-center px-4">
-            <img src="../icon paw.png" alt="" className="h-[60%] md:h-[70%]" />
-            <h1 className="ml-2 font-bold text-xl md:text-3xl arturo text-white">
-            Bom pra cachorro
-            </h1>
-        </div>
+        <Header/>
         
         {/* White box */}
         <div className="h-[120%] w-full flex items-center justify-center">

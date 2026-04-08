@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
-
 import { Footer } from "../components/footer";
 import { Header } from "../components/header";
+import { useNavigate } from "react-router-dom";
 
 export const MainPage = () => {
+    const navigate = useNavigate()
 
    const images = ["/dogo_teste.png", "/dogo_teste.png", "/dogo_teste.png"];
    const [current, setCurrent] = useState(0);
@@ -32,7 +33,7 @@ export const MainPage = () => {
        <div className="w-full h-[65vh] bg-[#ff66c4] relative overflow-hidden flex items-center justify-between px-10">
            <section className="ml-[5%] z-10">
                <h1 className="text-9xl text-white">Me <br/>Adota</h1>
-               <button className="w-[12vw] bg-white rounded-2xl text-2xl p-[1%] mt-[10%]">
+               <button onClick={() => navigate("/Pets")} className="w-[15vw] h-[8vh] bg-[#0097b2] text-white rounded-2xl text-3xl p-[1%] mt-[10%] border-[#0097b2] hover:bg-[#33AEC4]">
                    Adotar!
                </button>
            </section> 
@@ -63,7 +64,7 @@ export const MainPage = () => {
                        Somos uma ONG de Curitiba que cuida de mais de 20 animais disponíveis para adoção!
                    </h1>
 
-                   <button className="bg-[#ff66c4] hover:bg-[#ff85d1] p-[3%] text-white rounded-2xl">Conheça mais</button>
+                   <button onClick={() => navigate("LearnMore")} className="bg-[#ff66c4] hover:bg-[#ff85d1] p-[3%] text-white rounded-2xl">Saiba mais </button>
                </div>
            </section>       
 
@@ -115,11 +116,30 @@ export const MainPage = () => {
                 <h1 className="text-2xl text-white">Se voce ama os animais tanto quanto a gente, saiba que pode fazer a diferença!</h1>
                 <h1 className="text-2xl text-white">Com a sua contribuição, conseguimos oferecer alimentacão, cuidados veterinários e muito carinho para os animaiszinhos.</h1>
                 
-                <button className="self-start p-[3%] w-[15vw] text-[#0097b2] text-3xl rounded-4xl bg-white">Contribua!</button>
+                <button onClick={() => navigate("/Help")} className="self-start p-[3%] w-[15vw] text-[#0097b2] text-3xl rounded-4xl bg-white">Contribua!</button>
             </section>
        </div>
-  
-       {/* Footer */}
+    
+        {/* Quarta Secao */}
+       <div className="bg-white w-full h-[80vh] flex justify-center items-center">
+        <section className="w-[80%] h-[55vh] bg-[#ffef63] rounded-4xl flex relative">
+        
+            <section className="flex flex-col justify-center gap-6 ml-[5%] w-[50%]">
+                <h1 className="text-5xl">Violencia contra o animal? Denuncie!</h1>
+                
+                <hr className="border-t-2 border-black w-full" />
+                
+                <h1 className="text-2xl">
+                    Caso presencie qualquer tipo de violencia animal, NÃO SEJA CÚMPLICE!
+                    Disque 181 ou 156 para denunciar. Eles não podem pedir ajuda, mas você pode!
+                </h1>
+            </section>
+
+            <img src="../public/heroi_dogo.png" alt="" className="w-[40%] absolute right-0 bottom-0"/>
+        
+        </section>
+        </div>
+  \
        <Footer/>
        </>
    );
