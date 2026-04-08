@@ -1,7 +1,7 @@
 export const Footer = () => {
     return(
         <>
-            <div className="bg-[#f3df2a] w-full h-[120px] flex items-center justify-between p-5">
+            <div className="bg-[#f3df2a] w-full h-30 flex items-center justify-between p-5">
                 <section className="text-gray text-sm md:text-xl flex flex-col">
                     <button className="self-start">Home</button>
                     <button className="self-start">Como ajudar</button>

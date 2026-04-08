@@ -6,7 +6,7 @@ export const Header = () => {
     return(
         <>
         <div className="h-[9vh] w-full bg-[#ff66c4] flex justify-between items-center text-center text-white text-4xl font-arturo p-[1%]">
-           <section className="flex gap-4 text-center flex items-center justify-center ">
+           <section className="flex gap-4 text-center items-center justify-center ">
                <img onClick={() => navigate("/")} src="../public/icon paw.png" alt="" className="w-[4vw] mb-[2]"/>
                <h1>Bom pra Cachorro</h1>
            </section>
