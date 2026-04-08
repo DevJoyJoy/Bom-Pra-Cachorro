@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export const MainPage = () => {
 
@@ -29,9 +30,9 @@ export const MainPage = () => {
                <h1>Bom pra Cachorro</h1>
            </section>
            <section className="flex gap-4 text-lg">
-               <a href="">Adote</a>
-               <a href="">Como Ajudar</a>
-               <a href="">Saiba mais</a>
+            <Link to="/Pets"> Adote </Link>
+            <Link to="">Como Ajudar</Link>
+            <Link to=""> Saiba Mais </Link>
            </section>
        </div>
 
