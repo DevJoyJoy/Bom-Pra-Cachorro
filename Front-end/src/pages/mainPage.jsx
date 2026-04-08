@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+
+import { Footer } from "../components/footer";
+import { Header } from "../components/header";
 
 export const MainPage = () => {
 
@@ -24,17 +26,7 @@ export const MainPage = () => {
    return (
        <>
        {/* Header */}
-       <div className="h-[8vh] w-full bg-[#ff66c4] flex justify-between items-center px-4 text-white text-4xl font-arturo">
-           <section className="flex gap-4">
-               <img src="/icon paw.png" alt="" className="w-[4vw]"/>
-               <h1>Bom pra Cachorro</h1>
-           </section>
-           <section className="flex gap-4 text-lg">
-            <Link to="/Pets"> Adote </Link>
-            <Link to="">Como Ajudar</Link>
-            <Link to=""> Saiba Mais </Link>
-           </section>
-       </div>
+       <Header/>
 
        {/* Hero */}
        <div className="w-full h-[65vh] bg-[#ff66c4] relative overflow-hidden flex items-center justify-between px-10">
@@ -56,7 +48,7 @@ export const MainPage = () => {
        </div>
 
        {/* Segunda seção */}
-       <div className="bg-white w-full h-[90vh] flex justify-center items-center px-10 gap-[15%]">
+       <div className="bg-white w-full h-[80vh] flex justify-center items-center px-10 gap-[15%]">
           
            {/* Card Conheça mais */}
            <section>
@@ -76,7 +68,7 @@ export const MainPage = () => {
            </section>       
 
            {/* CARROSSEL */}
-           <section className="w-[30%]">
+           <section className="w-[23%]">
                <div className="relative w-full overflow-hidden rounded-2xl">
                   
                    {/* Slides */}
@@ -113,27 +105,22 @@ export const MainPage = () => {
        </div>
 
        {/* Terceira sessão */}
-       <div className="bg-[#0097b2] w-full h-[90vh] flex justify-center items-center px-10 gap-[15%]">
+       <div className="bg-[#0097b2] w-full h-[80vh] flex justify-center items-center px-10 gap-[6%]">
+            <section>
+                <img src="../public/polaroid_dog.png" alt="" className="w-[90%]"/>
+            </section>
 
+            <section className="flex flex-col gap-6">
+                <h1 className="text-5xl text-white">Saiba como ajudar a ONG</h1>
+                <h1 className="text-2xl text-white">Se voce ama os animais tanto quanto a gente, saiba que pode fazer a diferença!</h1>
+                <h1 className="text-2xl text-white">Com a sua contribuição, conseguimos oferecer alimentacão, cuidados veterinários e muito carinho para os animaiszinhos.</h1>
+                
+                <button className="self-start p-[3%] w-[15vw] text-[#0097b2] text-3xl rounded-4xl bg-white">Contribua!</button>
+            </section>
        </div>
   
        {/* Footer */}
-       <div className="bg-[#f3df2a] w-full h-[120px] flex items-center justify-between p-5">
-           <section className="text-white text-sm md:text-xl flex flex-col">
-               <button>Home</button>
-               <button>Como ajudar</button>
-               <button>Perguntas gerais</button>
-           </section>
-
-           <img src="/icon paw.png" alt="" className="h-10 md:h-20"/>
-
-           <section className="text-white text-sm md:text-xl flex flex-col items-end text-right">
-               <button>Adotar</button>
-               <button>Nossa história</button>
-               <button>@bompracachorro</button>
-               <h1>41 9 9660-2943</h1>
-           </section>
-       </div>
+       <Footer/>
        </>
    );
 };
