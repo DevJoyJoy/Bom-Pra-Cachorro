@@ -47,33 +47,33 @@ export const MainPage = () => {
                 {/* Imagem dog pirata */}
                 <img src="/Dog Pirata.png" alt=""
                     className="absolute w-[40%] z-20 left-[50%] -top-1" />
+
+                <div className="w-full h-[15vh] bg-white relative z-0 top-83"></div>
             </div>  
 
 
             {/* Second Section */}
-            <div className="w-full min-h-[80vh] bg-white flex flex-col justify-around items-center
-                            sm:gap-8
-                            md:flex-row md:px-20 md:gap-16 relative z-0">
+            <div className="w-full min-h-[85vh] bg-white flex items-center justify-center gap-[15%]">
                 
-                <section className="w-[30vw] z-10">
+                <section className="w-[30vw] z-10 flex flex-col">
                     <div className="bg-[#0097b2] text-white text-xl md:text-3xl  w-full h-[8vh] flex items-center justify-center rounded-3xl rounded-b-none">
                         <h1>Quem Somos?</h1>
                     </div>
 
-                    <div className="border-2 border-[#0097b2] text-lg md:text-2xl w-full min-h-[40vh] flex flex-col items-center justify-center rounded-3xl rounded-t-none p-5">
+                    <div className="border-2 border-[#0097b2] text-lg w-full min-h-[40vh] flex flex-col items-center justify-center rounded-3xl rounded-t-none p-5 gap-5">
                         <h1 className="text-2xl md:text-3xl">Bom pra Cachorro!</h1>
 
                         <p className="my-5 text-center">
                             Somos uma ONG de Curitiba que cuida de mais de 20 animais disponíveis para adoção!
                         </p>
 
-                        <button onClick={() => navigate("LearnMore")} className="bg-[#ff66c4] hover:bg-[#ff85d1] px-6 py-2 text-white rounded-2xl">
+                        <button onClick={() => navigate("LearnMore")} className="bg-[#ff66c4] hover:bg-[#ff85d1] text-white rounded-2xl md:p-[2%]">
                             Saiba mais
                         </button>
                     </div>
                 </section>
 
-                <section className="w-[80vw] md:w-[23%] z-10">
+                <section className="w-[60vw] md:w-[23%] z-10">
                     <div className="relative w-full overflow-hidden rounded-2xl">
                         <div className="flex transition-transform duration-500" style={{ transform: `translateX(-${current * 100}%)` }}>
                             {images.map((img, index) => (
