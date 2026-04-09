@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 export const MainPage = () => {
     const navigate = useNavigate()
 
-   const images = ["/dogo_teste.png", "/dogo_teste.png", "/dogo_teste.png"];
+   const images = ["/dogo_teste.png", "../public/segundo_dog.png", "/dogo_teste.png", "../public/segundo_dog.png"];
    const [current, setCurrent] = useState(0);
 
    const nextSlide = () => {
@@ -135,11 +135,11 @@ export const MainPage = () => {
                 </h1>
             </section>
 
-            <img src="../public/heroi_dogo.png" alt="" className="w-[40%] absolute right-0 bottom-0"/>
+            <img src="../public/heroi_dogo.png" alt="" className="w-[55%] absolute -right-30  bottom-0 -top-20"/>
         
         </section>
         </div>
-  \
+
        <Footer/>
        </>
    );
