@@ -23,29 +23,39 @@ export const MainPage = () => {
             <Header />
 
             {/* First Section */}
-            <div className="w-full min-h-[70vh] bg-[#ff66c4] relative overflow-hidden flex flex-col md:flex-row items-center justify-center md:justify-between px-5 md:px-10">
-                <section className="z-10 text-center md:text-left md:ml-[5%]">
-                    <h1 className="text-5xl md:text-7xl lg:text-9xl text-white">
-                        Me <br/>Adota
-                    </h1>
+           <div className="w-full min-h-[70vh] bg-[#ff66c4] relative flex items-center">
+
+                {/* Conteudo "Me adota" */}
+                <section className="absolute left-[5%] flex flex-col gap-8 z-20">
+
+                    <section className="w-[20%]">
+                        <h1 className="text-9xl text-white">Me Adota</h1>
+                    </section>
 
                     <button
                         onClick={() => navigate("/Pets")}
-                        className="w-[60vw] md:w-[15vw] h-[6vh] md:h-[8vh] bg-[#0097b2] text-white rounded-2xl text-xl md:text-3xl mt-5 md:mt-[10%] hover:bg-[#33AEC4]">
+                        className="w-[60vw] bg-[#0097b2] text-white rounded-2xl text-xl mt-5 hover:bg-[#33AEC4]
+                                sm:w-[30vw] sm:text-3xl
+                                md:w-[15vw] md:h-[8vh] md:text-3xl md:mt-5">
                         Adotar!
                     </button>
                 </section>
 
-                <div className="absolute right-[-10%] bottom-[-10%] w-[120vw] h-[40vh] md:w-[40%] md:h-full bg-[#ffef63] rounded-full z-0"></div>
+                {/* Bolinha amarela */}
+                <div className="absolute w-[45vw] h-[80vh] bg-[#ffef63] rounded-full z-0 right-20 top-5"></div>
 
-                <img src="/Dog Pirata.png" alt="" className=" relative md:absolute md:right-[5%] md:bottom-0 w-[70%] md:w-[35%] mt-5 md:mt-0 z-20 "/>
-            </div>
+                {/* Imagem dog pirata */}
+                <img src="/Dog Pirata.png" alt=""
+                    className="absolute w-[40%] z-20 left-[50%] -top-1" />
+            </div>  
+
 
             {/* Second Section */}
-            <div className="bg-white w-full min-h-[80vh] flex flex-col md:flex-row justify-center items-center px-5 md:px-10 gap-10 md:gap-[15%]">
-
-                {/* Left Card */}
-                <section className="w-[90vw] md:w-[30vw]">
+            <div className="w-full min-h-[80vh] bg-white flex flex-col justify-around items-center
+                            sm:gap-8
+                            md:flex-row md:px-20 md:gap-16 relative z-0">
+                
+                <section className="w-[30vw] z-10">
                     <div className="bg-[#0097b2] text-white text-xl md:text-3xl  w-full h-[8vh] flex items-center justify-center rounded-3xl rounded-b-none">
                         <h1>Quem Somos?</h1>
                     </div>
@@ -63,8 +73,7 @@ export const MainPage = () => {
                     </div>
                 </section>
 
-                {/* Carousel */}
-                <section className="w-[80vw] md:w-[23%]">
+                <section className="w-[80vw] md:w-[23%] z-10">
                     <div className="relative w-full overflow-hidden rounded-2xl">
                         <div className="flex transition-transform duration-500" style={{ transform: `translateX(-${current * 100}%)` }}>
                             {images.map((img, index) => (
@@ -79,7 +88,7 @@ export const MainPage = () => {
                                 key={index}
                                 onClick={() => setCurrent(index)}
                                 className={`w-3 h-3 rounded-full cursor-pointer
-                                ${current === index ? "bg-[#ff66c4] scale-125" : "bg-gray-300"}`}
+                                            ${current === index ? "bg-[#ff66c4] scale-125" : "bg-gray-300"}`}
                             />
                         ))}
                     </div>
