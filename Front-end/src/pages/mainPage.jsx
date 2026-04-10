@@ -34,26 +34,26 @@ export const MainPage = () => {
                     <button
                         onClick={() => navigate("/Pets")}
                         className="px-6 py-3 bg-[#0097b2] text-white rounded-full text-xl hover:bg-[#33AEC4]
-                        w-full sm:w-[60%] md:w-fit mx-auto md:mx-0">
+                        w-full mx-auto">
                         Adotar!
                     </button>
                 </section>
 
                 <img 
                     src="/dog pirata certa.png"
-                    className="w-80 sm:w-70 md:w-[320px] lg:w-95 mt-8 md:mt-0"
+                    className="w-[86vw] mt-8 "
                 />
             </div>  
 
             {/* SECOND SECTION */}
-            <div className="w-full bg-white flex flex-col md:flex-row items-center justify-center gap-10 px-6 py-10">
+            <div className="w-full bg-white flex flex-col md:flex-row items-center justify-center gap-10 px-6 py-10 mt-8">
                 
-                <section className="w-full max-w-md">
-                    <div className="bg-[#0097b2] text-white text-xl md:text-2xl h-14 flex items-center justify-center rounded-t-2xl">
+                <section className="w-[80vw] max-w-md flex flex-col items-center justify-center">
+                    <div className="bg-[#0097b2] text-white text-xl md:text-2xl h-14 flex items-center justify-center rounded-t-2xl w-full">
                         Quem Somos?
                     </div>
 
-                    <div className="border-2 border-[#0097b2] p-6 rounded-b-2xl flex flex-col gap-6 text-center">
+                    <div className="border-2 border-[#0097b2] p-6 rounded-b-2xl flex flex-col items-center justify-center gap-6 text-center">
                         <h1 className="text-xl md:text-2xl">
                             Bom pra Cachorro!
                         </h1>
@@ -64,13 +64,13 @@ export const MainPage = () => {
 
                         <button 
                             onClick={() => navigate("LearnMore")}
-                            className="bg-[#ff66c4] text-white rounded-xl py-2 px-4 hover:bg-[#ff85d1]">
+                            className="bg-[#ff66c4] text-white rounded-xl py-2 px-4 hover:bg-[#ff85d1] w-[30vw]">
                             Saiba mais
                         </button>
                     </div>
                 </section>
 
-                <section className="w-full max-w-lg">
+                <section className="w-[80vw] max-w-lg">
                     <div className="overflow-hidden rounded-2xl">
                         <div 
                             className="flex transition-transform duration-500"
@@ -100,7 +100,7 @@ export const MainPage = () => {
 
                 <img 
                     src="/polaroid_dog.png" 
-                    className="w-[70%] max-w-sm"
+                    className="w-[80vw] max-w-sm"
                 />
 
                 <section className="flex flex-col gap-4 items-center justify-center text-center md:text-left max-w-md">
@@ -144,7 +144,7 @@ export const MainPage = () => {
 
                     <img 
                         src="/heroi_dogo.png"
-                        className="w-[70%] max-w-xs"
+                        className="w-full max-w-xs"
                     />
                 </section>
             </div>
