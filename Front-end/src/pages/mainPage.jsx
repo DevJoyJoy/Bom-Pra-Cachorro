@@ -24,28 +24,34 @@ export const MainPage = () => {
             <Header open={menuOpen} setOpen={setMenuOpen} />
 
             {/* FIRST SECTION */}
-            <div className="w-full h-[66.2vh] bg-[#ff66c4] flex flex-col items-center justify-between px-6 py-10
-                sm:h-[70vh]">
+            <div className="w-full h-[65vh] bg-[#ff66c4] flex flex-col items-start py-10
+                md:flex-row md:h-[36vh]">
 
-                <section className="flex flex-col gap-6 max-w-lg text-center md:text-left">
-                    <h1 className="text-5xl md:text-7xl lg:text-8xl text-white font-bold
-                        sm:text-2xl sm:bg-amber-400">
+                <section className="flex flex-col gap-6 w-full max-w-6xl px-6 text-center 
+                   md:text-left md:w-[50%] ">
+                    <h1 className="text-5xl md:text-7xl lg:text-8xl text-white font-bold">
                         Me Adota
                     </h1>
 
                     <button
                         onClick={() => navigate("/Pets")}
-                        className="px-6 py-3 bg-[#0097b2] text-white rounded-full text-xl hover:bg-[#33AEC4]
-                        w-full mx-auto">
+                        className="px-6 py-3 bg-[#0097b2] text-white rounded-full text-xl hover:bg-[#33AEC4] w-40 mx-auto md:mx-0"
+                    >
                         Adotar!
                     </button>
                 </section>
 
-                <img 
-                    src="/dog pirata certa.png"
-                    className="w-[86vw] mt-8 "
-                />
-            </div>  
+                <div className="relative w-full flex flex-col items-center">
+                   <img
+                        src="/dog pirata certa.png"
+                        className="w-full max-w-[100vw] object-cover z-20 mt-12
+                                md:w-[60vw] md:-mt-5" 
+                    />
+                    <div className="w-full h-[10vh] bg-white z-10 absolute bottom-0
+                        md:-bottom-7 md:h-[7vh]"></div>
+                </div>
+
+            </div>
 
             {/* SECOND SECTION */}
             <div className="w-full bg-white flex flex-col md:flex-row items-center justify-center gap-10 px-6 py-10 mt-8">
