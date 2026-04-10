@@ -24,10 +24,12 @@ export const MainPage = () => {
             <Header open={menuOpen} setOpen={setMenuOpen} />
 
             {/* FIRST SECTION */}
-            <div className="w-full h-[66.2vh] bg-[#ff66c4] flex flex-col md:flex-row items-center justify-between px-6 py-10">
+            <div className="w-full h-[66.2vh] bg-[#ff66c4] flex flex-col items-center justify-between px-6 py-10
+                sm:h-[70vh]">
 
                 <section className="flex flex-col gap-6 max-w-lg text-center md:text-left">
-                    <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-white font-bold">
+                    <h1 className="text-5xl md:text-7xl lg:text-8xl text-white font-bold
+                        sm:text-2xl sm:bg-amber-400">
                         Me Adota
                     </h1>
 
