@@ -1,9 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-export const Header = () => {
+export const Header = ({ open, setOpen }) => {
     const navigate = useNavigate();
-    const [open, setOpen] = useState(false);
 
     return(
         <div className="w-full bg-[#ff66c4] text-white">
