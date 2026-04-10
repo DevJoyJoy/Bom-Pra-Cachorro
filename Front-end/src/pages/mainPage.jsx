@@ -48,13 +48,14 @@ export const MainPage = () => {
                                 md:w-[60vw] md:-mt-5" 
                     />
                     <div className="w-full h-[10vh] bg-white z-10 absolute bottom-0
-                        md:-bottom-7 md:h-[7vh]"></div>
+                        md:bottom-2.2 md:h-[7vh]"></div>
                 </div>
 
             </div>
 
             {/* SECOND SECTION */}
-            <div className="w-full bg-white flex flex-col md:flex-row items-center justify-center gap-10 px-6 py-10 mt-8">
+            <div className="w-full bg-white flex flex-col md:flex-row items-center justify-center gap-10 px-6 py-10 mt-8
+                md:mt-10">
                 
                 <section className="w-[80vw] max-w-md flex flex-col items-center justify-center">
                     <div className="bg-[#0097b2] text-white text-xl md:text-2xl h-14 flex items-center justify-center rounded-t-2xl w-full">
@@ -78,7 +79,8 @@ export const MainPage = () => {
                     </div>
                 </section>
 
-                <section className="w-[80vw] max-w-lg">
+                <section className="w-[80vw] max-w-lg
+                md:w-[50vw]">
                     <div className="overflow-hidden rounded-2xl">
                         <div 
                             className="flex transition-transform duration-500"
@@ -133,11 +135,14 @@ export const MainPage = () => {
             </div>
 
             {/* FOURTH SECTION */}
-            <div className="bg-white w-full flex justify-center px-6 py-10">
+            <div className="bg-white w-full flex px-6 py-10 items-center justify-center
+                md:h-[45vh]">
 
-                <section className="w-full max-w-5xl bg-[#ffef63] rounded-3xl flex flex-col md:flex-row items-center p-6 gap-6">
+                <section className="w-full max-w-5xl bg-[#ffef63] rounded-3xl flex flex-col p-6 gap-6 items-center justify-start
+                    md:flex-row md:h-[30vh]">
 
-                    <div className="flex flex-col gap-4 text-center md:text-left">
+                    <div className="flex flex-col gap-4 text-center relative z-10
+                     md:text-center md:w-[50vw]">
                         <h1 className="text-xl md:text-2xl">
                             Violência contra o animal? Denuncie!
                         </h1>
@@ -152,7 +157,8 @@ export const MainPage = () => {
 
                     <img 
                         src="/heroi_dogo.png"
-                        className="w-full max-w-xs"
+                        className="w-full absolute z-10
+                            md:w-[30vw] md:right-11"
                     />
                 </section>
             </div>
