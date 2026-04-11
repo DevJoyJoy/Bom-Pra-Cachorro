@@ -24,8 +24,9 @@ export const MainPage = () => {
             <Header open={menuOpen} setOpen={setMenuOpen} />
 
             {/* FIRST SECTION */}
-            <div className="w-full h-[65vh] bg-[#ff66c4] flex flex-col items-start py-10
-                md:flex-row md:h-[36vh]">
+            <div className="w-full h-[60vh] bg-[#ff66c4] flex flex-col items-start py-10
+                md:flex-row md:h-[32vh]
+                lg:h-[71vh]">
 
                 <section className="flex flex-col gap-6 w-full max-w-6xl px-6 text-center 
                    md:text-left md:w-[50%] ">
@@ -43,26 +44,27 @@ export const MainPage = () => {
 
                 <div className="relative w-full flex flex-col items-center">
                    <img
-                        src="/dog pirata certa.png"
-                        className="w-full max-w-[100vw] object-cover z-20 mt-12
-                                md:w-[60vw] md:-mt-5" 
+                        src="/teste2.png"
+                        className="w-full max-w-[100vw] self-end
+                                md:w-[60vw] md:-mt-5 md:self-center
+                                lg:" 
                     />
-                    <div className="w-full h-[10vh] bg-white z-10 absolute bottom-0
-                        md:bottom-2.2 md:h-[7vh]"></div>
                 </div>
 
             </div>
 
             {/* SECOND SECTION */}
-            <div className="w-full bg-white flex flex-col md:flex-row items-center justify-center gap-10 px-6 py-10 mt-8
-                md:mt-10">
+            <div className="w-full bg-white flex flex-col md:flex-row items-center justify-center gap-10 px-6 py-10
+                md:mt-13">
                 
                 <section className="w-[80vw] max-w-md flex flex-col items-center justify-center">
-                    <div className="bg-[#0097b2] text-white text-xl md:text-2xl h-14 flex items-center justify-center rounded-t-2xl w-full">
+                    <div className="bg-[#0097b2] text-white text-xl h-14 flex items-center justify-center rounded-t-2xl w-full
+                        md:text-2xl">
                         Quem Somos?
                     </div>
 
-                    <div className="border-2 border-[#0097b2] p-6 rounded-b-2xl flex flex-col items-center justify-center gap-6 text-center">
+                    <div className="border-2 border-[#0097b2] p-6 rounded-b-2xl flex flex-col items-center justify-center gap-6 text-center
+                        md:h-[25vh]">
                         <h1 className="text-xl md:text-2xl">
                             Bom pra Cachorro!
                         </h1>
@@ -135,10 +137,10 @@ export const MainPage = () => {
             </div>
 
             {/* FOURTH SECTION */}
-            <div className="bg-white w-full flex px-6 py-10 items-center justify-center
-                md:h-[45vh]">
+            <div className="bg-white w-full h-screen flex px-6 py-10 items-center justify-center
+                md:h-[40vh]">
 
-                <section className="w-full max-w-5xl bg-[#ffef63] rounded-3xl flex flex-col p-6 gap-6 items-center justify-start
+                <section className="w-full h-full max-w-5xl bg-[#ffef63] rounded-3xl flex flex-col p-6 gap-6 items-center justify-start
                     md:flex-row md:h-[30vh]">
 
                     <div className="flex flex-col gap-4 text-center relative z-10
@@ -157,8 +159,8 @@ export const MainPage = () => {
 
                     <img 
                         src="/heroi_dogo.png"
-                        className="w-full absolute z-10
-                            md:w-[30vw] md:right-11"
+                        className="w-[60vw] absolute z-10 top-[341%]
+                            md:w-[25vw] md:right-15 md:top-[138%]"
                     />
                 </section>
             </div>
