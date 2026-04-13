@@ -5,18 +5,20 @@ import { RegisterPet } from "./pages/registerPet"
 import { FindAnimals } from "./pages/findAnimals"
 import { Help } from "./pages/helpPage"
 import { LearnMore } from "./pages/learnMore"
+import { DetailsPetPage } from "./pages/detailsPet"
 
 function App() {
   return (
     <>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<MainPage/>}></Route>
-          <Route path='/Login' element={<RegisterLogin/>}></Route>
-          <Route path='/Register' element={<RegisterPet/>}></Route>
-          <Route path='/Pets' element={<FindAnimals/>}></Route>
-          <Route path="/Help" element={<Help/>}></Route>
-          <Route path="/LearnMore" element={<LearnMore/>}></Route>
+          <Route path='/' element={<MainPage />}></Route>
+          <Route path='/Login' element={<RegisterLogin />}></Route>
+          <Route path='/Register' element={<RegisterPet />}></Route>
+          <Route path="/Pets" element={<FindAnimals />}></Route>         
+          <Route path="/teste" element={<DetailsPetPage/>}></Route>
+          <Route path="/Help" element={<Help />}></Route>
+          <Route path="/LearnMore" element={<LearnMore />}></Route>
         </Routes>
       </BrowserRouter>
     </>
