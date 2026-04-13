@@ -1,12 +1,15 @@
 import { Header } from "../components/header"
 import { Footer } from "../components/footer"
+import { useState, useEffect } from "react";
 
 export const FindAnimals = () => {
+    const [menuOpen, setMenuOpen] = useState(false);
+
     return (
         <>
             <div className="w-full min-h-screen flex flex-col">
 
-                <Header />
+                <Header open={menuOpen} setOpen={setMenuOpen}/>
 
                 {/* Box title */}
                 <div className="w-[90%] m-5">

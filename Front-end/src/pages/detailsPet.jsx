@@ -1,10 +1,13 @@
 import { Footer } from "../components/footer"
 import { Header } from "../components/header"
+import { useState, useEffect } from "react";
 
 export const DetailsPetPage = () => {
+    const [menuOpen, setMenuOpen] = useState(false);
+
     return (
         <div id="screen" className="w-full min-h-screen flex flex-col items-center">
-            <Header></Header>
+            <Header open={menuOpen} setOpen={setMenuOpen}></Header>
             
             <div id="container" className="w-[90%] h-100% flex-1">
                 <div id="name-pet" className="flex flex-row items-center">

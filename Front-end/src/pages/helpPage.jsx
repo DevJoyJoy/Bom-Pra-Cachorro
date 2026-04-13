@@ -1,9 +1,9 @@
-import { useState } from "react"
+import { useState, useEffect } from "react";
 import { Footer } from "../components/footer"
 import { Header } from "../components/header"
 
 export const Help = () => {
-
+    const [menuOpen, setMenuOpen] = useState(false);
     const [open, setOpen] = useState([])
 
     const handleToggle = (id) => {
@@ -16,7 +16,7 @@ export const Help = () => {
 
     return(
         <>
-            <Header/>
+            <Header open={menuOpen} setOpen={setMenuOpen}/>
 
             <div className="min-h-screen w-full flex flex-col pb-10">
                 

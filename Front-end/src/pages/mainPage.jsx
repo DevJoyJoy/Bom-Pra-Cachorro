@@ -24,20 +24,22 @@ export const MainPage = () => {
             <Header open={menuOpen} setOpen={setMenuOpen} />
 
             {/* FIRST SECTION */}
-            <div className="w-full h-[60vh] bg-[#ff66c4] flex flex-col items-start py-10
+            <div className="w-full h-[60vh] bg-[#ff66c4] flex flex-col items-center py-10
                 md:flex-row md:h-[32vh]
                 lg:h-[71vh]">
 
                 <section className="flex flex-col gap-6 w-full max-w-6xl px-6 text-center 
-                   md:text-left md:w-[50%] ">
-                    <h1 className="text-5xl md:text-7xl lg:text-8xl text-white font-bold">
+                   md:text-left md:w-[50%]
+                   xl:ml-[5%]">
+                    <h1 className="text-5xl md:text-7xl lg:text-8xl text-white font-bold
+                        xl:text-9xl">
                         Me Adota
                     </h1>
 
                     <button
                         onClick={() => navigate("/Pets")}
-                        className="px-6 py-3 bg-[#0097b2] text-white rounded-full text-xl hover:bg-[#33AEC4] w-40 mx-auto md:mx-0"
-                    >
+                        className="px-6 py-3 bg-[#0097b2] text-white rounded-full text-xl hover:bg-[#33AEC4] w-40 mx-auto md:mx-0
+                        xl:text-3xl xl:w-[20vw]">
                         Adotar!
                     </button>
                 </section>
@@ -46,8 +48,9 @@ export const MainPage = () => {
                    <img
                         src="/teste2.png"
                         className="w-full max-w-[100vw] self-end
-                                md:w-[60vw] md:-mt-5 md:self-center
-                                lg:" 
+                                md:w-[60vw] md:mt-35 md:self-center
+                                lg:mt-[26%]
+                                xl:mt-[32%]" 
                     />
                 </div>
 
@@ -55,12 +58,14 @@ export const MainPage = () => {
 
             {/* SECOND SECTION */}
             <div className="w-full bg-white flex flex-col md:flex-row items-center justify-center gap-10 px-6 py-10
-                md:mt-13">
+                md:mt-13
+                xl:mt-20">
                 
                 <section className="w-[80vw] max-w-md flex flex-col items-center justify-center">
                     <div className="bg-[#0097b2] text-white text-xl h-14 flex items-center justify-center rounded-t-2xl w-full
                         md:text-2xl
-                        lg:text-3xl">
+                        lg:text-3xl
+                        xl:text-4xl">
                         Quem Somos?
                     </div>
 
@@ -69,20 +74,23 @@ export const MainPage = () => {
                         lg:h-[50vh] ">
                         <h1 className="text-xl
                             md:text-2xl
-                            lg:text-3xl">
+                            lg:text-3xl
+                            xl:text-4xl">
                             Bom pra Cachorro!
                         </h1>
 
                         <p className="text-base
                             md:text-lg
-                            lg:text-2xl">
+                            lg:text-2xl
+                            xl:text-3xl">
                             Somos uma ONG de Curitiba que cuida de mais de 20 animais disponíveis para adoção!
                         </p>
 
                         <button 
                             onClick={() => navigate("LearnMore")}
                             className="bg-[#ff66c4] text-white rounded-xl py-2 px-4 hover:bg-[#ff85d1] w-[30vw]
-                                lg:text-2xl">
+                                lg:text-2xl
+                                xl:text-3xl">
                             Saiba mais
                         </button>
                     </div>
@@ -116,7 +124,8 @@ export const MainPage = () => {
             </div>
 
             {/* THIRD SECTION */}
-            <div className="bg-[#0097b2] w-full flex flex-col md:flex-row items-center justify-center px-6 py-10 gap-10">
+            <div className="bg-[#0097b2] w-full flex flex-col md:flex-row items-center justify-center px-6 py-10 gap-10
+                xl:h-[65vh]">
 
                 <img 
                     src="/polaroid_dog.png" 
@@ -126,17 +135,20 @@ export const MainPage = () => {
                 <section className="flex flex-col gap-4 items-center justify-center text-center md:text-left max-w-md">
                     <h1 className="text-xl text-white
                         md:text-2xl
-                        lg:text-3xl">
+                        lg:text-3xl
+                        xl:text-4xl">
                         Saiba como ajudar a ONG
                     </h1>
 
                     <p className="text-white
-                        lg:text-xl">
+                        lg:text-xl
+                        xl:text-2xl">
                         Se você ama os animais tanto quanto a gente, saiba que pode fazer a diferença!
                     </p>
 
                     <p className="text-white
-                        lg:text-xl">
+                        lg:text-xl
+                        xl:text-2xl">
                         Com a sua contribuição, conseguimos oferecer alimentação, cuidados veterinários e muito carinho.
                     </p>
 
@@ -153,18 +165,19 @@ export const MainPage = () => {
             {/* FOURTH SECTION */}
             <div className="bg-white w-full h-screen flex px-6 py-10 items-center justify-center
                 md:h-[40vh]
-                lg:h-[80vh]">
+                lg:h-[80vh]
+                xl:h-[75vh]">
 
                 <section className="w-full h-full max-w-5xl bg-[#ffef63] rounded-3xl flex flex-col p-6 gap-6 items-center justify-start
                     md:flex-row md:h-[30vh]
                     lg:h-[55vh]">
 
                     <div className="flex flex-col gap-4 text-center relative z-10
-                        md:text-center md:w-[50vw]
-                        ">
+                        md:text-center md:w-[50vw]">
                         <h1 className="text-xl
                             md:text-2xl
-                            lg:text-3xl">
+                            lg:text-3xl
+                            xl:text-4xl">
                             Violência contra o animal? Denuncie!
                         </h1>
 
@@ -172,7 +185,8 @@ export const MainPage = () => {
 
                         <p className="text-base
                             md:text-lg
-                            lg:text-2xl">
+                            lg:text-2xl
+                            xl:text-3xl">
                             Caso presencie qualquer tipo de violência animal, NÃO SEJA CÚMPLICE!
                             Disque 181 ou 156 para denunciar.
                         </p>
@@ -181,8 +195,10 @@ export const MainPage = () => {
                     <img 
                         src="/heroi_dogo.png"
                         className="w-[60vw] absolute z-10 top-[341%]
-                            md:w-[25vw] md:right-15 md:top-[138%]
-                            lg:top-[250%] lg:w-[22%] lg:right-[10%]"
+                            md:w-[25vw] md:right-15 md:top-[134%]
+                            lg:top-[250%] lg:w-[22%] lg:right-[10%]
+                            xl:top-[235%] xl:w-[22%] xl:right-[12%]"
+                            
                     />
                 </section>
             </div>
