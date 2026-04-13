@@ -59,30 +59,38 @@ export const MainPage = () => {
                 
                 <section className="w-[80vw] max-w-md flex flex-col items-center justify-center">
                     <div className="bg-[#0097b2] text-white text-xl h-14 flex items-center justify-center rounded-t-2xl w-full
-                        md:text-2xl">
+                        md:text-2xl
+                        lg:text-3xl">
                         Quem Somos?
                     </div>
 
                     <div className="border-2 border-[#0097b2] p-6 rounded-b-2xl flex flex-col items-center justify-center gap-6 text-center
-                        md:h-[25vh]">
-                        <h1 className="text-xl md:text-2xl">
+                        md:h-[25vh]
+                        lg:h-[50vh] ">
+                        <h1 className="text-xl
+                            md:text-2xl
+                            lg:text-3xl">
                             Bom pra Cachorro!
                         </h1>
 
-                        <p className="text-base md:text-lg">
+                        <p className="text-base
+                            md:text-lg
+                            lg:text-2xl">
                             Somos uma ONG de Curitiba que cuida de mais de 20 animais disponíveis para adoção!
                         </p>
 
                         <button 
                             onClick={() => navigate("LearnMore")}
-                            className="bg-[#ff66c4] text-white rounded-xl py-2 px-4 hover:bg-[#ff85d1] w-[30vw]">
+                            className="bg-[#ff66c4] text-white rounded-xl py-2 px-4 hover:bg-[#ff85d1] w-[30vw]
+                                lg:text-2xl">
                             Saiba mais
                         </button>
                     </div>
                 </section>
 
                 <section className="w-[80vw] max-w-lg
-                md:w-[50vw]">
+                    md:w-[50vw]
+                    lg:w-[30vw]">
                     <div className="overflow-hidden rounded-2xl">
                         <div 
                             className="flex transition-transform duration-500"
@@ -116,21 +124,27 @@ export const MainPage = () => {
                 />
 
                 <section className="flex flex-col gap-4 items-center justify-center text-center md:text-left max-w-md">
-                    <h1 className="text-xl md:text-2xl text-white">
+                    <h1 className="text-xl text-white
+                        md:text-2xl
+                        lg:text-3xl">
                         Saiba como ajudar a ONG
                     </h1>
 
-                    <p className="text-white">
+                    <p className="text-white
+                        lg:text-xl">
                         Se você ama os animais tanto quanto a gente, saiba que pode fazer a diferença!
                     </p>
 
-                    <p className="text-white">
+                    <p className="text-white
+                        lg:text-xl">
                         Com a sua contribuição, conseguimos oferecer alimentação, cuidados veterinários e muito carinho.
                     </p>
 
                     <button 
                         onClick={() => navigate("/Help")}
-                        className="px-6 py-3 bg-white text-[#0097b2] rounded-full w-[80%] md:w-fill">
+                        className="px-6 py-3 bg-white text-[#0097b2] rounded-full w-[80%] 
+                            md:w-fill
+                            lg:text-2xl">
                         Saiba como Contribuir!
                     </button>
                 </section>
@@ -138,20 +152,27 @@ export const MainPage = () => {
 
             {/* FOURTH SECTION */}
             <div className="bg-white w-full h-screen flex px-6 py-10 items-center justify-center
-                md:h-[40vh]">
+                md:h-[40vh]
+                lg:h-[80vh]">
 
                 <section className="w-full h-full max-w-5xl bg-[#ffef63] rounded-3xl flex flex-col p-6 gap-6 items-center justify-start
-                    md:flex-row md:h-[30vh]">
+                    md:flex-row md:h-[30vh]
+                    lg:h-[55vh]">
 
                     <div className="flex flex-col gap-4 text-center relative z-10
-                     md:text-center md:w-[50vw]">
-                        <h1 className="text-xl md:text-2xl">
+                        md:text-center md:w-[50vw]
+                        ">
+                        <h1 className="text-xl
+                            md:text-2xl
+                            lg:text-3xl">
                             Violência contra o animal? Denuncie!
                         </h1>
 
                         <hr className="border-black" />
 
-                        <p className="text-base md:text-lg">
+                        <p className="text-base
+                            md:text-lg
+                            lg:text-2xl">
                             Caso presencie qualquer tipo de violência animal, NÃO SEJA CÚMPLICE!
                             Disque 181 ou 156 para denunciar.
                         </p>
@@ -160,7 +181,8 @@ export const MainPage = () => {
                     <img 
                         src="/heroi_dogo.png"
                         className="w-[60vw] absolute z-10 top-[341%]
-                            md:w-[25vw] md:right-15 md:top-[138%]"
+                            md:w-[25vw] md:right-15 md:top-[138%]
+                            lg:top-[250%] lg:w-[22%] lg:right-[10%]"
                     />
                 </section>
             </div>
