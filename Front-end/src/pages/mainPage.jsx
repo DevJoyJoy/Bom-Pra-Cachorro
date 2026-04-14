@@ -25,13 +25,15 @@ export const MainPage = () => {
 
             {/* FIRST SECTION */}
             <div className="w-full h-[60vh] bg-[#ff66c4] flex flex-col items-center py-10
+                sm:h-screen
                 md:flex-row md:h-[32vh]
                 lg:h-[71vh]">
 
-                <section className="flex flex-col gap-6 w-full max-w-6xl px-6 text-center 
+                <section className="flex flex-col gap-6 w-full max-w-6xl px-6 text-center
                    md:text-left md:w-[50%]
                    xl:ml-[5%]">
                     <h1 className="text-5xl md:text-7xl lg:text-8xl text-white font-bold
+                        sm:text-8xl
                         xl:text-9xl">
                         Me Adota
                     </h1>
@@ -58,11 +60,13 @@ export const MainPage = () => {
 
             {/* SECOND SECTION */}
             <div className="w-full bg-white flex flex-col md:flex-row items-center justify-center gap-10 px-6 py-10
+                sm:mt-3
                 md:mt-13
                 xl:mt-20">
                 
                 <section className="w-[80vw] max-w-md flex flex-col items-center justify-center">
                     <div className="bg-[#0097b2] text-white text-xl h-14 flex items-center justify-center rounded-t-2xl w-full
+                        sm:text-3xl
                         md:text-2xl
                         lg:text-3xl
                         xl:text-4xl">
@@ -73,6 +77,7 @@ export const MainPage = () => {
                         md:h-[25vh]
                         lg:h-[50vh] ">
                         <h1 className="text-xl
+                            sm:text-3xl
                             md:text-2xl
                             lg:text-3xl
                             xl:text-4xl">
@@ -80,6 +85,7 @@ export const MainPage = () => {
                         </h1>
 
                         <p className="text-base
+                            sm:text-2xl
                             md:text-lg
                             lg:text-2xl
                             xl:text-3xl">
@@ -89,6 +95,7 @@ export const MainPage = () => {
                         <button 
                             onClick={() => navigate("LearnMore")}
                             className="bg-[#ff66c4] text-white rounded-xl py-2 px-4 hover:bg-[#ff85d1] w-[30vw]
+                                sm:text-3xl
                                 lg:text-2xl
                                 xl:text-3xl">
                             Saiba mais
@@ -97,6 +104,7 @@ export const MainPage = () => {
                 </section>
 
                 <section className="w-[80vw] max-w-lg
+                    sm:w-[70vw]
                     md:w-[50vw]
                     lg:w-[30vw]">
                     <div className="overflow-hidden rounded-2xl">
@@ -134,6 +142,7 @@ export const MainPage = () => {
 
                 <section className="flex flex-col gap-4 items-center justify-center text-center md:text-left max-w-md">
                     <h1 className="text-xl text-white
+                        sm:text-3xl
                         md:text-2xl
                         lg:text-3xl
                         xl:text-4xl">
@@ -141,12 +150,14 @@ export const MainPage = () => {
                     </h1>
 
                     <p className="text-white
+                        sm:text-xl
                         lg:text-xl
                         xl:text-2xl">
                         Se você ama os animais tanto quanto a gente, saiba que pode fazer a diferença!
                     </p>
 
                     <p className="text-white
+                        sm:text-xl
                         lg:text-xl
                         xl:text-2xl">
                         Com a sua contribuição, conseguimos oferecer alimentação, cuidados veterinários e muito carinho.
@@ -154,7 +165,8 @@ export const MainPage = () => {
 
                     <button 
                         onClick={() => navigate("/Help")}
-                        className="px-6 py-3 bg-white text-[#0097b2] rounded-full w-[80%] 
+                        className="px-6 py-3 bg-white text-[#0097b2] rounded-full w-[80%]
+                            sm:text-2xl
                             md:w-fill
                             lg:text-2xl">
                         Saiba como Contribuir!
@@ -170,11 +182,14 @@ export const MainPage = () => {
 
                 <section className="w-full h-full max-w-5xl bg-[#ffef63] rounded-3xl flex flex-col p-6 gap-6 items-center justify-start
                     md:flex-row md:h-[30vh]
-                    lg:h-[55vh]">
+                    lg:h-[55vh]
+                    relative overflow-visible">
 
                     <div className="flex flex-col gap-4 text-center relative z-10
                         md:text-center md:w-[50vw]">
+                        
                         <h1 className="text-xl
+                            sm:text-2xl
                             md:text-2xl
                             lg:text-3xl
                             xl:text-4xl">
@@ -184,6 +199,7 @@ export const MainPage = () => {
                         <hr className="border-black" />
 
                         <p className="text-base
+                            sm:text-xl
                             md:text-lg
                             lg:text-2xl
                             xl:text-3xl">
@@ -194,11 +210,12 @@ export const MainPage = () => {
 
                     <img 
                         src="/heroi_dogo.png"
-                        className="w-[60vw] absolute z-10 top-[341%]
-                            md:w-[25vw] md:right-15 md:top-[134%]
-                            lg:top-[250%] lg:w-[22%] lg:right-[10%]
-                            xl:top-[235%] xl:w-[22%] xl:right-[12%]"
-                            
+                        className="w-[60vw] absolute z-20 
+                            -bottom-10 right-2
+                            sm:w-[40vw] sm:right-35
+                            md:w-[25vw] md:-bottom-6 md:right-6
+                            lg:w-[22%] lg:-bottom-8 lg:right-10
+                            xl:w-[22%] xl:-bottom-10 xl:right-12"
                     />
                 </section>
             </div>
