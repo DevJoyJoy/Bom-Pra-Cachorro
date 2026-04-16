@@ -211,7 +211,7 @@ export const MainPage = () => {
                     <img 
                         src="/heroi_dogo.png"
                         className="w-[60vw] absolute z-20 -bottom-10 right-15
-                            sm:w-[40vw] sm:right-35
+                            sm:w-[40vw] sm:right-40
                             md:w-[25vw] md:-bottom-6 md:right-6
                             lg:w-[22%] lg:-bottom-8 lg:right-10
                             xl:w-[22%] xl:-bottom-10 xl:right-12"
