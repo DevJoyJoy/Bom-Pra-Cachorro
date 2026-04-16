@@ -24,7 +24,7 @@ export const MainPage = () => {
             <Header open={menuOpen} setOpen={setMenuOpen} />
 
             {/* FIRST SECTION */}
-            <div className="w-full h-[60vh] bg-[#ff66c4] flex flex-col items-center py-10
+            <div className="w-full h-[70vh] bg-[#ff66c4] flex flex-col items-center py-10
                 sm:h-screen
                 md:flex-row md:h-[32vh]
                 lg:h-[71vh]">
@@ -59,7 +59,7 @@ export const MainPage = () => {
             </div>
 
             {/* SECOND SECTION */}
-            <div className="w-full bg-white flex flex-col md:flex-row items-center justify-center gap-10 px-6 py-10
+            <div className="w-full bg-white flex flex-col md:flex-row items-center justify-center gap-10 px-6 py-10 mt-10
                 sm:mt-3
                 md:mt-13
                 xl:mt-20">
@@ -210,8 +210,7 @@ export const MainPage = () => {
 
                     <img 
                         src="/heroi_dogo.png"
-                        className="w-[60vw] absolute z-20 
-                            -bottom-10 right-2
+                        className="w-[60vw] absolute z-20 -bottom-10 right-15
                             sm:w-[40vw] sm:right-35
                             md:w-[25vw] md:-bottom-6 md:right-6
                             lg:w-[22%] lg:-bottom-8 lg:right-10
