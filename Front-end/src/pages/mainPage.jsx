@@ -27,21 +27,24 @@ export const MainPage = () => {
             <div className="w-full h-[70vh] bg-[#ff66c4] flex flex-col items-center py-10
                 sm:h-screen
                 md:flex-row md:h-[32vh]
-                lg:h-[71vh]">
+                lg:h-[71vh]
+                2xl:h-[9100vh]">
 
                 <section className="flex flex-col gap-6 w-full max-w-6xl px-6 text-center
                    md:text-left md:w-[50%]
                    xl:ml-[5%]">
                     <h1 className="text-5xl md:text-7xl lg:text-8xl text-white font-bold
                         sm:text-8xl
-                        xl:text-9xl">
+                        xl:text-9xl
+                        2xl:text-[1000%]">
                         Me Adota
                     </h1>
 
                     <button
                         onClick={() => navigate("/Pets")}
                         className="px-6 py-3 bg-[#0097b2] text-white rounded-full text-xl hover:bg-[#33AEC4] w-40 mx-auto md:mx-0
-                        xl:text-3xl xl:w-[20vw]">
+                        xl:text-3xl xl:w-[20vw]
+                        2xl:text-5xl">
                         Adotar!
                     </button>
                 </section>
@@ -214,7 +217,7 @@ export const MainPage = () => {
                             sm:w-[40vw] sm:right-40
                             md:w-[25vw] md:-bottom-6 md:right-6
                             lg:w-[22%] lg:-bottom-8 lg:right-10
-                            xl:w-[22%] xl:-bottom-10 xl:right-12"
+                            xl:w-[30%] xl:-bottom-10 xl:right-0"
                     />
                 </section>
             </div>
