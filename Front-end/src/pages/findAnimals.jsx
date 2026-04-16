@@ -22,8 +22,8 @@ export const FindAnimals = () => {
                         {/* Example of cards for the pets*/}
                         <div className="h-[30%] w-[40%] p-0 sm:w-[27%] lg:h-[25%] lg:w-[30%] lg:p-2">
                             <div className="relative w-full h-[60%] group">
-                                <img src="../fundo_grid_pet.png" className="w-full rounded-2xl transition-transform duration-300 md:group-hover:-rotate-6" />
-                                <img src="../exampleDog.jpg" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[88%] rounded-2xl transition-transform duration-300 md:group-hover:scale-105" />
+                                <img src="../fundo_grid_pet.png" className="w-full rounded-2xl transition-transform duration-300 group-hover:-rotate-6" />
+                                <img src="../exampleDog.jpg" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[88%] rounded-2xl transition-transform duration-300 group-hover:scale-105" />
                             </div>
                             <div className="pl-3">
                                 <span className="text-lg">Doguinho</span> <br></br>
