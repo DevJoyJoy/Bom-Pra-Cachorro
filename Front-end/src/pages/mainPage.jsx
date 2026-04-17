@@ -28,7 +28,7 @@ export const MainPage = () => {
                 sm:h-screen
                 md:flex-row md:h-[32vh]
                 lg:h-[71vh]
-                2xl:h-[9100vh]">
+                2xl:h-[98vh]">
 
                 <section className="flex flex-col gap-6 w-full max-w-6xl px-6 text-center
                    md:text-left md:w-[50%]
