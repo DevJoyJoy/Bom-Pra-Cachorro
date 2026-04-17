@@ -24,38 +24,32 @@ export const MainPage = () => {
             <Header open={menuOpen} setOpen={setMenuOpen} />
 
             {/* FIRST SECTION */}
-            <div className="w-full h-[70vh] bg-[#ff66c4] flex flex-col items-center py-10
-                sm:h-screen
-                md:flex-row md:h-[32vh]
-                lg:h-[71vh]
-                2xl:h-[98vh]">
+            <div className="w-full h-screen bg-[#ff66c4] flex flex-col pt-10 pb-0 overflow-hidden items-center justify-center
+                            sm:h-screen
+                            md:flex-row md:h-[32vh]
+                            lg:h-[71vh]
+                            2xl:h-[98vh]">
 
-                <section className="flex flex-col gap-6 w-full max-w-6xl px-6 text-center
-                   md:text-left md:w-[50%]
-                   xl:ml-[5%]">
-                    <h1 className="text-5xl md:text-7xl lg:text-8xl text-white font-bold
-                        sm:text-8xl
-                        xl:text-9xl
-                        2xl:text-[1000%]">
-                        Me Adota
-                    </h1>
+                <section className="flex flex-col w-80 max-w-6xl gap-6 justify-center
+                                    md: md:w-[50%] md:ml-10
+                                    xl:ml-[5%]">
+                    
+                    <img src="../public/textoo.png" alt="" className=""/>
 
                     <button
                         onClick={() => navigate("/Pets")}
                         className="px-6 py-3 bg-[#0097b2] text-white rounded-full text-xl hover:bg-[#33AEC4] w-40 mx-auto md:mx-0
-                        xl:text-3xl xl:w-[20vw]
-                        2xl:text-5xl">
+                                    xl:text-3xl xl:w-[20vw]
+                                    2xl:text-5xl">
                         Adotar!
                     </button>
                 </section>
 
-                <div className="relative w-full flex flex-col items-center">
-                   <img
-                        src="/teste2.png"
-                        className="w-full max-w-[100vw] self-end
-                                md:w-[60vw] md:mt-35 md:self-center
-                                lg:mt-[26%]
-                                xl:mt-[32%]" 
+                {/* Img cachorro */}
+                <div className="w-full h-full flex items-end justify-center overflow-hidden leading-none">
+                    <img
+                        src="../public/agr vai.png"
+                        className="max-h-full w-auto object-contain block"
                     />
                 </div>
 
@@ -67,7 +61,8 @@ export const MainPage = () => {
                 md:mt-13
                 xl:mt-20">
                 
-                <section className="w-[80vw] max-w-md flex flex-col items-center justify-center">
+                <section className="w-[80vw] max-w-md flex flex-col items-center justify-center
+                    2xl:w-[90vw]">
                     <div className="bg-[#0097b2] text-white text-xl h-14 flex items-center justify-center rounded-t-2xl w-full
                         sm:text-3xl
                         md:text-2xl
@@ -76,9 +71,10 @@ export const MainPage = () => {
                         Quem Somos?
                     </div>
 
-                    <div className="border-2 border-[#0097b2] p-6 rounded-b-2xl flex flex-col items-center justify-center gap-6 text-center
+                    <div className="border-2 border-[#0097b2] p-6 rounded-b-2xl flex flex-col items-center justify-center gap-6 text-center w-full
                         md:h-[25vh]
-                        lg:h-[50vh] ">
+                        lg:h-[50vh]
+                        2xl:w-[29vw]">
                         <h1 className="text-xl
                             sm:text-3xl
                             md:text-2xl
@@ -100,7 +96,8 @@ export const MainPage = () => {
                             className="bg-[#ff66c4] text-white rounded-xl py-2 px-4 hover:bg-[#ff85d1] w-[30vw]
                                 sm:text-3xl
                                 lg:text-2xl
-                                xl:text-3xl">
+                                xl:text-3xl
+                                2xl:w-[20vw]">
                             Saiba mais
                         </button>
                     </div>
@@ -109,7 +106,8 @@ export const MainPage = () => {
                 <section className="w-[80vw] max-w-lg
                     sm:w-[70vw]
                     md:w-[50vw]
-                    lg:w-[30vw]">
+                    lg:w-[30vw]
+                    2xl:w-[25vw]">
                     <div className="overflow-hidden rounded-2xl">
                         <div 
                             className="flex transition-transform duration-500"
@@ -136,11 +134,13 @@ export const MainPage = () => {
 
             {/* THIRD SECTION */}
             <div className="bg-[#0097b2] w-full flex flex-col md:flex-row items-center justify-center px-6 py-10 gap-10
-                xl:h-[65vh]">
+                xl:h-[65vh]
+                2xl:h-[80vh]">
 
                 <img 
                     src="/polaroid_dog.png" 
-                    className="w-[80vw] max-w-sm"
+                    className="w-[80vw] max-w-sm
+                    2xl:w-[70vw]"
                 />
 
                 <section className="flex flex-col gap-4 items-center justify-center text-center md:text-left max-w-md">
@@ -181,15 +181,18 @@ export const MainPage = () => {
             <div className="bg-white w-full h-screen flex px-6 py-10 items-center justify-center
                 md:h-[40vh]
                 lg:h-[80vh]
-                xl:h-[75vh]">
+                xl:h-[75vh]
+                2xl:h-[80vh]">
 
                 <section className="w-full h-full max-w-5xl bg-[#ffef63] rounded-3xl flex flex-col p-6 gap-6 items-center justify-start
                     md:flex-row md:h-[30vh]
                     lg:h-[55vh]
+                    2xl:h-[60vh] 2xl:w-[70vw]
                     relative overflow-visible">
 
                     <div className="flex flex-col gap-4 text-center relative z-10
-                        md:text-center md:w-[50vw]">
+                        md:text-center md:w-[50vw]
+                        2xl:w-[35vw]">
                         
                         <h1 className="text-xl
                             sm:text-2xl
@@ -217,7 +220,8 @@ export const MainPage = () => {
                             sm:w-[40vw] sm:right-40
                             md:w-[25vw] md:-bottom-6 md:right-6
                             lg:w-[22%] lg:-bottom-8 lg:right-10
-                            xl:w-[30%] xl:-bottom-10 xl:right-0"
+                            xl:w-[30%] xl:-bottom-10 xl:right-0
+                            2xl:w-[17vw] 2xl:right-20"
                     />
                 </section>
             </div>
