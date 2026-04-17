@@ -24,38 +24,32 @@ export const MainPage = () => {
             <Header open={menuOpen} setOpen={setMenuOpen} />
 
             {/* FIRST SECTION */}
-            <div className="w-full h-[70vh] bg-[#ff66c4] flex flex-col items-center py-10
-                sm:h-screen
-                md:flex-row md:h-[32vh]
-                lg:h-[71vh]
-                2xl:h-[98vh]">
+            <div className="w-full h-screen bg-[#ff66c4] flex flex-col pt-10 pb-0 overflow-hidden items-center justify-center
+                            sm:h-screen
+                            md:flex-row md:h-[32vh]
+                            lg:h-[71vh]
+                            2xl:h-[98vh]">
 
-                <section className="flex flex-col gap-6 w-full max-w-6xl px-6 text-center
-                   md:text-left md:w-[50%]
-                   xl:ml-[5%]">
-                    <h1 className="text-5xl md:text-7xl lg:text-8xl text-white font-bold
-                        sm:text-8xl
-                        xl:text-9xl
-                        2xl:text-[1000%]">
-                        Me Adota
-                    </h1>
+                <section className="flex flex-col w-80 max-w-6xl gap-6 justify-center
+                                    md: md:w-[50%] md:ml-10
+                                    xl:ml-[5%]">
+                    
+                    <img src="../public/textoo.png" alt="" className=""/>
 
                     <button
                         onClick={() => navigate("/Pets")}
                         className="px-6 py-3 bg-[#0097b2] text-white rounded-full text-xl hover:bg-[#33AEC4] w-40 mx-auto md:mx-0
-                        xl:text-3xl xl:w-[20vw]
-                        2xl:text-5xl">
+                                    xl:text-3xl xl:w-[20vw]
+                                    2xl:text-5xl">
                         Adotar!
                     </button>
                 </section>
 
-                <div className="relative w-full flex flex-col items-center">
-                   <img
-                        src="/teste2.png"
-                        className="w-full max-w-[100vw] self-end
-                                md:w-[60vw] md:mt-35 md:self-center
-                                lg:mt-[26%]
-                                xl:mt-[32%]" 
+                {/* Img cachorro */}
+                <div className="w-full h-full flex items-end justify-center overflow-hidden leading-none">
+                    <img
+                        src="../public/agr vai.png"
+                        className="max-h-full w-auto object-contain block"
                     />
                 </div>
 
@@ -77,7 +71,7 @@ export const MainPage = () => {
                         Quem Somos?
                     </div>
 
-                    <div className="border-2 border-[#0097b2] p-6 rounded-b-2xl flex flex-col items-center justify-center gap-6 text-center
+                    <div className="border-2 border-[#0097b2] p-6 rounded-b-2xl flex flex-col items-center justify-center gap-6 text-center w-full
                         md:h-[25vh]
                         lg:h-[50vh]
                         2xl:w-[29vw]">
@@ -140,12 +134,13 @@ export const MainPage = () => {
 
             {/* THIRD SECTION */}
             <div className="bg-[#0097b2] w-full flex flex-col md:flex-row items-center justify-center px-6 py-10 gap-10
-                xl:h-[65vh]">
+                xl:h-[65vh]
+                2xl:h-[80vh]">
 
                 <img 
                     src="/polaroid_dog.png" 
                     className="w-[80vw] max-w-sm
-                    2xl:w-full"
+                    2xl:w-[70vw]"
                 />
 
                 <section className="flex flex-col gap-4 items-center justify-center text-center md:text-left max-w-md">
