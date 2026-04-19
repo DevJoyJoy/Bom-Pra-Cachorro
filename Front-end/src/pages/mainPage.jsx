@@ -56,12 +56,12 @@ export const MainPage = () => {
             </div>
 
             {/* SECOND SECTION */}
-            <div className="w-full bg-white flex flex-col md:flex-row items-center justify-center gap-10 px-6 py-10 mt-10
+            <div className="w-full bg-white flex flex-col md:flex-row items-center justify-center gap-[15%] px-6 py-10 mt-10
                 sm:mt-3
                 md:mt-13
                 xl:mt-20">
                 
-                <section className="w-[80vw] max-w-md flex flex-col items-center justify-center
+                <section className="w-full max-w-md flex flex-col items-center justify-center
                     2xl:w-[90vw]">
                     <div className="bg-[#0097b2] text-white text-xl h-14 flex items-center justify-center rounded-t-2xl w-full
                         sm:text-3xl
@@ -93,7 +93,7 @@ export const MainPage = () => {
 
                         <button 
                             onClick={() => navigate("LearnMore")}
-                            className="bg-[#ff66c4] text-white rounded-xl py-2 px-4 hover:bg-[#ff85d1] w-[30vw]
+                            className="bg-[#ff66c4] text-white rounded-xl py-2 px-4 hover:bg-[#ff85d1] w-[50%]
                                 sm:text-3xl
                                 lg:text-2xl
                                 xl:text-3xl
@@ -133,49 +133,52 @@ export const MainPage = () => {
             </div>
 
             {/* THIRD SECTION */}
-            <div className="bg-[#0097b2] w-full flex flex-col md:flex-row items-center justify-center px-6 py-10 gap-10
+         <div className="bg-[#0097b2] w-full h-screen flex flex-col items-center justify-center px-6 py-10 gap-10
+                md:flex-row md:h-p
                 xl:h-[65vh]
                 2xl:h-[80vh]">
 
-                <img 
-                    src="/polaroid_dog.png" 
-                    className="w-[80vw] max-w-sm
-                    2xl:w-[70vw]"
-                />
+            <img 
+                src="/polaroid_dog.png" 
+                className="w-[80%] 
+                    md:w-[50%]
+                    lg:w-[45%]
+                    xl:w-[35%]"
+            />
 
-                <section className="flex flex-col gap-4 items-center justify-center text-center md:text-left max-w-md">
-                    <h1 className="text-xl text-white
-                        sm:text-3xl
-                        md:text-2xl
-                        lg:text-3xl
-                        xl:text-4xl">
-                        Saiba como ajudar a ONG
-                    </h1>
+            <section className="flex flex-col gap-4 items-center justify-center text-center md:text-left max-w-md">
+                <h1 className="text-xl text-white
+                    sm:text-3xl
+                    md:text-2xl
+                    lg:text-3xl
+                    xl:text-4xl">
+                    Saiba como ajudar a ONG
+                </h1>
 
-                    <p className="text-white
-                        sm:text-xl
-                        lg:text-xl
-                        xl:text-2xl">
-                        Se você ama os animais tanto quanto a gente, saiba que pode fazer a diferença!
-                    </p>
+                <p className="text-white
+                    sm:text-xl
+                    lg:text-xl
+                    xl:text-2xl">
+                    Se você ama os animais tanto quanto a gente, saiba que pode fazer a diferença!
+                </p>
 
-                    <p className="text-white
-                        sm:text-xl
-                        lg:text-xl
-                        xl:text-2xl">
-                        Com a sua contribuição, conseguimos oferecer alimentação, cuidados veterinários e muito carinho.
-                    </p>
+                <p className="text-white
+                    sm:text-xl
+                    lg:text-xl
+                    xl:text-2xl">
+                    Com a sua contribuição, conseguimos oferecer alimentação, cuidados veterinários e muito carinho.
+                </p>
 
-                    <button 
-                        onClick={() => navigate("/Help")}
-                        className="px-6 py-3 bg-white text-[#0097b2] rounded-full w-[80%]
-                            sm:text-2xl
-                            md:w-fill
-                            lg:text-2xl">
-                        Saiba como Contribuir!
-                    </button>
-                </section>
-            </div>
+                <button 
+                    onClick={() => navigate("/Help")}
+                    className="px-6 py-3 bg-white text-[#0097b2] rounded-full w-[80%]
+                        sm:text-2xl
+                        md:w-auto
+                        lg:text-2xl">
+                    Saiba como Contribuir!
+                </button>
+            </section>
+        </div>  
 
             {/* FOURTH SECTION */}
             <div className="bg-white w-full h-screen flex px-6 py-10 items-center justify-center
