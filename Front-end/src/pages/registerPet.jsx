@@ -9,53 +9,6 @@ export const RegisterPet = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isAnimalsOpen, setIsAnimalsOpen] = useState(false);
     const [isBreedsOpen, setIsBreedsOpen] = useState(false);
-    const [name, setName] = useState("");
-    const [animal, setAnimal] = useState("");
-    const [breed, setBreed] = useState("");
-    const [size, setSize] = useState("");
-    const [birthDate, setBirthDate] = useState("");
-    const [isCastrated, setIsCastrated] = useState(false);
-    const [sex, setSex] = useState("");
-    const [description, setDescription] = useState("");
-
-    const handleRegisterPet = () => {
-        try {
-            const uploadImage = async (image, index) => {
-                if (!image) return null;
-
-                const ref = firebase.storage().ref().child(`pets/${uid}/${Date.now()}_${index}`);
-
-                await ref.put(image);
-                return await ref.getDownloadURL();
-            };
-
-            const imageUrls = await Promise.all([
-                uploadImage(image1, 1),
-                uploadImage(image2, 2),
-                uploadImage(image3, 3),
-                uploadImage(image4, 4),
-            ]);
-
-            await firebase.firestore().collection("pets").add({
-                uid,
-                name,
-                animal,
-                breed,
-                size,
-                birthDate,
-                isCastrated,
-                sex,
-                description,
-                images: imageUrls.filter(Boolean),
-                createdAt: new Date()
-            });
-
-            setIsModalOpen(true);
-        } catch (error) {
-            console.error(error);
-            alert("Erro ao cadastrar pet");
-        }
-    }
 
     {/* Function to turn the input boxes into the input image*/}
     const handleImageChange = (e, setImg) => {
@@ -132,7 +85,7 @@ export const RegisterPet = () => {
                 <div className="flex flex-row h-[40%] md:h-[60%] md:w-[90%]">
                     <div className="w-[50%] p-3">
                         <p className="text-[100%] md:text-xl">Nome</p>
-                        <input type="text" onChange={(e) => setName(e.target.value)} className="bg-[#cfcccc] w-[110%] md:w-[90%]"/>
+                        <input type="text" className="bg-[#cfcccc] w-[110%] md:w-[90%]"/>
                         <br />
                         <br />
                         <div className="flex flex-row justify-between md:w-[90%]">
@@ -159,20 +112,20 @@ export const RegisterPet = () => {
                     </div>
                     <div className="w-[50%] p-3 ">
                         <p className="text-[100%] md:text-xl">Data de nascimento</p>
-                        <input type="date" onChange={(e) => setBirthDate(e.target.value)} className="bg-[#cfcccc] w-full md:w-[90%]"/>
+                        <input type="date" className="bg-[#cfcccc] w-full md:w-[90%]"/>
                         <br />
                         <br />
                         <div className="flex flex-row">
                             <p className="text-[100%] md:text-xl">Castrado?</p>
-                            <input type="checkbox" onChange={(e) => setIsCastrated(e.target.value)} className="bg-[#cfcccc] w-[30%]"/>
+                            <input type="checkbox" className="bg-[#cfcccc] w-[30%]"/>
                         </div>
                         <br />
                         <div className="flex flex-row">
                             <p className="text-[100%] mr-3 md:text-xl md:mr-9.5">Sexo</p>
                             <p className="text-[100%] md:text-xl">F</p>
-                            <input type="checkbox" onChange={(e) => setSex(e.target.value)} className="bg-[#cfcccc] w-[30%]"/>
+                            <input type="checkbox" className="bg-[#cfcccc] w-[30%]"/>
                             <p className="text-[100%] ml-2 md:text-xl">M</p>
-                            <input type="checkbox" onChange={(e) => setSex(e.target.value)} className="bg-[#cfcccc] w-[30%]"/>
+                            <input type="checkbox" className="bg-[#cfcccc] w-[30%]"/>
                         </div>
                         <br />
                         <p className="text-[100%] mr-3 md:text-xl">Descrição</p>
