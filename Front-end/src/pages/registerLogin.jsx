@@ -4,6 +4,7 @@ import { useState } from "react";
 
 export const RegisterLogin = () => {
   const navigate = useNavigate();
+  const [show, setShow] = useState(false);
   const [username, setUsername] = useState("");
   const [senha, setSenha] = useState("");
 
@@ -33,51 +34,50 @@ export const RegisterLogin = () => {
   };
 
   return (
-    <div className="bg-[#ffef63] h-screen w-full flex flex-col">
+    <div className="flex flex-col
+      h-full w-full
+      lg:h-[91vh] lg:w-full">
       {/* Header */}
       <Header />
 
-      {/* Main box for login */}
-      <div className="h-full w-full flex items-center justify-center">
-        {/* White box for components */}
-        <div className="bg-white h-[55%] md:h-[80%] md:w-[75%] rounded-4xl flex flex-col items-center justify-start p-5">
-          <h1 className=" text-2xl md:text-3xl md:pb-3 pt-5">
-            Cadastro de animais
-          </h1>
-          <h1 className=" text-l md:text-2xl pb-3">
-            Faça login para cadastrar novos animais!
-          </h1>
-
-          {/* Box for inputs and buttons */}
-          <div className="h-[70%] w-[70%] md:h-[65%] md:w-[25%] flex flex-col items-center justify-start mt-5">
-            <h1 className="text-xl self-start">Usuário:</h1>
-            <input
-              type="text"
-              name=""
-              id="userNameLogin"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              placeholder=" Digite seu usuário: "
-              className="bg-[#e7e7e7] h-[12%] md:h-[15%] w-full focus:outline-[#0097b2]"
-            />
-            <h1 className="text-xl self-start mt-5">Senha:</h1>
-            <input
-              type="text"
-              name=""
-              id="userNameLogin"
-              value={senha}
-              onChange={(e) => setSenha(e.target.value)}
-              placeholder=" Digite sua senha: "
-              className="bg-[#e7e7e7] h-[12%] md:h-[15%] w-full focus:outline-[#0097b2]"
-            />
-            <button
-              onClick={handleLogin}
-              className="bg-[#0097b2] w-[80%] h-[15%] md:w-[60%] md:h-[18%] text-2xl text-white mt-10 rounded-4xl cursor-pointer"
+      {/* Main content box */}
+      <div className="flex
+        w-screen h-[91vh] items-center justify-center
+        lg:flex-row">
+          {/* Texts box */}
+          <div className="flex flex-col items-center justify-center 
+            lg:h-[91vh] lg:w-[70%]"
             >
-              Entrar
-            </button>
+            <p className="text-3xl lg:text-3xl md:text-5xl">Cadastro de animais:</p>
+            <br />
+            <p className=" text-2xl lg:text-2xl md:text-3xl text-center">Faça login para realizar o cadastro de animais!</p>
+            <br />
+            <br />
+
+            {/* Inputs box */}
+            <div className="flex flex-col">
+              <p className="text-xl lg:text-xl md:text-3xl">Usuário</p>
+              <input type="text" name="" id="" placeholder="Digite seu usuário:" className="bg-[#E7E7E7] p-[0.8vh] rounded-xl
+                lg:w-[18vw]
+                md:text-2xl"/>
+              <br />
+              <p className="text-xl lg:text-xl md:text-3xl">Senha
+              </p>
+              <input type={show? "text" : "password"} name="" id="" placeholder="Digite sua senha:" className="bg-[#E7E7E7] p-[0.8vh] rounded-xl
+                lg:w-[18vw]
+                md:text-2xl"/>
+              <button className="md:text-xl" onClick={() => setShow(!show)}> {show ? "Ocultar senha" : "Mostrar senha"}
+              </button>
+              <br />
+              <br />
+              <button className="arturo bg-[#0097b2] text-white rounded-xl cursor-pointer font-bold hover:bg-[#015b6b] p-[1vh] text-2xl">Entrar</button>
+            </div>
           </div>
-        </div>
+          {/* Image (only on desktop)*/}
+          <img src="/DogLogin.png" alt="" className="h-0 w-0
+            md:h-0 md:w-0
+            lg:h-[91vh] lg:w-[35%]
+            "/>
       </div>
     </div>
   );
