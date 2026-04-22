@@ -10,52 +10,52 @@ export const RegisterPet = () => {
     const [isAnimalsOpen, setIsAnimalsOpen] = useState(false);
     const [isBreedsOpen, setIsBreedsOpen] = useState(false);
     const [name, setName] = useState("");
-    const [animal, setAnimal] = useState("");
-    const [breed, setBreed] = useState("");
-    const [size, setSize] = useState("");
-    const [birthDate, setBirthDate] = useState("");
-    const [isCastrated, setIsCastrated] = useState(false);
-    const [sex, setSex] = useState("");
-    const [description, setDescription] = useState("");
+    // const [animal, setAnimal] = useState("");
+    // const [breed, setBreed] = useState("");
+    // const [size, setSize] = useState("");
+    // const [birthDate, setBirthDate] = useState("");
+    // const [isCastrated, setIsCastrated] = useState(false);
+    // const [sex, setSex] = useState("");
+    // const [description, setDescription] = useState("");
 
-    const handleRegisterPet = () => {
-        try {
-            const uploadImage = async (image, index) => {
-                if (!image) return null;
+    // const handleRegisterPet = () => {
+    //     try {
+    //         const uploadImage = async (image, index) => {
+    //             if (!image) return null;
 
-                const ref = firebase.storage().ref().child(`pets/${uid}/${Date.now()}_${index}`);
+    //             const ref = firebase.storage().ref().child(`pets/${uid}/${Date.now()}_${index}`);
 
-                await ref.put(image);
-                return await ref.getDownloadURL();
-            };
+    //             await ref.put(image);
+    //             return await ref.getDownloadURL();
+    //         };
 
-            const imageUrls = await Promise.all([
-                uploadImage(image1, 1),
-                uploadImage(image2, 2),
-                uploadImage(image3, 3),
-                uploadImage(image4, 4),
-            ]);
+    //         const imageUrls =  Promise.all([
+    //             uploadImage(image1, 1),
+    //             uploadImage(image2, 2),
+    //             uploadImage(image3, 3),
+    //             uploadImage(image4, 4),
+    //         ]);
 
-            await firebase.firestore().collection("pets").add({
-                uid,
-                name,
-                animal,
-                breed,
-                size,
-                birthDate,
-                isCastrated,
-                sex,
-                description,
-                images: imageUrls.filter(Boolean),
-                createdAt: new Date()
-            });
+    //         firebase.firestore().collection("pets").add({
+    //             uid,
+    //             name,
+    //             animal,
+    //             breed,
+    //             size,
+    //             birthDate,
+    //             isCastrated,
+    //             sex,
+    //             description,
+    //             images: imageUrls.filter(Boolean),
+    //             createdAt: new Date()
+    //         });
 
-            setIsModalOpen(true);
-        } catch (error) {
-            console.error(error);
-            alert("Erro ao cadastrar pet");
-        }
-    }
+    //         setIsModalOpen(true);
+    //     } catch (error) {
+    //         console.error(error);
+    //         alert("Erro ao cadastrar pet");
+    //     }
+    // }
 
     {/* Function to turn the input boxes into the input image*/}
     const handleImageChange = (e, setImg) => {
@@ -66,13 +66,12 @@ export const RegisterPet = () => {
     };
 
     return (
-        <div className="bg-[#ffef63] h-screen md:h-screen w-full flex flex-col">
+        <div className="bg-white h-screen md:h-screen w-full flex flex-col">
         {/* Header */}
         <Header/>
         
         {/* White box */}
-        <div className="h-[120%] w-full flex items-center justify-center">
-            <div className="bg-white h-full w-full md:h-[70%] md:w-[70%] md:rounded-4xl flex flex-col items-center justify-start p-3">
+        <div className="h-full w-full md:h-[70%] md:w-[70%] md:rounded-4xl flex flex-col items-center justify-start p-3">
             <h1 className="text-2xl md:text-3xl md:pb-3 pt-3 font-bold breeSerif">
                 Cadastro de animais
             </h1>
@@ -184,7 +183,7 @@ export const RegisterPet = () => {
                     <button onClick={() => setIsModalOpen(true)} className="bg-[#0097b2] w-[80%] h-full md:h-full md:w-[25%] rounded-3xl md:text-xl flex items-center justify-center cursor-pointer text-white hover:bg-[#015b6b] arturo">Salvar e cadastrar</button>
                 </div>
             </div>
-        </div>
+        
 
         {/* Main modal for after register*/}
         {isModalOpen && (
