@@ -58,7 +58,6 @@ export const MainPage = () => {
             {/* SECOND SECTION */}
             <div className="w-full bg-white flex flex-col md:flex-row items-center justify-center gap-[15%] px-6 py-10 mt-10
                 sm:mt-3
-                md:mt-13
                 xl:mt-20">
                 
                 <section className="w-full max-w-md flex flex-col items-center justify-center
@@ -95,6 +94,7 @@ export const MainPage = () => {
                             onClick={() => navigate("LearnMore")}
                             className="bg-[#ff66c4] text-white rounded-xl py-2 px-4 hover:bg-[#ff85d1] w-[50%]
                                 sm:text-3xl
+                                md:w-[25vw]
                                 lg:text-2xl
                                 xl:text-3xl
                                 2xl:w-[20vw]">
@@ -105,7 +105,7 @@ export const MainPage = () => {
 
                 <section className="w-[80vw] max-w-lg
                     sm:w-[70vw]
-                    md:w-[50vw]
+                    md:w-[65vw]
                     lg:w-[30vw]
                     2xl:w-[25vw]">
                     <div className="overflow-hidden rounded-2xl">
@@ -133,8 +133,9 @@ export const MainPage = () => {
             </div>
 
             {/* THIRD SECTION */}
-         <div className="bg-[#0097b2] w-full h-screen flex flex-col items-center justify-center px-6 py-10 gap-10
-                md:flex-row md:h-p
+         <div className="bg-[#0097b2] w-full h-[120vh] flex flex-col items-center justify-center px-6 py-10 gap-10
+                md:flex-row md:h-[40vh]
+                lg:h-[70vh]
                 xl:h-[65vh]
                 2xl:h-[80vh]">
 
