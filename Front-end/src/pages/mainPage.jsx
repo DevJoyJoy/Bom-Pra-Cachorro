@@ -34,7 +34,7 @@ export const MainPage = () => {
                                     md: md:w-[50%] md:ml-10
                                     xl:ml-[5%]">
                     
-                    <img src="../public/textoo.png" alt="" className=""/>
+                    <img src="../public/me adota.png" alt="" className=""/>
 
                     <button
                         onClick={() => navigate("/Pets")}
@@ -48,7 +48,7 @@ export const MainPage = () => {
                 {/* Img cachorro */}
                 <div className="w-full h-full flex items-end justify-center overflow-hidden leading-none">
                     <img
-                        src="../public/agr vai.png"
+                        src="../public/cachorro pirata.png"
                         className="max-h-full w-auto object-contain block"
                     />
                 </div>
