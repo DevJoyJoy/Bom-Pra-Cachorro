@@ -20,6 +20,7 @@ export const Help = () => {
 
             <div className="min-h-screen w-full flex flex-col
                 md:min-h-[80vh]
+                lg:min-h-[76vh]
                 2xl:min-h-[76vh]">
                 
                 <section className="flex flex-col ml-[5%] p-[1%] mb-[5%]
@@ -38,13 +39,13 @@ export const Help = () => {
                     lg:flex-row lg:items-start">
 
                     {/* ESQUERDA */}
-                    <section className="flex flex-col w-[80%] gap-5
+                    <section className="flex flex-col w-[80%] gap-5 text-left
                         md:w-[75%]
-                        lg:w-[45%]
+                        lg:w-[35%]
                         2xl:w-[35%]">
 
                         {/* 1 */}
-                        <section className="w-full">
+                        <section className="w-full text-left">
                             <div className="flex items-center relative">
 
                                 {/* Toggle 1 */}
@@ -62,11 +63,12 @@ export const Help = () => {
                                     />
                                     <h1 className="ml-[5%] text-xl text-white
                                         md:text-3xl
+                                        lg:text-2xl
                                         2xl:text-4xl">
                                             Papel Reciclado</h1>
                                     <img    
                                         src="/arrow.png"
-                                        className="w-5 mr-[5%] cursor-pointer transform transition-transform duration-300 hover:rotate-90"
+                                        className="w-5 mr-[5%] cursor-pointer transform transition-transform duration-300"
                                         style={{
                                             transform: open.includes(1) ? "rotate(180deg)" : "rotate(0deg)"
                                         }}
@@ -114,11 +116,12 @@ export const Help = () => {
                                     />
                                     <h1 className="ml-[5%] text-xl text-white
                                         md:text-3xl
+                                        lg:text-2xl
                                         2xl:text-4xl">
                                             Tampas de Garrafa</h1>
                                     <img 
                                         src="/arrow.png"
-                                        className="w-5 mr-[5%] cursor-pointer transform transition-transform duration-300 hover:rotate-90"
+                                        className="w-5 mr-[5%] cursor-pointer transform transition-transform duration-300"
                                         style={{
                                             transform: open.includes(2) ? "rotate(180deg)" : "rotate(0deg)"
                                         }}
@@ -170,7 +173,7 @@ export const Help = () => {
                                             Óleo de Cozinha</h1>
                                     <img 
                                         src="/arrow.png"
-                                        className="w-5 mr-[5%] cursor-pointer transform transition-transform duration-300 hover:rotate-90"
+                                        className="w-5 mr-[5%] cursor-pointer transform transition-transform duration-300"
                                         style={{
                                             transform: open.includes(3) ? "rotate(180deg)" : "rotate(0deg)"
                                         }}
@@ -204,7 +207,7 @@ export const Help = () => {
                     {/* DIREITA */}
                     <section className="flex flex-col w-[80%] gap-5
                         md:w-[75%]
-                        lg:w-[45%]
+                        lg:w-[35%]
                         2xl:w-[35%]">
 
                         {/* 4 */}
@@ -230,7 +233,7 @@ export const Help = () => {
                                             Lixo Eletronico</h1>
                                     <img 
                                         src="/arrow.png"
-                                        className="w-5 mr-[5%] cursor-pointer transform transition-transform duration-300 hover:rotate-90"
+                                        className="w-5 mr-[5%] cursor-pointer transform transition-transform duration-300"
                                         style={{
                                             transform: open.includes(4) ? "rotate(180deg)" : "rotate(0deg)"
                                         }}
@@ -282,7 +285,7 @@ export const Help = () => {
                                             Latas de Alumínio</h1>
                                     <img 
                                         src="/arrow.png"
-                                        className="w-5 mr-[5%] cursor-pointer transform transition-transform duration-300 hover:rotate-90"
+                                        className="w-5 mr-[5%] cursor-pointer transform transition-transform duration-300"
                                         style={{
                                             transform: open.includes(5) ? "rotate(180deg)" : "rotate(0deg)"
                                         }}
@@ -334,7 +337,7 @@ export const Help = () => {
                                             Rifas</h1>
                                     <img 
                                         src="/arrow.png"
-                                        className="w-5 mr-[5%] cursor-pointer transform transition-transform duration-300 hover:rotate-90"
+                                        className="w-5 mr-[5%] cursor-pointer transform transition-transform duration-300"
                                         style={{
                                             transform: open.includes(6) ? "rotate(180deg)" : "rotate(0deg)"
                                         }}
