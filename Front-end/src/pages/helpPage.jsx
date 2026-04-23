@@ -40,7 +40,8 @@ export const Help = () => {
                     {/* ESQUERDA */}
                     <section className="flex flex-col w-[80%] gap-5
                         md:w-[75%]
-                        lg:w-[45%]">
+                        lg:w-[45%]
+                        xl:w-[35%]">
 
                         {/* 1 */}
                         <section className="w-full">
@@ -49,12 +50,14 @@ export const Help = () => {
                                 {/* Toggle 1 */}
                                 <div className="w-full h-[9vh] bg-[#0097b2] rounded-full flex items-center justify-between
                                     md:h-[7vh]
-                                    lg:h-[12vh]">
+                                    lg:h-[12vh]
+                                    xl:h-[11vh]">
                                     <img 
                                         src="/paw-help-page.png" 
                                         className="w-15 h-15 object-cover rounded-full mt-0.5
                                         md:h-[7vh] md:w-[9vw]
-                                        lg:h-[12vh] lg:w-[7vw]"
+                                        lg:h-[12vh] lg:w-[7vw]
+                                        xl:h-[11vh] xl:w-[5vw]"
                                     />
                                     <h1 className="ml-[5%] text-2xl text-white
                                         xl:text-4xl">
@@ -95,12 +98,14 @@ export const Help = () => {
                                 {/* Toggle 2 */}
                                 <div className="w-full h-[9vh] bg-[#0097b2] rounded-full flex items-center justify-between
                                     md:h-[7vh]
-                                    lg:h-[12vh]">
+                                    lg:h-[12vh]
+                                    xl:h-[11%]">
                                     <img 
                                         src="/paw-help-page.png" 
                                         className="w-15 h-15 object-cover rounded-full mt-0.5
                                         md:h-[7vh] md:w-[9vw]
-                                        lg:h-[12vh] lg:w-[7vw]"
+                                        lg:h-[12vh] lg:w-[7vw]
+                                        xl:h-[11vh] xl:w-[5vw]"
                                     />
                                     <h1 className="ml-[5%] text-2xl text-white
                                         xl:text-4xl">
@@ -141,12 +146,14 @@ export const Help = () => {
                                 {/* Toggle 1 */}
                                 <div className="w-full h-[9vh] bg-[#0097b2] rounded-full flex items-center justify-between
                                     md:h-[7vh]
-                                    lg:h-[12vh]">
+                                    lg:h-[12vh]
+                                    xl:h-[11%]">
                                     <img 
                                         src="/paw-help-page.png" 
                                         className="w-15 h-15 object-cover rounded-full mt-0.5
                                         md:h-[7vh] md:w-[9vw]
-                                        lg:h-[12vh] lg:w-[7vw]"
+                                        lg:h-[12vh] lg:w-[7vw]
+                                        xl:h-[11vh] xl:w-[5vw]"
                                     />
                                     <h1 className="ml-[5%] text-2xl text-white
                                         xl:text-4xl">
@@ -185,7 +192,8 @@ export const Help = () => {
                     {/* DIREITA */}
                     <section className="flex flex-col w-[80%] gap-5
                         md:w-[75%]
-                        lg:w-[45%]">
+                        lg:w-[45%]
+                        xl:w-[35%]">
 
                         {/* 4 */}
                         <section className="w-full">
@@ -194,12 +202,14 @@ export const Help = () => {
                                 {/* Toggle 1 */}
                                 <div className="w-full h-[9vh] bg-[#0097b2] rounded-full flex items-center justify-between
                                     md:h-[7vh]
-                                    lg:h-[12vh]">
+                                    lg:h-[12vh]
+                                    xl:h-[11vh]">
                                     <img 
                                         src="/paw-help-page.png" 
                                         className="w-15 h-15 object-cover rounded-full mt-0.5
                                         md:h-[7vh] md:w-[9vw]
-                                        lg:h-[12vh] lg:w-[7vw]"
+                                        lg:h-[12vh] lg:w-[7vw]
+                                        xl:h-[11vh] xl:w-[5vw]"
                                     />
                                     <h1 className="ml-[5%] text-2xl text-white
                                         xl:text-4xl">
@@ -240,12 +250,14 @@ export const Help = () => {
                                 {/* Toggle 1 */}
                                 <div className="w-full h-[9vh] bg-[#0097b2] rounded-full flex items-center justify-between
                                     md:h-[7vh]
-                                    lg:h-[12vh]">
+                                    lg:h-[12vh]
+                                    xl:h-[11vh]">
                                     <img 
                                         src="/paw-help-page.png" 
                                         className="w-15 h-15 object-cover rounded-full mt-0.5
                                         md:h-[7vh] md:w-[9vw]
-                                        lg:h-[12vh] lg:w-[7vw]"
+                                        lg:h-[12vh] lg:w-[7vw]
+                                        xl:h-[11vh] xl:w-[5vw]"
                                     />
                                     <h1 className="ml-[5%] text-2xl text-white
                                         xl:text-4xl">
@@ -286,12 +298,14 @@ export const Help = () => {
                                 {/* Toggle 1 */}
                                 <div className="w-full h-[9vh] bg-[#0097b2] rounded-full flex items-center justify-between
                                     md:h-[7vh]
-                                    lg:h-[12vh]">
+                                    lg:h-[12vh]
+                                    xl:h-[11vh]">
                                     <img 
                                         src="/paw-help-page.png" 
                                         className="w-15 h-15 object-cover rounded-full mt-0.5
                                         md:h-[7vh] md:w-[9vw]
-                                        lg:h-[12vh] lg:w-[7vw]"
+                                        lg:h-[12vh] lg:w-[7vw]
+                                        xl:h-[11vh] xl:w-[5vw]"
                                     />
                                     <h1 className="ml-[5%] text-2xl text-white
                                         xl:text-4xl">
