@@ -18,29 +18,36 @@ export const Help = () => {
         <>
             <Header open={menuOpen} setOpen={setMenuOpen}/>
 
-            <div className="min-h-screen w-full flex flex-col pb-10">
+            <div className="min-h-screen w-full flex flex-col
+                md:min-h-[85vh]">
                 
                 <section className="flex flex-col ml-[5%] p-[1%] mb-[5%]">
-                    <h1 className="text-3xl">Nos ajude a continuar!</h1>
-                    <p className="text-xl ml-[2%]">
+                    <h1 className="text-3xl
+                        md:text-4xl">
+                            Nos ajude a continuar!</h1>
+                    <p className="text-xl ml-[2%]
+                        md:text-3xl">
                         Para apoiar nossa causa, você pode fazer doações dos seguintes itens:
                     </p>
                 </section>
 
-                <section className="flex items-center justify-center w-full flex-col gap-5">
+                <section className="flex items-center justify-center w-full flex-col gap-5
+                    md:mb-[5%]">
 
                     {/* ESQUERDA */}
-                    <section className="flex flex-col w-[90%] gap-5">
+                    <section className="flex flex-col w-[80%] gap-5">
 
                         {/* 1 */}
                         <section className="w-full">
                             <div className="flex items-center relative">
 
                                 {/* Toggle 1 */}
-                                <div className="w-full h-[9vh] bg-[#0097b2] rounded-4xl flex items-center justify-between">
+                                <div className="w-full h-[9vh] bg-[#0097b2] rounded-4xl flex items-center justify-between
+                                    md:h-[8vh]">
                                     <img 
                                         src="/paw-help-page.png" 
-                                        className="w-15 h-15 object-cover rounded-full mt-0.5"
+                                        className="w-15 h-15 object-cover rounded-full mt-0.5
+                                        md:h-[8vh] md:w-[11vw]"
                                     />
                                     <h1 className="ml-[5%] text-2xl text-white">Papel Reciclado</h1>
                                     <img 
@@ -146,7 +153,7 @@ export const Help = () => {
                     </section>
 
                     {/* DIREITA */}
-                    <section className="flex flex-col w-[90%] gap-5">
+                    <section className="flex flex-col w-[80%] gap-5">
 
                         {/* 4 */}
                         <section className="w-full">
