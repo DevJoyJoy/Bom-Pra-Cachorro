@@ -19,7 +19,7 @@ export const Help = () => {
             <Header open={menuOpen} setOpen={setMenuOpen}/>
 
             <div className="min-h-screen w-full flex flex-col
-                md:min-h-[85vh]">
+                md:min-h-[80vh]">
                 
                 <section className="flex flex-col ml-[5%] p-[1%] mb-[5%]">
                     <h1 className="text-3xl
@@ -35,7 +35,8 @@ export const Help = () => {
                     md:mb-[5%]">
 
                     {/* ESQUERDA */}
-                    <section className="flex flex-col w-[80%] gap-5">
+                    <section className="flex flex-col w-[80%] gap-5
+                        md:w-[75%]">
 
                         {/* 1 */}
                         <section className="w-full">
@@ -43,11 +44,11 @@ export const Help = () => {
 
                                 {/* Toggle 1 */}
                                 <div className="w-full h-[9vh] bg-[#0097b2] rounded-4xl flex items-center justify-between
-                                    md:h-[8vh]">
+                                    md:h-[7vh]">
                                     <img 
                                         src="/paw-help-page.png" 
                                         className="w-15 h-15 object-cover rounded-full mt-0.5
-                                        md:h-[8vh] md:w-[11vw]"
+                                        md:h-[7vh] md:w-[9vw]"
                                     />
                                     <h1 className="ml-[5%] text-2xl text-white">Papel Reciclado</h1>
                                     <img 
@@ -81,10 +82,12 @@ export const Help = () => {
                             <div className="flex items-center relative">
 
                                 {/* Toggle 2 */}
-                                <div className="w-full h-[9vh] bg-[#0097b2] rounded-4xl flex items-center justify-between">
+                                <div className="w-full h-[9vh] bg-[#0097b2] rounded-4xl flex items-center justify-between
+                                    md:h-[7vh]">
                                     <img 
                                         src="/paw-help-page.png" 
-                                        className="w-15 h-15 object-cover rounded-full mt-0.5"
+                                        className="w-15 h-15 object-cover rounded-full mt-0.5
+                                        md:h-[7vh] md:w-[9vw]"
                                     />
                                     <h1 className="ml-[5%] text-2xl text-white">Tampas de Garrafa</h1>
                                     <img 
@@ -118,10 +121,12 @@ export const Help = () => {
                             <div className="flex items-center relative">
 
                                 {/* Toggle 1 */}
-                                <div className="w-full h-[9vh] bg-[#0097b2] rounded-4xl flex items-center justify-between">
+                                <div className="w-full h-[9vh] bg-[#0097b2] rounded-4xl flex items-center justify-between
+                                    md:h-[7vh]">
                                     <img 
                                         src="/paw-help-page.png" 
-                                        className="w-15 h-15 object-cover rounded-full mt-0.5"
+                                        className="w-15 h-15 object-cover rounded-full mt-0.5
+                                        md:h-[7vh] md:w-[9vw]"
                                     />
                                     <h1 className="ml-[5%] text-2xl text-white">Óleo de Cozinha</h1>
                                     <img 
@@ -153,17 +158,20 @@ export const Help = () => {
                     </section>
 
                     {/* DIREITA */}
-                    <section className="flex flex-col w-[80%] gap-5">
+                    <section className="flex flex-col w-[50%] gap-5
+                        md:w-[75%]">
 
                         {/* 4 */}
                         <section className="w-full">
                             <div className="flex items-center relative">
 
                                 {/* Toggle 1 */}
-                                <div className="w-full h-[9vh] bg-[#0097b2] rounded-4xl flex items-center justify-between">
+                                <div className="w-full h-[9vh] bg-[#0097b2] rounded-4xl flex items-center justify-between
+                                    md:h-[7vh]">
                                     <img 
                                         src="/paw-help-page.png" 
-                                        className="w-15 h-15 object-cover rounded-full mt-0.5"
+                                        className="w-15 h-15 object-cover rounded-full mt-0.5
+                                        md:h-[7vh] md:w-[9vw]"
                                     />
                                     <h1 className="ml-[5%] text-2xl text-white">Lixo Eletronico</h1>
                                     <img 
@@ -197,10 +205,12 @@ export const Help = () => {
                             <div className="flex items-center relative">
 
                                 {/* Toggle 1 */}
-                                <div className="w-full h-[9vh] bg-[#0097b2] rounded-4xl flex items-center justify-between">
+                                <div className="w-full h-[9vh] bg-[#0097b2] rounded-4xl flex items-center justify-between
+                                    md:h-[7vh]">
                                     <img 
                                         src="/paw-help-page.png" 
-                                        className="w-15 h-15 object-cover rounded-full mt-0.5"
+                                        className="w-15 h-15 object-cover rounded-full mt-0.5
+                                        md:h-[7vh] md:w-[9vw]"
                                     />
                                     <h1 className="ml-[5%] text-2xl text-white">Latas de Alumínio</h1>
                                     <img 
@@ -234,10 +244,12 @@ export const Help = () => {
                             <div className="flex items-center relative">
 
                                 {/* Toggle 1 */}
-                                <div className="w-full h-[9vh] bg-[#0097b2] rounded-4xl flex items-center justify-between">
+                                <div className="w-full h-[9vh] bg-[#0097b2] rounded-4xl flex items-center justify-between
+                                    md:h-[7vh]">
                                     <img 
                                         src="/paw-help-page.png" 
-                                        className="w-15 h-15 object-cover rounded-full mt-0.5"
+                                        className="w-15 h-15 object-cover rounded-full mt-0.5
+                                        md:h-[7vh] md:w-[9vw]"
                                     />
                                     <h1 className="ml-[5%] text-2xl text-white">Rifas</h1>
                                     <img 
