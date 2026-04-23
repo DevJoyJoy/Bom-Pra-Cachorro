@@ -65,7 +65,8 @@ export const Help = () => {
 
                             {open.includes(1) && (
                                 <div className="bg-[#99E3EC] p-4 rounded-xl mt-2 flex">
-                                    <div className="flex flex-col items-center gap-4">
+                                    <div className="flex flex-col items-center gap-4
+                                        md:flex-row">
                                         <img src="/reciclagem.png" className="w-20" />
                                         <h1 className="p-[2%]">
                                             Se você ama os animais tanto quanto a gente, saiba que pode fazer a diferença! 
@@ -104,7 +105,8 @@ export const Help = () => {
 
                             {open.includes(2) && (
                                 <div className="bg-[#99E3EC] p-4 rounded-xl mt-2 flex">
-                                    <div className="flex flex-col items-center gap-4">
+                                    <div className="flex flex-col items-center gap-4
+                                        md:flex-row">
                                         <img src="/tampa_garrafa.png" className="w-20" />
                                         <h1 className="p-[2%]">
                                             Se você ama os animais tanto quanto a gente, saiba que pode fazer a diferença! 
@@ -143,7 +145,8 @@ export const Help = () => {
 
                             {open.includes(3) && (
                                 <div className="bg-[#99E3EC] p-4 rounded-xl mt-2 flex">
-                                    <div className="flex flex-col items-center gap-4">
+                                    <div className="flex flex-col items-center gap-4
+                                        md:flex-row">
                                         <img src="/oleo.png" className="w-20" />
                                         <h1 className="p-[2%]">
                                             Se você ama os animais tanto quanto a gente, saiba que pode fazer a diferença! 
@@ -158,7 +161,7 @@ export const Help = () => {
                     </section>
 
                     {/* DIREITA */}
-                    <section className="flex flex-col w-[50%] gap-5
+                    <section className="flex flex-col w-[80%] gap-5
                         md:w-[75%]">
 
                         {/* 4 */}
@@ -188,7 +191,8 @@ export const Help = () => {
 
                             {open.includes(4) && (
                                 <div className="bg-[#99E3EC] p-4 rounded-xl mt-2 flex">
-                                    <div className="flex flex-col items-center gap-4">
+                                    <div className="flex flex-col items-center gap-4
+                                        md:flex-row">
                                         <img src="/lixo.png" className="w-20" />
                                         <h1 className="p-[2%]">
                                             Se você ama os animais tanto quanto a gente, saiba que pode fazer a diferença! 
@@ -227,7 +231,8 @@ export const Help = () => {
 
                             {open.includes(5) && (
                                 <div className="bg-[#99E3EC] p-4 rounded-xl mt-2 flex">
-                                    <div className="flex flex-col items-center gap-4">
+                                    <div className="flex flex-col items-center gap-4
+                                        md:flex-row">
                                         <img src="/lata.png" className="w-20" />
                                         <h1 className="p-[2%]">
                                             Se você ama os animais tanto quanto a gente, saiba que pode fazer a diferença! 
@@ -266,7 +271,8 @@ export const Help = () => {
 
                             {open.includes(6) && (
                                 <div className="bg-[#99E3EC] p-4 rounded-xl mt-2 flex">
-                                    <div className="flex flex-col items-center gap-4">
+                                    <div className="flex flex-col items-center gap-4
+                                        md:flex-row">
                                         <img src="/reciclagem.png" className="w-20" />
                                         <h1 className="p-[2%]">
                                             Se você ama os animais tanto quanto a gente, saiba que pode fazer a diferença! 
