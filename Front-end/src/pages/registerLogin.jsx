@@ -58,19 +58,19 @@ export const RegisterLogin = () => {
             <div className="flex flex-col">
               <p className="text-xl lg:text-xl md:text-3xl">Usuário</p>
               <input type="text" name="" id="" placeholder="Digite seu usuário:" className="bg-[#E7E7E7] p-[0.8vh] rounded-xl
-                lg:w-[18vw]
+                lg:w-[18vw] lg:text-xl
                 md:text-2xl"/>
               <br />
               <p className="text-xl lg:text-xl md:text-3xl">Senha
               </p>
               <input type={show? "text" : "password"} name="" id="" placeholder="Digite sua senha:" className="bg-[#E7E7E7] p-[0.8vh] rounded-xl
-                lg:w-[18vw]
+                lg:w-[18vw] lg:text-xl
                 md:text-2xl"/>
               <button className="md:text-xl" onClick={() => setShow(!show)}> {show ? "Ocultar senha" : "Mostrar senha"}
               </button>
               <br />
               <br />
-              <button className="arturo bg-[#0097b2] text-white rounded-xl cursor-pointer font-bold hover:bg-[#015b6b] p-[1vh] text-2xl">Entrar</button>
+              <button onClick={() => navigate('/Register')} className="arturo bg-[#0097b2] text-white rounded-xl cursor-pointer font-bold hover:bg-[#015b6b] p-[1vh] text-2xl">Entrar</button>
             </div>
           </div>
           {/* Image (only on desktop)*/}
