@@ -21,7 +21,8 @@ export const Help = () => {
             <div className="min-h-screen w-full flex flex-col
                 md:min-h-[80vh]">
                 
-                <section className="flex flex-col ml-[5%] p-[1%] mb-[5%]">
+                <section className="flex flex-col ml-[5%] p-[1%] mb-[5%]
+                    lg:ml-[2%]">
                     <h1 className="text-3xl
                         md:text-4xl">
                             Nos ajude a continuar!</h1>
@@ -32,23 +33,27 @@ export const Help = () => {
                 </section>
 
                 <section className="flex items-center justify-center w-full flex-col gap-5
-                    md:mb-[5%]">
+                    md:mb-[5%]
+                    lg:flex-row lg:items-start">
 
                     {/* ESQUERDA */}
                     <section className="flex flex-col w-[80%] gap-5
-                        md:w-[75%]">
+                        md:w-[75%]
+                        lg:w-[45%]">
 
                         {/* 1 */}
                         <section className="w-full">
                             <div className="flex items-center relative">
 
                                 {/* Toggle 1 */}
-                                <div className="w-full h-[9vh] bg-[#0097b2] rounded-4xl flex items-center justify-between
-                                    md:h-[7vh]">
+                                <div className="w-full h-[9vh] bg-[#0097b2] rounded-full flex items-center justify-between
+                                    md:h-[7vh]
+                                    lg:h-[12vh]">
                                     <img 
                                         src="/paw-help-page.png" 
                                         className="w-15 h-15 object-cover rounded-full mt-0.5
-                                        md:h-[7vh] md:w-[9vw]"
+                                        md:h-[7vh] md:w-[9vw]
+                                        lg:h-[12vh] lg:w-[7vw]"
                                     />
                                     <h1 className="ml-[5%] text-2xl text-white">Papel Reciclado</h1>
                                     <img 
@@ -65,7 +70,8 @@ export const Help = () => {
 
                             {open.includes(1) && (
                                 <div className="bg-[#99E3EC] p-4 rounded-xl mt-2 flex">
-                                    <div className="flex flex-col items-center gap-4">
+                                    <div className="flex flex-col items-center gap-4
+                                        md:flex-row">
                                         <img src="/reciclagem.png" className="w-20" />
                                         <h1 className="p-[2%]">
                                             Se você ama os animais tanto quanto a gente, saiba que pode fazer a diferença! 
@@ -82,12 +88,14 @@ export const Help = () => {
                             <div className="flex items-center relative">
 
                                 {/* Toggle 2 */}
-                                <div className="w-full h-[9vh] bg-[#0097b2] rounded-4xl flex items-center justify-between
-                                    md:h-[7vh]">
+                                <div className="w-full h-[9vh] bg-[#0097b2] rounded-full flex items-center justify-between
+                                    md:h-[7vh]
+                                    lg:h-[12vh]">
                                     <img 
                                         src="/paw-help-page.png" 
                                         className="w-15 h-15 object-cover rounded-full mt-0.5
-                                        md:h-[7vh] md:w-[9vw]"
+                                        md:h-[7vh] md:w-[9vw]
+                                        lg:h-[12vh] lg:w-[7vw]"
                                     />
                                     <h1 className="ml-[5%] text-2xl text-white">Tampas de Garrafa</h1>
                                     <img 
@@ -104,7 +112,8 @@ export const Help = () => {
 
                             {open.includes(2) && (
                                 <div className="bg-[#99E3EC] p-4 rounded-xl mt-2 flex">
-                                    <div className="flex flex-col items-center gap-4">
+                                    <div className="flex flex-col items-center gap-4
+                                        md:flex-row">
                                         <img src="/tampa_garrafa.png" className="w-20" />
                                         <h1 className="p-[2%]">
                                             Se você ama os animais tanto quanto a gente, saiba que pode fazer a diferença! 
@@ -121,12 +130,14 @@ export const Help = () => {
                             <div className="flex items-center relative">
 
                                 {/* Toggle 1 */}
-                                <div className="w-full h-[9vh] bg-[#0097b2] rounded-4xl flex items-center justify-between
-                                    md:h-[7vh]">
+                                <div className="w-full h-[9vh] bg-[#0097b2] rounded-full flex items-center justify-between
+                                    md:h-[7vh]
+                                    lg:h-[12vh]">
                                     <img 
                                         src="/paw-help-page.png" 
                                         className="w-15 h-15 object-cover rounded-full mt-0.5
-                                        md:h-[7vh] md:w-[9vw]"
+                                        md:h-[7vh] md:w-[9vw]
+                                        lg:h-[12vh] lg:w-[7vw]"
                                     />
                                     <h1 className="ml-[5%] text-2xl text-white">Óleo de Cozinha</h1>
                                     <img 
@@ -143,7 +154,8 @@ export const Help = () => {
 
                             {open.includes(3) && (
                                 <div className="bg-[#99E3EC] p-4 rounded-xl mt-2 flex">
-                                    <div className="flex flex-col items-center gap-4">
+                                    <div className="flex flex-col items-center gap-4
+                                        md:flex-row">
                                         <img src="/oleo.png" className="w-20" />
                                         <h1 className="p-[2%]">
                                             Se você ama os animais tanto quanto a gente, saiba que pode fazer a diferença! 
@@ -158,20 +170,23 @@ export const Help = () => {
                     </section>
 
                     {/* DIREITA */}
-                    <section className="flex flex-col w-[50%] gap-5
-                        md:w-[75%]">
+                    <section className="flex flex-col w-[80%] gap-5
+                        md:w-[75%]
+                        lg:w-[45%]">
 
                         {/* 4 */}
                         <section className="w-full">
                             <div className="flex items-center relative">
 
                                 {/* Toggle 1 */}
-                                <div className="w-full h-[9vh] bg-[#0097b2] rounded-4xl flex items-center justify-between
-                                    md:h-[7vh]">
+                                <div className="w-full h-[9vh] bg-[#0097b2] rounded-full flex items-center justify-between
+                                    md:h-[7vh]
+                                    lg:h-[12vh]">
                                     <img 
                                         src="/paw-help-page.png" 
                                         className="w-15 h-15 object-cover rounded-full mt-0.5
-                                        md:h-[7vh] md:w-[9vw]"
+                                        md:h-[7vh] md:w-[9vw]
+                                        lg:h-[12vh] lg:w-[7vw]"
                                     />
                                     <h1 className="ml-[5%] text-2xl text-white">Lixo Eletronico</h1>
                                     <img 
@@ -188,7 +203,8 @@ export const Help = () => {
 
                             {open.includes(4) && (
                                 <div className="bg-[#99E3EC] p-4 rounded-xl mt-2 flex">
-                                    <div className="flex flex-col items-center gap-4">
+                                    <div className="flex flex-col items-center gap-4
+                                        md:flex-row">
                                         <img src="/lixo.png" className="w-20" />
                                         <h1 className="p-[2%]">
                                             Se você ama os animais tanto quanto a gente, saiba que pode fazer a diferença! 
@@ -205,12 +221,14 @@ export const Help = () => {
                             <div className="flex items-center relative">
 
                                 {/* Toggle 1 */}
-                                <div className="w-full h-[9vh] bg-[#0097b2] rounded-4xl flex items-center justify-between
-                                    md:h-[7vh]">
+                                <div className="w-full h-[9vh] bg-[#0097b2] rounded-full flex items-center justify-between
+                                    md:h-[7vh]
+                                    lg:h-[12vh]">
                                     <img 
                                         src="/paw-help-page.png" 
                                         className="w-15 h-15 object-cover rounded-full mt-0.5
-                                        md:h-[7vh] md:w-[9vw]"
+                                        md:h-[7vh] md:w-[9vw]
+                                        lg:h-[12vh] lg:w-[7vw]"
                                     />
                                     <h1 className="ml-[5%] text-2xl text-white">Latas de Alumínio</h1>
                                     <img 
@@ -227,7 +245,8 @@ export const Help = () => {
 
                             {open.includes(5) && (
                                 <div className="bg-[#99E3EC] p-4 rounded-xl mt-2 flex">
-                                    <div className="flex flex-col items-center gap-4">
+                                    <div className="flex flex-col items-center gap-4
+                                        md:flex-row">
                                         <img src="/lata.png" className="w-20" />
                                         <h1 className="p-[2%]">
                                             Se você ama os animais tanto quanto a gente, saiba que pode fazer a diferença! 
@@ -244,12 +263,14 @@ export const Help = () => {
                             <div className="flex items-center relative">
 
                                 {/* Toggle 1 */}
-                                <div className="w-full h-[9vh] bg-[#0097b2] rounded-4xl flex items-center justify-between
-                                    md:h-[7vh]">
+                                <div className="w-full h-[9vh] bg-[#0097b2] rounded-full flex items-center justify-between
+                                    md:h-[7vh]
+                                    lg:h-[12vh]">
                                     <img 
                                         src="/paw-help-page.png" 
                                         className="w-15 h-15 object-cover rounded-full mt-0.5
-                                        md:h-[7vh] md:w-[9vw]"
+                                        md:h-[7vh] md:w-[9vw]
+                                        lg:h-[12vh] lg:w-[7vw]"
                                     />
                                     <h1 className="ml-[5%] text-2xl text-white">Rifas</h1>
                                     <img 
@@ -266,7 +287,8 @@ export const Help = () => {
 
                             {open.includes(6) && (
                                 <div className="bg-[#99E3EC] p-4 rounded-xl mt-2 flex">
-                                    <div className="flex flex-col items-center gap-4">
+                                    <div className="flex flex-col items-center gap-4
+                                        md:flex-row">
                                         <img src="/reciclagem.png" className="w-20" />
                                         <h1 className="p-[2%]">
                                             Se você ama os animais tanto quanto a gente, saiba que pode fazer a diferença! 
