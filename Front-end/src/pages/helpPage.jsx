@@ -19,7 +19,8 @@ export const Help = () => {
             <Header open={menuOpen} setOpen={setMenuOpen}/>
 
             <div className="min-h-screen w-full flex flex-col
-                md:min-h-[80vh]">
+                md:min-h-[80vh]
+                xl:min-h-[76vh]">
                 
                 <section className="flex flex-col ml-[5%] p-[1%] mb-[5%]
                     lg:ml-[2%]">
@@ -55,7 +56,9 @@ export const Help = () => {
                                         md:h-[7vh] md:w-[9vw]
                                         lg:h-[12vh] lg:w-[7vw]"
                                     />
-                                    <h1 className="ml-[5%] text-2xl text-white">Papel Reciclado</h1>
+                                    <h1 className="ml-[5%] text-2xl text-white
+                                        xl:text-4xl">
+                                            Papel Reciclado</h1>
                                     <img 
                                         src="/arrow.png"
                                         className="w-5 mr-[5%] cursor-pointer transform transition-transform duration-300 hover:rotate-90"
@@ -72,8 +75,10 @@ export const Help = () => {
                                 <div className="bg-[#99E3EC] p-4 rounded-xl mt-2 flex">
                                     <div className="flex flex-col items-center gap-4
                                         md:flex-row">
-                                        <img src="/reciclagem.png" className="w-20" />
-                                        <h1 className="p-[2%]">
+                                        <img src="/reciclagem.png" className="w-20
+                                            xl:w-30"/>
+                                        <h1 className="p-[2%]
+                                            xl:text-xl">
                                             Se você ama os animais tanto quanto a gente, saiba que pode fazer a diferença! 
                                             Com a sua contribuição, conseguimos oferecer alimentação, cuidados veterinários
                                             e muito carinho para os animaiszinhos.
@@ -97,7 +102,9 @@ export const Help = () => {
                                         md:h-[7vh] md:w-[9vw]
                                         lg:h-[12vh] lg:w-[7vw]"
                                     />
-                                    <h1 className="ml-[5%] text-2xl text-white">Tampas de Garrafa</h1>
+                                    <h1 className="ml-[5%] text-2xl text-white
+                                        xl:text-4xl">
+                                            Tampas de Garrafa</h1>
                                     <img 
                                         src="/arrow.png"
                                         className="w-5 mr-[5%] cursor-pointer transform transition-transform duration-300 hover:rotate-90"
@@ -114,8 +121,10 @@ export const Help = () => {
                                 <div className="bg-[#99E3EC] p-4 rounded-xl mt-2 flex">
                                     <div className="flex flex-col items-center gap-4
                                         md:flex-row">
-                                        <img src="/tampa_garrafa.png" className="w-20" />
-                                        <h1 className="p-[2%]">
+                                        <img src="/tampa_garrafa.png" className="w-20
+                                            xl:w-30"/>
+                                        <h1 className="p-[2%]
+                                            xl:text-xl">
                                             Se você ama os animais tanto quanto a gente, saiba que pode fazer a diferença! 
                                             Com a sua contribuição, conseguimos oferecer alimentação, cuidados veterinários
                                             e muito carinho para os animaiszinhos.
@@ -139,7 +148,9 @@ export const Help = () => {
                                         md:h-[7vh] md:w-[9vw]
                                         lg:h-[12vh] lg:w-[7vw]"
                                     />
-                                    <h1 className="ml-[5%] text-2xl text-white">Óleo de Cozinha</h1>
+                                    <h1 className="ml-[5%] text-2xl text-white
+                                        xl:text-4xl">
+                                            Óleo de Cozinha</h1>
                                     <img 
                                         src="/arrow.png"
                                         className="w-5 mr-[5%] cursor-pointer transform transition-transform duration-300 hover:rotate-90"
@@ -156,8 +167,10 @@ export const Help = () => {
                                 <div className="bg-[#99E3EC] p-4 rounded-xl mt-2 flex">
                                     <div className="flex flex-col items-center gap-4
                                         md:flex-row">
-                                        <img src="/oleo.png" className="w-20" />
-                                        <h1 className="p-[2%]">
+                                        <img src="/oleo.png" className="w-20
+                                            xl:w-30"/>
+                                        <h1 className="p-[2%]
+                                            xl:text-xl">
                                             Se você ama os animais tanto quanto a gente, saiba que pode fazer a diferença! 
                                             Com a sua contribuição, conseguimos oferecer alimentação, cuidados veterinários
                                             e muito carinho para os animaiszinhos.
@@ -188,7 +201,9 @@ export const Help = () => {
                                         md:h-[7vh] md:w-[9vw]
                                         lg:h-[12vh] lg:w-[7vw]"
                                     />
-                                    <h1 className="ml-[5%] text-2xl text-white">Lixo Eletronico</h1>
+                                    <h1 className="ml-[5%] text-2xl text-white
+                                        xl:text-4xl">
+                                            Lixo Eletronico</h1>
                                     <img 
                                         src="/arrow.png"
                                         className="w-5 mr-[5%] cursor-pointer transform transition-transform duration-300 hover:rotate-90"
@@ -205,8 +220,10 @@ export const Help = () => {
                                 <div className="bg-[#99E3EC] p-4 rounded-xl mt-2 flex">
                                     <div className="flex flex-col items-center gap-4
                                         md:flex-row">
-                                        <img src="/lixo.png" className="w-20" />
-                                        <h1 className="p-[2%]">
+                                        <img src="/lixo.png" className="w-20
+                                            xl:w-30"/>
+                                        <h1 className="p-[2%]
+                                            xl:text-xl">
                                             Se você ama os animais tanto quanto a gente, saiba que pode fazer a diferença! 
                                             Com a sua contribuição, conseguimos oferecer alimentação, cuidados veterinários
                                             e muito carinho para os animaiszinhos.
@@ -230,7 +247,9 @@ export const Help = () => {
                                         md:h-[7vh] md:w-[9vw]
                                         lg:h-[12vh] lg:w-[7vw]"
                                     />
-                                    <h1 className="ml-[5%] text-2xl text-white">Latas de Alumínio</h1>
+                                    <h1 className="ml-[5%] text-2xl text-white
+                                        xl:text-4xl">
+                                            Latas de Alumínio</h1>
                                     <img 
                                         src="/arrow.png"
                                         className="w-5 mr-[5%] cursor-pointer transform transition-transform duration-300 hover:rotate-90"
@@ -247,8 +266,10 @@ export const Help = () => {
                                 <div className="bg-[#99E3EC] p-4 rounded-xl mt-2 flex">
                                     <div className="flex flex-col items-center gap-4
                                         md:flex-row">
-                                        <img src="/lata.png" className="w-20" />
-                                        <h1 className="p-[2%]">
+                                        <img src="/lata.png" className="w-20
+                                            xl:w-30"/>
+                                        <h1 className="p-[2%]
+                                            xl:text-xl">
                                             Se você ama os animais tanto quanto a gente, saiba que pode fazer a diferença! 
                                             Com a sua contribuição, conseguimos oferecer alimentação, cuidados veterinários
                                             e muito carinho para os animaiszinhos.
@@ -272,7 +293,9 @@ export const Help = () => {
                                         md:h-[7vh] md:w-[9vw]
                                         lg:h-[12vh] lg:w-[7vw]"
                                     />
-                                    <h1 className="ml-[5%] text-2xl text-white">Rifas</h1>
+                                    <h1 className="ml-[5%] text-2xl text-white
+                                        xl:text-4xl">
+                                            Rifas</h1>
                                     <img 
                                         src="/arrow.png"
                                         className="w-5 mr-[5%] cursor-pointer transform transition-transform duration-300 hover:rotate-90"
@@ -289,8 +312,10 @@ export const Help = () => {
                                 <div className="bg-[#99E3EC] p-4 rounded-xl mt-2 flex">
                                     <div className="flex flex-col items-center gap-4
                                         md:flex-row">
-                                        <img src="/reciclagem.png" className="w-20" />
-                                        <h1 className="p-[2%]">
+                                        <img src="/reciclagem.png" className="w-20
+                                            xl:w-30"/>
+                                        <h1 className="p-[2%]
+                                            xl:text-xl">
                                             Se você ama os animais tanto quanto a gente, saiba que pode fazer a diferença! 
                                             Com a sua contribuição, conseguimos oferecer alimentação, cuidados veterinários
                                             e muito carinho para os animaiszinhos.
