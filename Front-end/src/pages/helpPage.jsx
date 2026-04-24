@@ -20,6 +20,7 @@ export const Help = () => {
 
             <div className="min-h-screen w-full flex flex-col
                 md:min-h-[80vh]
+                lg:min-h-[76vh]
                 2xl:min-h-[76vh]">
                 
                 <section className="flex flex-col ml-[5%] p-[1%] mb-[5%]
@@ -38,13 +39,13 @@ export const Help = () => {
                     lg:flex-row lg:items-start">
 
                     {/* ESQUERDA */}
-                    <section className="flex flex-col w-[80%] gap-5
+                    <section className="flex flex-col w-[80%] gap-5 text-left
                         md:w-[75%]
-                        lg:w-[45%]
+                        lg:w-[35%]
                         2xl:w-[35%]">
 
                         {/* 1 */}
-                        <section className="w-full">
+                        <section className="w-full text-left">
                             <div className="flex items-center relative">
 
                                 {/* Toggle 1 */}
@@ -62,11 +63,12 @@ export const Help = () => {
                                     />
                                     <h1 className="ml-[5%] text-xl text-white
                                         md:text-3xl
+                                        lg:text-2xl 
                                         2xl:text-4xl">
                                             Papel Reciclado</h1>
                                     <img    
                                         src="/arrow.png"
-                                        className="w-5 mr-[5%] cursor-pointer transform transition-transform duration-300 hover:rotate-90"
+                                        className="w-5 mr-[5%] cursor-pointer transform transition-transform duration-300"
                                         style={{
                                             transform: open.includes(1) ? "rotate(180deg)" : "rotate(0deg)"
                                         }}
@@ -79,12 +81,14 @@ export const Help = () => {
                             {open.includes(1) && (
                                 <div className="bg-[#99E3EC] p-4 rounded-xl mt-2 flex">
                                     <div className="flex flex-col items-center gap-4
-                                        md:flex-row">
+                                        md:flex-row
+                                        lg:flex-col">
                                         <img src="/reciclagem.png" className="w-20
                                             md:w-30
                                             2xl:w-30"/>
                                         <h1 className="p-[2%]
                                             md:text-2xl
+                                            lg:text-xl
                                             2xl:text-xl">
                                             Se você ama os animais tanto quanto a gente, saiba que pode fazer a diferença! 
                                             Com a sua contribuição, conseguimos oferecer alimentação, cuidados veterinários
@@ -114,11 +118,12 @@ export const Help = () => {
                                     />
                                     <h1 className="ml-[5%] text-xl text-white
                                         md:text-3xl
+                                        lg:text-2xl
                                         2xl:text-4xl">
                                             Tampas de Garrafa</h1>
                                     <img 
                                         src="/arrow.png"
-                                        className="w-5 mr-[5%] cursor-pointer transform transition-transform duration-300 hover:rotate-90"
+                                        className="w-5 mr-[5%] cursor-pointer transform transition-transform duration-300"
                                         style={{
                                             transform: open.includes(2) ? "rotate(180deg)" : "rotate(0deg)"
                                         }}
@@ -131,12 +136,14 @@ export const Help = () => {
                             {open.includes(2) && (
                                 <div className="bg-[#99E3EC] p-4 rounded-xl mt-2 flex">
                                     <div className="flex flex-col items-center gap-4
-                                        md:flex-row">
+                                        md:flex-row
+                                        lg:flex-col">
                                         <img src="/tampa_garrafa.png" className="w-20
                                             md:w-30
                                             2xl:w-30"/>
                                         <h1 className="p-[2%]
                                             md:text-2xl
+                                            lg:text-xl
                                             2xl:text-xl">
                                             Se você ama os animais tanto quanto a gente, saiba que pode fazer a diferença! 
                                             Com a sua contribuição, conseguimos oferecer alimentação, cuidados veterinários
@@ -166,11 +173,12 @@ export const Help = () => {
                                     />
                                     <h1 className="ml-[5%] text-xl text-white
                                         md:text-3xl
+                                        lg:text-2xl
                                         2xl:text-4xl">
                                             Óleo de Cozinha</h1>
                                     <img 
                                         src="/arrow.png"
-                                        className="w-5 mr-[5%] cursor-pointer transform transition-transform duration-300 hover:rotate-90"
+                                        className="w-5 mr-[5%] cursor-pointer transform transition-transform duration-300"
                                         style={{
                                             transform: open.includes(3) ? "rotate(180deg)" : "rotate(0deg)"
                                         }}
@@ -183,12 +191,14 @@ export const Help = () => {
                             {open.includes(3) && (
                                 <div className="bg-[#99E3EC] p-4 rounded-xl mt-2 flex">
                                     <div className="flex flex-col items-center gap-4
-                                        md:flex-row">
+                                        md:flex-row
+                                        lg:flex-col">
                                         <img src="/oleo.png" className="w-20
                                             md:w-30
                                             2xl:w-30"/>
                                         <h1 className="p-[2%]
                                             md:text-2xl
+                                            lg:text-xl
                                             2xl:text-xl">
                                             Se você ama os animais tanto quanto a gente, saiba que pode fazer a diferença! 
                                             Com a sua contribuição, conseguimos oferecer alimentação, cuidados veterinários
@@ -204,7 +214,7 @@ export const Help = () => {
                     {/* DIREITA */}
                     <section className="flex flex-col w-[80%] gap-5
                         md:w-[75%]
-                        lg:w-[45%]
+                        lg:w-[35%]
                         2xl:w-[35%]">
 
                         {/* 4 */}
@@ -226,11 +236,12 @@ export const Help = () => {
                                     />
                                     <h1 className="ml-[5%] text-xl text-white
                                         md:text-3xl
+                                        lg:text-2xl
                                         2xl:text-4xl">
                                             Lixo Eletronico</h1>
                                     <img 
                                         src="/arrow.png"
-                                        className="w-5 mr-[5%] cursor-pointer transform transition-transform duration-300 hover:rotate-90"
+                                        className="w-5 mr-[5%] cursor-pointer transform transition-transform duration-300"
                                         style={{
                                             transform: open.includes(4) ? "rotate(180deg)" : "rotate(0deg)"
                                         }}
@@ -243,12 +254,14 @@ export const Help = () => {
                             {open.includes(4) && (
                                 <div className="bg-[#99E3EC] p-4 rounded-xl mt-2 flex">
                                     <div className="flex flex-col items-center gap-4
-                                        md:flex-row">
+                                        md:flex-row
+                                        lg:flex-col">
                                         <img src="/lixo.png" className="w-20
                                             md:w-30
                                             2xl:w-30"/>
                                         <h1 className="p-[2%]
                                             md:text-2xl
+                                            lg:text-xl
                                             2xl:text-xl">
                                             Se você ama os animais tanto quanto a gente, saiba que pode fazer a diferença! 
                                             Com a sua contribuição, conseguimos oferecer alimentação, cuidados veterinários
@@ -278,11 +291,12 @@ export const Help = () => {
                                     />
                                     <h1 className="ml-[5%] text-xl text-white
                                         md:text-3xl
+                                        lg:text-2xl
                                         2xl:text-4xl">
                                             Latas de Alumínio</h1>
                                     <img 
                                         src="/arrow.png"
-                                        className="w-5 mr-[5%] cursor-pointer transform transition-transform duration-300 hover:rotate-90"
+                                        className="w-5 mr-[5%] cursor-pointer transform transition-transform duration-300"
                                         style={{
                                             transform: open.includes(5) ? "rotate(180deg)" : "rotate(0deg)"
                                         }}
@@ -295,12 +309,14 @@ export const Help = () => {
                             {open.includes(5) && (
                                 <div className="bg-[#99E3EC] p-4 rounded-xl mt-2 flex">
                                     <div className="flex flex-col items-center gap-4
-                                        md:flex-row">
+                                        md:flex-row
+                                        lg:flex-col">
                                         <img src="/lata.png" className="w-20
                                             md:w-30
                                             2xl:w-30"/>
                                         <h1 className="p-[2%]
                                             md:text-2xl
+                                            lg:text-xl
                                             2xl:text-xl">
                                             Se você ama os animais tanto quanto a gente, saiba que pode fazer a diferença! 
                                             Com a sua contribuição, conseguimos oferecer alimentação, cuidados veterinários
@@ -330,11 +346,12 @@ export const Help = () => {
                                     />
                                     <h1 className="ml-[5%] text-xl text-white
                                         md:text-3xl
+                                        lg:text-2xl
                                         2xl:text-4xl">
                                             Rifas</h1>
                                     <img 
                                         src="/arrow.png"
-                                        className="w-5 mr-[5%] cursor-pointer transform transition-transform duration-300 hover:rotate-90"
+                                        className="w-5 mr-[5%] cursor-pointer transform transition-transform duration-300"
                                         style={{
                                             transform: open.includes(6) ? "rotate(180deg)" : "rotate(0deg)"
                                         }}
@@ -347,12 +364,14 @@ export const Help = () => {
                             {open.includes(6) && (
                                 <div className="bg-[#99E3EC] p-4 rounded-xl mt-2 flex">
                                     <div className="flex flex-col items-center gap-4
-                                        md:flex-row">
+                                        md:flex-row
+                                        lg:flex-col">
                                         <img src="/reciclagem.png" className="w-20
                                             md:w-30
                                             2xl:w-30"/>
                                         <h1 className="p-[2%]
                                             md:text-2xl
+                                            lg:text-xl
                                             2xl:text-xl">
                                             Se você ama os animais tanto quanto a gente, saiba que pode fazer a diferença! 
                                             Com a sua contribuição, conseguimos oferecer alimentação, cuidados veterinários
