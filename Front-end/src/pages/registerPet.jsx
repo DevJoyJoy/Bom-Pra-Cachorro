@@ -94,7 +94,7 @@ export const RegisterPet = () => {
                 <div className="flex flex-col items-center 
                 w-full h-[50%] 
                 md:w-[60%] md:h-[40%] 
-                lg:h-[70%] lg:w-[20%]">
+                lg:h-[70%] lg:w-[20%] lg:mt-15">
                 {/* Main image input box */}
                 <label className="relative flex flex-col items-center justify-center overflow-hidden border-4 border-dashed border-[#4b4b4b] rounded-2xl cursor-pointer transition-colors hover:bg-[#e7e7e7]
                 w-[90%] h-[75%] 
