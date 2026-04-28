@@ -76,7 +76,8 @@ export const RegisterPet = () => {
         
         {/* White box */}
         <div className="flex flex-col items-center justify-start p-3
-        w-auto h-[91vh]
+        w-auto h-[91vh] max-h-[95vh]
+        lg:pl-10
         ">
             <h1 className="pt-3 lg:pb-3 font-bold breeSerif
             text-2xl 
@@ -93,7 +94,7 @@ export const RegisterPet = () => {
                 <div className="flex flex-col items-center 
                 w-full h-[50%] 
                 md:w-[60%] md:h-[40%] 
-                lg:h-[70%] lg:w-[18%]">
+                lg:h-[70%] lg:w-[20%]">
                 {/* Main image input box */}
                 <label className="relative flex flex-col items-center justify-center overflow-hidden border-4 border-dashed border-[#4b4b4b] rounded-2xl cursor-pointer transition-colors hover:bg-[#e7e7e7]
                 w-[90%] h-[75%] 
@@ -154,12 +155,11 @@ export const RegisterPet = () => {
                     </label>
                 </div>
                 </div>
-                <br />
                 {/* Box for all the text/animal info inputs */}
                 <div className="flex flex-row 
                 w-[93vw] h-[40%] 
                 md:h-[50vh] md:gap-10
-                lg:w-[80vw] lg:h-[60%] lg:gap-5">
+                lg:w-[75vw] lg:h-[60%] lg:gap-5 lg:pl-10">
                     <div className="w-[45%] p-3">
                         <p className="text-[100%] md:text-3xl lg:text-xl">Nome</p>
                         <input type="text" onChange={(e) => setName(e.target.value)} className="rounded-xl w-[110%] lg:w-[90%] md:text-3xl lg:text-xl bg-[#cfcccc]"/>
