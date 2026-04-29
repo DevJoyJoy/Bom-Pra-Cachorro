@@ -76,7 +76,7 @@ export const RegisterPet = () => {
         
         {/* White box */}
         <div className="flex flex-col items-center justify-start p-3
-        w-auto h-[91vh] max-h-[95vh]
+        w-auto h-[91vh] max-h-[95vh] 
         lg:pl-10
         ">
             <h1 className="pt-3 lg:pb-3 font-bold breeSerif
@@ -88,11 +88,11 @@ export const RegisterPet = () => {
             
             {/* Box for all the image inputs */}
             <div className="flex flex-col mt-3 gap-4 
-            w-full h-full
+            w-full h-full overflow-scroll
             md:items-center 
             lg:flex-row lg:h-[80%] lg:mt-[-5%]">
                 <div className="flex flex-col items-center 
-                w-full h-[50%] 
+                w-full h-[50%]
                 md:w-[60%] md:h-[40%] 
                 lg:h-[70%] lg:w-[20%] lg:mt-15">
                 {/* Main image input box */}

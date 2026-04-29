@@ -5,40 +5,43 @@ import { Footer } from "../components/footer";
 export const WhoWeAre = () => {
     const [menuOpen, setMenuOpen] = useState(false);
 
-    return(
+    return (
         <>
             {/* Header */}
             <Header open={menuOpen} setOpen={setMenuOpen}></Header>
 
             {/* Blue box of who we are */}
-            <div className="bg-[#b6e7ef]
-            lg:w-full lg:h-[90vh]">
-                <div className="absolute text-[#4b4b4b] 
-                lg:w-[42vw] lg:h-[30vh] lg:self-start lg:justify-self-end lg:mt-[28vh]">
-                    <p className="lg:text-5xl">Quem somos</p>
+            <div className="bg-[#b6e7ef] w-full h-[30vh] lg:h-[90vh] flex items-center justify-end px-[5vw]">
+                <div className="text-[#4b4b4b] w-[55vw] lg:w-[42vw]">
+                    <p className="text-xl lg:text-5xl font-bold">Quem somos</p>
                     <br />
                     <div className="lg:w-[30vw]">
-                        <p className="lg:text-xl">Esse texto é meramente ilustrativo. No Bom Pra Cachorro, transformamos abandono em recomeço. Cuidamos de cães que esperam apenas por uma chance de amar e ser amados.</p>
+                        <p className="text-[85%] lg:text-xl">
+                            Esse texto é meramente ilustrativo. No Bom Pra Cachorro, transformamos abandono em recomeço.
+                            Cuidamos de cães que esperam apenas por uma chance de amar e ser amados.
+                        </p>
                     </div>
                 </div>
             </div>
 
             {/* White box with pink portal of who we are */}
-            <div className="flex flex-row items-end justify-around relative
-            lg:w-full lg:h-[90vh]">
-                <div className="atext-[#4b4b4b] 
-                lg:mb-[28vh] lg:w-[30vw]">
-                    <p className="lg:text-5xl">Quem somos</p>
-                    <img src="" alt="" />
+            <div className="w-full h-[30vh] lg:h-[90vh] flex items-center justify-between px-[5vw]">
+                <div className="text-[#4b4b4b] w-[50vw] lg:w-[42vw]">
+                    <p className="text-xl lg:text-5xl font-bold">Quem somos</p>
                     <br />
                     <div className="lg:w-[30vw]">
-                        <p className="lg:text-xl">Esse texto é meramente ilustrativo. No Bom Pra Cachorro, transformamos abandono em recomeço. Cuidamos de cães que esperam apenas por uma chance de amar e ser amados.</p>
+                        <p className="text-[85%] lg:text-xl">
+                            Esse texto é meramente ilustrativo. No Bom Pra Cachorro, transformamos abandono em recomeço.
+                            Cuidamos de cães que esperam apenas por uma chance de amar e ser amados.
+                        </p>
                     </div>
                 </div>
-                <div className="bg-[#e13ea7]
-                lg:w-[33vw] lg:h-[80vh] rounded-t-[300px]">
 
+                <div className="bg-[#e13ea7] rounded-t-[300px]
+                    w-[30vw] h-[20vh] 
+                    lg:w-[33vw] lg:h-[80vh]">
                 </div>
+
             </div>
 
 
