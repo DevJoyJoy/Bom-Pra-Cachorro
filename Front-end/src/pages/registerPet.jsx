@@ -88,7 +88,7 @@ export const RegisterPet = () => {
             
             {/* Box for all the image inputs */}
             <div className="flex flex-col mt-3 gap-4 
-            w-full h-full overflow-scroll
+            w-full h-full overflow-y-scroll
             md:items-center 
             lg:flex-row lg:h-[80%] lg:mt-[-5%]">
                 <div className="flex flex-col items-center 
