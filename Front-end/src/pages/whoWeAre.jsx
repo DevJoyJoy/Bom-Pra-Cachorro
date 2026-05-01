@@ -71,10 +71,10 @@ export const WhoWeAre = () => {
                 w-[25vw]
                 md:w-[26vw]
                 lg:w-[25vw]">
-                    <div className="bg-white rounded-xl aspect-square
+                    <img src="/dog_WhoWeAre.png" className="bg-white rounded-xl aspect-square
                     w-[20vw]
                     md:w-[22vw]
-                    lg:w-[22vw]"></div>
+                    lg:w-[22vw]" alt="" />
                     <p className="text-[1vh] md:text-xl">Cachorrinho num 1</p>
                 </div>
 
@@ -83,10 +83,10 @@ export const WhoWeAre = () => {
                 w-[25vw]
                 md:w-[26vw]
                 lg:w-[25vw]">
-                    <div className="bg-white rounded-xl aspect-square
+                    <img src="/dog_WhoWeAre.png" className="bg-white rounded-xl aspect-square
                     w-[20vw]
                     md:w-[22vw]
-                    lg:w-[22vw]"></div>
+                    lg:w-[22vw]" alt="" />
                     <p className="text-[1vh] md:text-xl">Cachorrinho num 2</p>
                 </div>
 
@@ -95,20 +95,21 @@ export const WhoWeAre = () => {
                 w-[25vw]
                 md:w-[26vw]
                 lg:w-[25vw]">
-                    <div className="bg-white rounded-xl aspect-square
+                    <img src="/dog_WhoWeAre.png" className="bg-white rounded-xl aspect-square
                     w-[20vw]
                     md:w-[22vw]
-                    lg:w-[22vw]"></div>
+                    lg:w-[22vw]" alt="" />
                     <p className="text-[1vh] md:text-xl">Cachorrinho num 3</p>
                 </div>
             </div>
 
             {/* White box with recicle */}
-            <div className="flex items-center justify-end p-[5vw]
+            <div className="flex items-center justify-between p-[5vw]
             w-full min-h-[35vh]
             md:min-h-[40vh] 
             lg:h-[90vh]">
-
+                
+                <img src="/paperCicle.png" className="" alt="" />
                 {/* Div with all the texts */}
                 <div className="text-[#4b4b4b] w-[40vw] lg:w-[42vw]">
                     <p className="text-xl md:text-3xl lg:text-5xl font-bold">Reciclagem</p>
