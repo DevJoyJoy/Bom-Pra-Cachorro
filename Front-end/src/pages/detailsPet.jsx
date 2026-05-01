@@ -60,20 +60,57 @@ export const DetailsPetPage = () => {
                             <div className="my-3 h-0.5 w-full bg-[#9cd7e1]"></div>
                         </div>
                     </div>
-                    <div className="w-full h-max min-h-30 mb-8">
+                    <div className="w-full h-max min-h-30 mb-3">
                         <div className="md:hidden my-5 h-0.5 w-full bg-[#9cd7e1]"></div>
-                        <h1 className="mt-4 mb-2 text-xl text-[#0097b2] text-center md:text-start">Sobre mim</h1>
+                        <h1 className="mt-4 mb-4 text-xl text-[#0097b2] text-center md:text-start">Sobre mim</h1>
                         <p className="text-[#4b4b4b] text-center md:text-start">
                             Eu fui resgatado e sei la o que, texto meramente ilustrativo. Finge que tem alguma coisa bem seria e emocionante aqui nesse container. Um beijo :)
                             Eu fui resgatado e sei la o que, texto meramente ilustrativo. Finge que tem alguma coisa bem seria e emocionante aqui nesse container. Um beijo :)
                         </p>
                     </div>
-                    <div className="w-full bg-[#daeef5] rounded-2xl min-h-20 h-max py-3 px-5">
+                    <div className="h-6 flex items-center">
+                        <div className="h-0.5 w-full bg-[#9cd7e1]"></div>
+                    </div>
+                    <div className="w-full bg-[#daeef5] rounded-2xl min-h-20 h-max py-3 px-5 my-5">
                         <h1 className="text-xl text-[#0097b2]">Nivel de energia</h1>
                         <div className="h-10 my-4 md:h-15 md:my-6 flex flex-row justify-center">
                             <img className="mx-2" src="../../public/patinha3.png"></img>
                             <img className="mx-2" src="../../public/patinha2.png"></img>
                             <img className="mx-2" src="../../public/patinha2.png"></img>
+                        </div>
+                    </div>
+                    <div className="w-full bg-[#daeef5] rounded-2xl min-h-20 h-max py-3 px-5 my-5">
+                        <h1 className="text-xl text-[#0097b2]">Comportamentos</h1>
+                        <div className="my-4 ml-1 md:my-6 flex flex-col justify-center gap-2">
+                            <div>
+                                <i className="bi bi-check-circle-fill text-2xl text-[#43d74d] mr-3"></i>
+                                <span className="text-[#4b4b4b] align-super">Se dá bem com outros cães</span>
+                            </div>
+                            <div>
+                                <i className="bi bi-x-circle-fill text-2xl text-red-500 mr-3"></i>
+                                <span className="text-[#4b4b4b] align-super">Não se dá bem com crianças</span>
+                            </div>
+                            <div>
+                                <i className="bi bi-check-circle-fill text-2xl text-[#43d74d] mr-3"></i>
+                                <span className="text-[#4b4b4b] align-super">Se dá bem com gatos</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="w-full bg-[#daeef5] rounded-2xl min-h-20 h-max py-3 px-5 my-5">
+                        <h1 className="text-xl text-[#0097b2]">Saúde</h1>
+                        <div className="my-4 ml-1 md:my-6 flex flex-col justify-center gap-2">
+                            <div>
+                                <i className="bi bi-check-circle-fill text-2xl text-[#43d74d] mr-3"></i>
+                                <span className="text-[#4b4b4b] align-super">Vacinado</span>
+                            </div>
+                            <div>
+                                <i className="bi bi-check-circle-fill text-2xl text-[#43d74d] mr-3"></i>
+                                <span className="text-[#4b4b4b] align-super">Vermifugado</span>
+                            </div>
+                            <div>
+                                <i className="bi bi-x-circle-fill text-2xl text-red-500 mr-3"></i>
+                                <span className="text-[#4b4b4b] align-super">Não castrado</span>
+                            </div>
                         </div>
                     </div>
                 </div>
