@@ -43,8 +43,18 @@ export const DetailsPetPage = () => {
                             <label className="text-[#4b4b4b]">Macho</label>
                         </div>
                     </div>
-                    <button className="bg-[#0097b2] w-full rounded-xl text-white py-3 my-1 ">Quero adotar</button>
-                    <button className="bg-white border-[#0097b2] border-2 w-full rounded-xl text-[#0097b2] py-3 my-1 ">Quero apadrinhar</button>
+
+
+                    <button className="bg-[#0097b2] w-full rounded-xl text-xl text-white py-3 my-1 hover:bg-[#007c93] active:bg-[#00677a] ">Quero adotar</button>
+                        <div className="relative group w-full">
+                    <button className="bg-white flex items-center justify-center border-[#0097b2] border-2 text-xl w-full rounded-xl text-[#0097b2] py-3 my-1 hover:bg-[#c8eaf0] active:bg-[#a7dbe5] ">
+                        Quero apadrinhar
+                            <i className="bi bi-info-circle align-middle ml-3"></i>
+                            <div className="absolute left-0 top-full mt-2 w-full hidden group-hover:block bg-white shadow-lg p-4 rounded text-[#4b4b4b] text-lg">
+                                *Explicando o que é apadrinhamento...*
+                            </div>
+                    </button>
+                        </div>
                     <div className="flex flex-row">
                         <i className="bi-exclamation-triangle text-[#4b4b4b]"></i>
                         <span className="text-[#4b4b4b] ml-2 mb-5">Adoção responsável</span>
@@ -82,15 +92,15 @@ export const DetailsPetPage = () => {
                     <div className="w-full bg-[#daeef5] rounded-2xl min-h-20 h-max py-3 px-5 my-5">
                         <h1 className="text-xl text-[#0097b2]">Comportamentos</h1>
                         <div className="my-4 ml-1 md:my-6 flex flex-col justify-center gap-2">
-                            <div>
+                            <div className="flex items-center">
                                 <i className="bi bi-check-circle-fill text-2xl text-[#43d74d] mr-3"></i>
                                 <span className="text-[#4b4b4b] align-super">Se dá bem com outros cães</span>
                             </div>
-                            <div>
+                            <div className="flex items-center">
                                 <i className="bi bi-x-circle-fill text-2xl text-red-500 mr-3"></i>
                                 <span className="text-[#4b4b4b] align-super">Não se dá bem com crianças</span>
                             </div>
-                            <div>
+                            <div className="flex items-center">
                                 <i className="bi bi-check-circle-fill text-2xl text-[#43d74d] mr-3"></i>
                                 <span className="text-[#4b4b4b] align-super">Se dá bem com gatos</span>
                             </div>
@@ -99,28 +109,24 @@ export const DetailsPetPage = () => {
                     <div className="w-full bg-[#daeef5] rounded-2xl min-h-20 h-max py-3 px-5 my-5">
                         <h1 className="text-xl text-[#0097b2]">Saúde</h1>
                         <div className="my-4 ml-1 md:my-6 flex flex-col justify-center gap-2">
-                            <div>
+                            <div className="flex items-center">
                                 <i className="bi bi-check-circle-fill text-2xl text-[#43d74d] mr-3"></i>
-                                <span className="text-[#4b4b4b] align-super">Vacinado</span>
+                                <span className="text-[#4b4b4b]">Vacinado</span>
                             </div>
-                            <div>
+                            <div className="flex items-center">
                                 <i className="bi bi-check-circle-fill text-2xl text-[#43d74d] mr-3"></i>
                                 <span className="text-[#4b4b4b] align-super">Vermifugado</span>
                             </div>
-                            <div>
+                            <div className="flex items-center">
                                 <i className="bi bi-x-circle-fill text-2xl text-red-500 mr-3"></i>
                                 <span className="text-[#4b4b4b] align-super">Não castrado</span>
                             </div>
                         </div>
                     </div>
+                    <div className="h-10 w-full"></div>
                 </div>
-
-
-
-
-            </div>
-
+            </div >
             <Footer></Footer>
-        </div>
+        </div >
     )
 }
