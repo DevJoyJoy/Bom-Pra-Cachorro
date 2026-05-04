@@ -11,18 +11,20 @@ export const WhoWeAre = () => {
             <Header open={menuOpen} setOpen={setMenuOpen}></Header>
 
             {/* Blue box of who we are */}
-            <div className="bg-[#b6e7ef] flex items-center justify-end px-[5vw]
+            <div className="bg-[#b6e7ef] flex items-center justify-between px-[5vw] py-5
             w-full min-h-[30vh]
             md:min-h-[35vh]
             lg:h-[80vh]">
+                <img src="/mainDog_WhoWeAre.png" className="w-[45vw] md:w-[50vw] lg:w-[35vw]" alt="" />
                 {/* Div with all the texts */}
                 <div className="text-[#4b4b4b] 
                 w-[55vw] 
                 md:w-[50vw]
                 lg:w-[45vw]">
-                    <p className="font-bold text-xl md:text-3xl lg:text-5xl">Quem somos</p>
+                    <img src="/paw_WhoWeAre.png" className="absolute w-[50vw] bottom-55 md:w-[35vw] md:bottom-30 md:right-10 lg:w-[30vw] lg:bottom-20 lg:right-5" alt="" />
+                    <p className="relative font-bold text-xl md:text-3xl lg:text-5xl">Quem somos</p>
                     <br />
-                    <div className="lg:w-[30vw]">
+                    <div className="relative lg:w-[30vw]">
                         <p className="text-[85%] md:text-xl lg:text-xl">
                             Esse texto é meramente ilustrativo. No Bom Pra Cachorro, transformamos abandono em recomeço.
                             Cuidamos de cães que esperam apenas por uma chance de amar e ser amados.
@@ -32,7 +34,7 @@ export const WhoWeAre = () => {
             </div>
 
             {/* White box with pink portal of who we are */}
-            <div className="flex items-center justify-between px-[5vw] 
+            <div className="flex items-center justify-between px-[5vw] py-5
             w-full min-h-[30vh]
             md:min-h-[35vh] 
             lg:h-[90vh] ">
@@ -53,10 +55,12 @@ export const WhoWeAre = () => {
                 </div>
 
                 {/* Pink portal with dog */}
-                <div className="bg-[#ff66c4] rounded-t-[300px]
-                    w-[35vw] h-[25vh] mb-0
-                    md:w-[30vw] md:h-[30vh]
-                    lg:w-[33vw] lg:h-[80vh]">
+                <div className="bg-[#ff66c4] rounded-t-[300px] 
+                w-[35vw] h-[25vh] 
+                md:w-[30vw] md:h-[30vh] 
+                lg:w-[33vw] lg:h-[80vh]
+                flex justify-center items-end"> 
+                    <img src="/portalDog_WhoWeAre.png" className="h-[90%] w-auto object-contain" alt=""/>
                 </div>
             </div>
 
@@ -107,9 +111,9 @@ export const WhoWeAre = () => {
             <div className="flex items-center justify-between p-[5vw]
             w-full min-h-[35vh]
             md:min-h-[40vh] 
-            lg:h-[90vh]">
+            lg:h-[85vh] lg:pb-35">
                 
-                <img src="/paperCicle.png" className="" alt="" />
+                <img src="/paperCicle.png" className="w-[45vw] md:w-[50vw] lg:w-[35vw] h-auto object-contain mx-auto" alt=""/>                
                 {/* Div with all the texts */}
                 <div className="text-[#4b4b4b] w-[40vw] lg:w-[42vw]">
                     <p className="text-xl md:text-3xl lg:text-5xl font-bold">Reciclagem</p>
