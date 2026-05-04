@@ -22,7 +22,7 @@ export const Header = ({ open, setOpen }) => {
                 <section className="hidden md:flex gap-6 text-lg">
                     <Link to="/Pets">Adote</Link>
                     <Link to="/Help">Como Ajudar</Link>
-                    <Link to="/LearnMore">Saiba Mais</Link>
+                    <Link to="/WhoWeAre">Saiba Mais</Link>
                 </section>
 
                 {/* BOTÃO MOBILE */}

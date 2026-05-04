@@ -4,7 +4,6 @@ import { RegisterLogin } from "./pages/registerLogin"
 import { RegisterPet } from "./pages/registerPet"
 import { FindAnimals } from "./pages/findAnimals"
 import { Help } from "./pages/helpPage"
-import { LearnMore } from "./pages/learnMore"
 import { DetailsPetPage } from "./pages/detailsPet"
 import { WhoWeAre } from "./pages/whoWeAre"
 
@@ -19,7 +18,6 @@ function App() {
           <Route path="/Pets" element={<FindAnimals />}></Route>         
           <Route path="/DetailsPet" element={<DetailsPetPage/>}></Route>
           <Route path="/Help" element={<Help />}></Route>
-          <Route path="/LearnMore" element={<LearnMore />}></Route>
           <Route path="/WhoWeAre" element={<WhoWeAre />}></Route>
         </Routes>
       </BrowserRouter>
