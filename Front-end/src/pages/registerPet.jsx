@@ -195,13 +195,10 @@ export const RegisterPet = () => {
                         <div className="flex flex-row">
                             <p className="text-[100%] md:text-3xl lg:text-xl">Castrado?</p>
                             <input type="checkbox" onChange={(e) => setIsCastrated(e.target.value)} className="w-[30%] md:text-3xl bg-[#cfcccc]"/>
-                        </div>
-                        <br />
-                        <div className="flex flex-row">
-                            <p className="text-[100%] mr-3 md:text-3xl lg:mr-9.5 lg:text-xl">Sexo</p>
+                            <p className="text-[100%] mr-3 md:text-3xl lg:mr-9.5 lg:text-xl">Sexo:</p>
                             <p className="text-[100%] md:text-3xl lg:text-xl">F</p>
                             <input type="checkbox" onChange={(e) => setSex(e.target.value)} className="rounded-xl w-[30%] bg-[#cfcccc]"/>
-                            <p className="text-[100%] ml-2 md:text-3xl lg:text-xl">M</p>
+                            <p className="text-[100%] md:text-3xl lg:text-xl">M</p>
                             <input type="checkbox" onChange={(e) => setSex(e.target.value)} className=" rounded-xl w-[30%] bg-[#cfcccc]"/>
                         </div>
                         <br />
