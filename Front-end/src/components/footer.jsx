@@ -5,8 +5,8 @@ export const Footer = () => {
 
     return(
         <>
-            <div className="bg-[#f3df2a] w-full h-30 flex items-center justify-between p-5">
-                <section className="text-gray text-sm md:text-xl flex flex-col">
+            <div className="bg-[#f3df2a] w-full h-30 md:h-35 flex items-center justify-between p-5">
+                <section className="text-gray text-sm md:text-lg lg:text-md flex flex-col">
                     <button onClick={() => navigate('/')} className="self-start cursor-pointer">Home</button>
                     <button onClick={() => navigate('/Help')} className="self-start cursor-pointer">Como ajudar</button>
                     <button onClick={() => navigate('/WhoWeAre')} className="self-start cursor-pointer">Perguntas gerais</button>
@@ -17,7 +17,7 @@ export const Footer = () => {
                 </button>
                     
 
-                <section className="text-gray text-sm md:text-xl flex flex-col items-end text-right">
+                <section className="text-gray text-sm md:text-lg lg:text-md flex flex-col items-end text-right">
                     <button onClick={() => navigate('/Pets')} className="cursor-pointer">Adotar</button>
                     <button onClick={() => navigate('/WhoWeAre')} className="cursor-pointer">Nossa história</button>
                     <a href="https://www.instagram.com/papelbompracachorro?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" className="cursor-pointer">@bompracachorro</a>
