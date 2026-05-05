@@ -7,12 +7,12 @@ export const Header = ({ open, setOpen }) => {
     return(
         <div className="w-full bg-[#ff66c4] text-white">
 
-            <div className="h-[9vh] flex justify-between items-center px-5 md:px-10">
+            <div className="h-18 flex justify-between items-center px-5 md:px-10">
                 <section 
                     className="flex gap-2 items-center cursor-pointer"
                     onClick={() => navigate("/")}
                 >
-                    <img src="/icon paw.png" className="w-[10vw] md:w-[4vw]" />
+                    <img src="/icon paw.png" className="w-12   " />
                     <h1 className="text-lg md:text-2xl lg:text-3xl font-arturo">
                         Bom pra Cachorro
                     </h1>
