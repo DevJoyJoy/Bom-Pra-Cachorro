@@ -8,7 +8,6 @@ export const RegisterPet = () => {
     const [image2, setImage2] = useState(null);
     const [image3, setImage3] = useState(null);
     const [image4, setImage4] = useState(null);
-    const [isModalOpen, setIsModalOpen] = useState(false);
     const [isAnimalsOpen, setIsAnimalsOpen] = useState(false);
     const [isBreedsOpen, setIsBreedsOpen] = useState(false);
     //const [name, setName] = useState("");
@@ -76,7 +75,7 @@ export const RegisterPet = () => {
         
         {/* White box */}
         <div className="flex flex-col items-center justify-start p-3
-        w-auto h-[91vh] max-h-[95vh] 
+        w-auto h-[87vh] max-h-[95vh] 
         lg:pl-10
         ">
             <h1 className="pt-3 lg:pb-3 font-bold breeSerif
@@ -93,14 +92,26 @@ export const RegisterPet = () => {
             lg:flex-row lg:h-[80%] lg:mt-[-5%]">
                 <div className="flex flex-col items-center 
                 w-full h-[50%]
-                md:w-[60%] md:h-[40%] 
+                md:w-[60%] md:h-[95%] 
                 lg:h-[70%] lg:w-[20%] lg:mt-15">
                 {/* Main image input box */}
                 <label className="relative flex flex-col items-center justify-center overflow-hidden border-4 border-dashed border-[#4b4b4b] rounded-2xl cursor-pointer transition-colors hover:bg-[#e7e7e7]
                 w-[90%] h-[75%] 
                 lg:w-full lg:h-[70%]">
                     {image1 ? (
-                    <img src={image1} className="w-full h-full object-cover" />
+                        <>
+                            <img src={image1} className="w-full h-full object-cover" />
+                            <button type="button"
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    e.stopPropagation();
+                                    setImage1(null);
+                                }}
+                                className="absolute top-1 right-1 bg-red-800 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold hover:bg-red-900 z-10"
+                                >
+                                X
+                            </button>
+                        </>
                     ) : (
                     <>
                         <span className="text-5xl text-[#4b4b4b] md:text-7xl">+</span>
@@ -121,7 +132,19 @@ export const RegisterPet = () => {
                     md:h-full md:w-26 
                     lg:w-30 lg:h-15">
                     {image2 ? (
-                        <img src={image2} className="w-full h-full object-cover" />
+                        <>
+                            <img src={image2} className="w-full h-full object-cover" />
+                            <button type="button"
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    e.stopPropagation();
+                                    setImage2(null);
+                                }}
+                                className="absolute top-1 right-1 bg-red-800 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold hover:bg-red-900 z-10"
+                                >
+                                X
+                            </button>
+                        </>
                     ) : (
                         <span className="text-xl text-[#4b4b4b] md:text-5xl lg:text-3xl">+</span>
                     )}
@@ -134,7 +157,19 @@ export const RegisterPet = () => {
                     md:h-full md:w-26 
                     lg:w-30 lg:h-15">
                     {image3 ? (
-                        <img src={image3} className="w-full h-full object-cover" />
+                        <>
+                            <img src={image3} className="w-full h-full object-cover" />
+                            <button type="button"
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    e.stopPropagation();
+                                    setImage3(null);
+                                }}
+                                className="absolute top-1 right-1 bg-red-800 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold hover:bg-red-900 z-10"
+                                >
+                                X
+                            </button>
+                        </>
                     ) : (
                         <span className="text-xl text-[#4b4b4b] md:text-5xl lg:text-3xl">+</span>
                     )}
@@ -142,12 +177,25 @@ export const RegisterPet = () => {
                     </label>
 
                     {/* Forth image input */}
+                    
                     <label className="relative flex flex-col items-center justify-center overflow-hidden border-4 border-dashed border-[#4b4b4b] rounded-2xl cursor-pointer transition-colors hover:bg-[#e7e7e7]
                     w-18 h-18 
                     md:h-25 md:w-26 
                     lg:w-30 lg:h-15">
                     {image4 ? (
-                        <img src={image4} className="w-full h-full object-cover" />
+                        <>
+                            <img src={image4} className="w-full h-full object-cover" />
+                            <button type="button"
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    e.stopPropagation();
+                                    setImage4(null);
+                                }}
+                                className="absolute top-1 right-1 bg-red-800 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold hover:bg-red-900 z-10"
+                                >
+                                X
+                            </button>
+                        </>
                     ) : (
                         <span className="text-xl text-[#4b4b4b] md:text-5xl lg:text-3xl">+</span>
                     )}
@@ -155,6 +203,7 @@ export const RegisterPet = () => {
                     </label>
                 </div>
                 </div>
+
                 {/* Box for all the text/animal info inputs */}
                 <div className="flex flex-row 
                 w-[93vw] h-[40%] 
@@ -188,13 +237,27 @@ export const RegisterPet = () => {
                         <br />
                     </div>
                     <div className="w-[55%] p-3">
-                        <p className="text-[100%] md:text-3xl lg:text-xl">Data de nascimento</p>
-                        <input type="date" onChange={(e) => setBirthDate(e.target.value)} className="rounded-xl w-full lg:w-[90%] md:text-3xl lg:text-xl bg-[#cfcccc]"/>
-                        <br />
+                        <p className="hidden lg:block lg:text-xl">Idade</p>
+                        <div className="flex flex-col lg:flex-row lg:gap-11">
+                            <p className="text-[100%] md:text-3xl lg:text-xl">Anos</p>
+                            <select className="rounded-xl w-full lg:w-[20%] md:text-3xl lg:text-xl bg-[#cfcccc]">
+                                {Array.from({ length: 26 }, (_, i) => (
+                                    <option key={i} value={i}>
+                                    {i}
+                                    </option>
+                                ))}
+                            </select>
+                            <p className="text-[100%] md:text-3xl lg:text-xl">Meses</p>
+                            <select className="rounded-xl w-full lg:w-[20%] md:text-3xl lg:text-xl bg-[#cfcccc]">
+                                {Array.from({ length: 26 }, (_, i) => (
+                                    <option key={i} value={i}>
+                                    {i}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
                         <br />
                         <div className="flex flex-row">
-                            <p className="text-[100%] md:text-3xl lg:text-xl">Castrado?</p>
-                            <input type="checkbox" onChange={(e) => setIsCastrated(e.target.value)} className="w-[30%] md:text-3xl bg-[#cfcccc]"/>
                             <p className="text-[100%] mr-3 md:text-3xl lg:mr-9.5 lg:text-xl">Sexo:</p>
                             <p className="text-[100%] md:text-3xl lg:text-xl">F</p>
                             <input type="checkbox" onChange={(e) => setSex(e.target.value)} className="rounded-xl w-[30%] bg-[#cfcccc]"/>
@@ -203,48 +266,17 @@ export const RegisterPet = () => {
                         </div>
                         <br />
                         <p className="text-[100%] mr-3 md:text-3xl lg:text-xl">Descrição</p>
-                        <textarea type="text" className="rounded-xl w-[105%] lg:w-[90%] h-[33%] lg:h-[37%] md:text-3xl lg:text-xl bg-[#cfcccc]"/>
+                        <textarea type="text" className="rounded-xl w-full lg:w-[90%] h-[70%] lg:h-[63%] md:text-3xl lg:text-xl bg-[#cfcccc]"/>
                     </div>
                 </div>
             </div>
                 <div className="flex justify-center w-full h-[8%] md:h-22 lg:h-[10%] lg:mt-7 lg:w-[50%]">
-                    <button onClick={() => setIsModalOpen(true)} className="px-6 py-2 md:w-[70%] lg:w-[70%] md:h-full text-white font-bold md:text-4xl lg:text-xl rounded-full cursor-pointer transition-colors bg-[#0097b2] hover:bg-[#015b6b] arturo">
-                    Salvar e cadastrar
+                    <button onClick={() => navigate('/Register2')} className="px-6 py-2 md:w-[70%] lg:w-[70%] md:h-full text-white font-bold md:text-4xl lg:text-xl rounded-full cursor-pointer transition-colors bg-[#0097b2] hover:bg-[#015b6b] arturo">
+                    Continuar
                     </button>
                 </div>
             </div>
         
-
-        {/* Main modal for after register*/}
-        {isModalOpen && (
-        <div className="fixed inset-0 z-1 flex items-center justify-center">
-            {/* Dark background */}
-            <div className="absolute inset-0 bg-black opacity-60"></div>
-
-            {/* Modal white box */}
-            <div className="z-1 flex flex-col items-center p-8 bg-white rounded-2xl
-            w-[80%] 
-            lg:w-[40%]">
-            <h2 className="mb-4 lg:text-2xl font-bold">Sucesso!</h2>
-            <p className="mb-6 text-center">
-                O pet foi cadastrado com sucesso!
-            </p>
-            <div className="flex flex-col items-center justify-between w-full">
-                <button onClick={() => {setIsModalOpen(false); navigate('/Pets')} } className="px-6 py-2 text-white font-bold rounded-full cursor-pointer transition-colors bg-[#0097b2] hover:bg-[#015b6b] arturo
-                md:text-2xl 
-                lg:text-xl  lg:w-[70%]">
-                Voltar aos pets
-                </button>
-                <br />
-                <button onClick={() => setIsModalOpen(false)} className="px-6 py-2 text-white font-bold rounded-full cursor-pointer transition-colors bg-[#0097b2] hover:bg-[#015b6b] arturo
-                md:text-2xl 
-                lg:text-xl lg:w-[70%]">
-                Continuar cadastro
-                </button>
-            </div>
-            </div>
-        </div>
-        )}
 
         {/* Modal for after new animal register*/}
         {isAnimalsOpen && (

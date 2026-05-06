@@ -42,11 +42,11 @@ export const RegisterLogin = () => {
 
       {/* Main content box */}
       <div className="flex
-        w-screen h-[91vh] items-center justify-center
+        w-full h-[91vh] items-center justify-center
         lg:flex-row">
           {/* Texts box */}
           <div className="flex flex-col items-center justify-center 
-            lg:h-[91vh] lg:w-[70%]"
+            lg:h-[87.5vh] lg:w-[70%]"
             >
             <p className="text-3xl lg:text-3xl md:text-5xl">Cadastro de animais:</p>
             <br />
@@ -76,7 +76,7 @@ export const RegisterLogin = () => {
           {/* Image (only on desktop)*/}
           <img src="/DogLogin.png" alt="" className="h-0 w-0
             md:h-0 md:w-0
-            lg:h-[91vh] lg:w-[35%]
+            lg:h-full lg:w-[35%]
             "/>
       </div>
     </div>
