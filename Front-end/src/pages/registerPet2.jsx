@@ -36,57 +36,60 @@ export const RegisterPet2 = () => {
             {/* Box for all the inputs */}
             <div className="flex flex-col mt-3 gap-4 
             w-full h-full overflow-y-scroll
-            md:items-center 
-            lg:flex-row lg:h-[80%] lg:mt-[-5%]">
+            lg:flex-row lg:h-[80%] lg:mt-[-5%] lg:items-center">
 
+                {/* Second box for inputs */}
                 <div className="flex flex-col 
                 w-[93vw] h-full 
-                md:h-[50vh] md:gap-10
-                lg:w-[75vw] lg:h-[60%] lg:gap-5 lg:pl-10">
+                lg:w-[75vw] lg:h-[60%] lg:gap-5 lg:pl-10 lg:flex-row lg:items-center">
+                    {/* Box for energy level */}
                     <div>
-                        <p className="text-[100%] md:text-3xl lg:text-xl">Nível de energia</p>
+                        <p className="text-[100%] md:text-3xl lg:text-2xl lg:mb-3">Nível de energia</p>
                         <div className="bg-[#9cd7e1] rounded-2xl flex items-center justify-center flex-col
-                        w-full h-[20vh]">
-                            <input type="range" min="0" max="2" value={valor} onChange={(e) => setValor(e.target.value)} className="w-[70vw]"/>
+                        w-full h-[20vh]
+                        lg:w-[30vw] lg:h-[30vh]">
+                            <input type="range" min="0" max="2" value={valor} onChange={(e) => setValor(e.target.value)} className="w-[70vw] lg:w-[25vw]"/>
                             <br />
-                            <p>{text[valor]}</p>
+                            <p className="lg:text-xl">{text[valor]}</p>
                         </div>
                     </div>
-
+                    {/* Box for behavior */}
                     <div>
-                        <p className="text-[100%] md:text-3xl lg:text-xl">Comportamentos</p>
+                        <p className="text-[100%] md:text-3xl lg:text-2xl lg:mb-3">Comportamentos</p>
                         <div className="bg-[#9cd7e1] rounded-2xl flex items-center justify-center flex-col
-                        w-full h-[20vh] gap-2">
+                        w-full h-[20vh] gap-2
+                        lg:w-[25vw] lg:h-[30vh] lg:items-start lg:justify-center">
                             <section className="flex flex-row">
                                 <input type="checkbox" className="rounded-xl w-[8vw] bg-[#cfcccc]"/>
-                                <p className="text-[80%]">Se dá bem com crianças</p>
+                                <p className="text-[80%] lg:text-[110%]">Se dá bem com crianças</p>
                             </section>
                             <section className="flex flex-row">
                                 <input type="checkbox" className="rounded-xl w-[8vw] bg-[#cfcccc]"/>
-                                <p className="text-[80%]">Se dá bem com outros cães</p>
+                                <p className="text-[80%] lg:text-[110%]">Se dá bem com outros cães</p>
                             </section>
                             <section className="flex flex-row">
                                 <input type="checkbox" className="rounded-xl w-[8vw] bg-[#cfcccc]"/>
-                                <p className="text-[80%]">Se dá bem com outros animais</p>
+                                <p className="text-[80%] lg:text-[110%]">Se dá bem com outros animais</p>
                             </section>
                         </div>
                     </div>
-
+                    {/* Box for health */}
                     <div>
-                        <p className="text-[100%] md:text-3xl lg:text-xl">Saúde</p>
+                        <p className="text-[100%] md:text-3xl lg:text-2xl lg:mb-3">Saúde</p>
                         <div className="bg-[#9cd7e1] rounded-2xl flex items-center justify-center flex-row
-                        w-full h-[10vh] gap-2">
+                        w-full h-[10vh] gap-2
+                        lg:w-[30vw] lg:h-[30vh] lg:gap-6 lg:flex-col lg:items-start lg:justify-center">
                             <section className="flex flex-row">
                                 <input type="checkbox" className="rounded-xl w-[8vw] bg-[#cfcccc]"/>
-                                <p className="text-[80%]">Castrado</p>
+                                <p className="text-[80%] lg:text-xl">Castrado</p>
                             </section>
                             <section className="flex flex-row">
                                 <input type="checkbox" className="rounded-xl w-[8vw] bg-[#cfcccc]"/>
-                                <p className="text-[80%]">Vacinado</p>
+                                <p className="text-[80%] lg:text-xl">Vacinado</p>
                             </section>
                             <section className="flex flex-row">
                                 <input type="checkbox" className="rounded-xl w-[8vw] bg-[#cfcccc]"/>
-                                <p className="text-[80%]">Vermifugado</p>
+                                <p className="text-[80%] lg:text-xl">Vermifugado</p>
                             </section>
                         </div>
                     </div>

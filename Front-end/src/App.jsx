@@ -7,6 +7,7 @@ import { Help } from "./pages/helpPage"
 import { DetailsPetPage } from "./pages/detailsPet"
 import { WhoWeAre } from "./pages/whoWeAre"
 import { RegisterPet2 } from "./pages/registerPet2"
+import { AvaliablePets } from "./pages/availablePets"
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/DetailsPet" element={<DetailsPetPage/>}></Route>
           <Route path="/Help" element={<Help />}></Route>
           <Route path="/WhoWeAre" element={<WhoWeAre />}></Route>
+          <Route path="/EditPets" element={<AvaliablePets />}></Route>
         </Routes>
       </BrowserRouter>
     </>
