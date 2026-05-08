@@ -1,9 +1,36 @@
 import { useState } from "react";
 import { Header } from "../components/header";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 export const AvaliablePets = () => {
     const navigate = useNavigate();
+    const [isDeleting, setIsDeleting] = useState(false);
+
+    const confirmDelete = (petName) => {
+        Swal.fire({
+            title: `Deletar ${petName}?`,
+            text: "Você não poderá reverter esta ação!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#972222",
+            cancelButtonColor: "#0097b2",
+            confirmButtonText: "Sim, deletar!",
+            cancelButtonText: "Cancelar",
+            reverseButtons: true,
+            borderRadius: "1rem",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                    title: "Deletado!",
+                    text: "O pet foi deletado da lista.",
+                    icon: "success",
+                    timer: 2000,
+                    showConfirmButton: false,
+                });
+            }
+        });
+    };
 
     return (
         <div className="flex flex-col bg-white 
@@ -37,101 +64,18 @@ export const AvaliablePets = () => {
                     </div>
                     {/* Box for buttons */}
                     <div className="flex gap-1 ml-auto self-start p-2">
-                        <button className="bg-[#868585] text-white flex items-center justify-center p-3 rounded-[30%] cursor-pointer hover:bg-[#5f5f5f]
+                        <button onClick={() => navigate("/Register")} className="bg-[#868585] text-white flex items-center justify-center p-3 rounded-[30%] cursor-pointer hover:bg-[#5f5f5f]
                         w-[5vw] h-[4vh]
                         md:h-[6vh]
                         lg:w-[3vw]">!</button>
-                        <button className="bg-[#972222] text-white flex items-center justify-center p-3 rounded-[30%] cursor-pointer hover:bg-[#661616]
+                        <button onClick={() => confirmDelete("Doguinho")} className="bg-[#972222] text-white flex items-center justify-center p-3 rounded-[30%] cursor-pointer hover:bg-[#661616]
                         w-[5vw] h-[4vh]
                         md:h-[6vh]
                         lg:w-[3vw]">X</button>
                     </div>
                 </div>
 
-                {/* Dogs for overflow test */}
-                <div className="bg-[#e7e7e7] rounded-2xl gap-2 shadow-xl flex flex-row
-                w-[90vw] h-[15vh]">
-                    <img src="/dog_WhoWeAre.png" className="rounded-2xl" alt=""/>
-                    <div className="flex flex-col text-[80%]">
-                        <p className="font-semibold text-[130%] lg:text-2xl">Doguinho</p>
-                        <p className="lg:text-xl">Idade: </p>
-                        <p className="lg:text-xl">Raça: </p>
-                    </div>
-                    {/* Box for buttons */}
-                    <div className="flex gap-1 ml-auto self-start p-2">
-                        <button className="bg-[#868585] text-white flex items-center justify-center p-3 rounded-[30%] cursor-pointer hover:bg-[#5f5f5f]
-                        w-[5vw] h-[4vh]
-                        md:h-[6vh]
-                        lg:w-[3vw]">!</button>
-                        <button className="bg-[#972222] text-white flex items-center justify-center p-3 rounded-[30%] cursor-pointer hover:bg-[#661616]
-                        w-[5vw] h-[4vh]
-                        md:h-[6vh]
-                        lg:w-[3vw]">X</button>
-                    </div>
-                </div>
-
-                <div className="bg-[#e7e7e7] rounded-2xl gap-2 shadow-xl flex flex-row
-                w-[90vw] h-[15vh]">
-                    <img src="/dog_WhoWeAre.png" className="rounded-2xl" alt=""/>
-                    <div className="flex flex-col text-[80%]">
-                        <p className="font-semibold text-[130%] lg:text-2xl">Doguinho</p>
-                        <p className="lg:text-xl">Idade: </p>
-                        <p className="lg:text-xl">Raça: </p>
-                    </div>
-                    {/* Box for buttons */}
-                    <div className="flex gap-1 ml-auto self-start p-2">
-                        <button className="bg-[#868585] text-white flex items-center justify-center p-3 rounded-[30%] cursor-pointer hover:bg-[#5f5f5f]
-                        w-[5vw] h-[4vh]
-                        md:h-[6vh]
-                        lg:w-[3vw]">!</button>
-                        <button className="bg-[#972222] text-white flex items-center justify-center p-3 rounded-[30%] cursor-pointer hover:bg-[#661616]
-                        w-[5vw] h-[4vh]
-                        md:h-[6vh]
-                        lg:w-[3vw]">X</button>
-                    </div>
-                </div>
-
-                <div className="bg-[#e7e7e7] rounded-2xl gap-2 shadow-xl flex flex-row
-                w-[90vw] h-[15vh]">
-                    <img src="/dog_WhoWeAre.png" className="rounded-2xl" alt=""/>
-                    <div className="flex flex-col text-[80%]">
-                        <p className="font-semibold text-[130%] lg:text-2xl">Doguinho</p>
-                        <p className="lg:text-xl">Idade: </p>
-                        <p className="lg:text-xl">Raça: </p>
-                    </div>
-                    {/* Box for buttons */}
-                    <div className="flex gap-1 ml-auto self-start p-2">
-                        <button className="bg-[#868585] text-white flex items-center justify-center p-3 rounded-[30%] cursor-pointer hover:bg-[#5f5f5f]
-                        w-[5vw] h-[4vh]
-                        md:h-[6vh]
-                        lg:w-[3vw]">!</button>
-                        <button className="bg-[#972222] text-white flex items-center justify-center p-3 rounded-[30%] cursor-pointer hover:bg-[#661616]
-                        w-[5vw] h-[4vh]
-                        md:h-[6vh]
-                        lg:w-[3vw]">X</button>
-                    </div>
-                </div>
-
-                <div className="bg-[#e7e7e7] rounded-2xl gap-2 shadow-xl flex flex-row
-                w-[90vw] h-[15vh]">
-                    <img src="/dog_WhoWeAre.png" className="rounded-2xl" alt=""/>
-                    <div className="flex flex-col text-[80%]">
-                        <p className="font-semibold text-[130%] lg:text-2xl">Doguinho</p>
-                        <p className="lg:text-xl">Idade: </p>
-                        <p className="lg:text-xl">Raça: </p>
-                    </div>
-                    {/* Box for buttons */}
-                    <div className="flex gap-1 ml-auto self-start p-2">
-                        <button className="bg-[#868585] text-white flex items-center justify-center p-3 rounded-[30%] cursor-pointer hover:bg-[#5f5f5f]
-                        w-[5vw] h-[4vh]
-                        md:h-[6vh]
-                        lg:w-[3vw]">!</button>
-                        <button className="bg-[#972222] text-white flex items-center justify-center p-3 rounded-[30%] cursor-pointer hover:bg-[#661616]
-                        w-[5vw] h-[4vh]
-                        md:h-[6vh]
-                        lg:w-[3vw]">X</button>
-                    </div>
-                </div>
+    
             </div>
             
             </div>

@@ -118,7 +118,7 @@ export const RegisterPet2 = () => {
                 O pet foi cadastrado com sucesso!
             </p>
             <div className="flex flex-col items-center justify-between w-full">
-                <button onClick={() => {setIsModalOpen(false); navigate('/Pets')} } className="px-6 py-2 text-white font-bold rounded-full cursor-pointer transition-colors bg-[#0097b2] hover:bg-[#015b6b] arturo
+                <button onClick={() => {setIsModalOpen(false); navigate('/EditPets')} } className="px-6 py-2 text-white font-bold rounded-full cursor-pointer transition-colors bg-[#0097b2] hover:bg-[#015b6b] arturo
                 md:text-2xl 
                 lg:text-xl  lg:w-[70%]">
                 Voltar aos pets
