@@ -10,12 +10,10 @@ export const MainPage = () => {
     const images = ["/dogo_teste.png", "/segundo_dog.png", "/dogo_teste.png", "/segundo_dog.png"];
     const [current, setCurrent] = useState(0);
 
-    const nextSlide = () => {
-        setCurrent((prev) => (prev + 1) % images.length);
-    };
-
     useEffect(() => {
-        const interval = setInterval(nextSlide, 3000);
+        const interval = setInterval(() => {
+            setCurrent((prev) => (prev + 1) % images.length);
+        }, 3000);
         return () => clearInterval(interval);
     }, []);
 
@@ -23,98 +21,137 @@ export const MainPage = () => {
         <>
             <Header open={menuOpen} setOpen={setMenuOpen} />
 
-            {/* FIRST SECTION */}
-            <div className="w-full h-screen bg-[#ff66c4] flex flex-col pt-10 pb-0 overflow-hidden items-center justify-center
-                            sm:h-screen
-                            md:flex-row md:h-[32vh]
-                            lg:h-[71vh]
-                            2xl:h-[98vh]">
+            {/* HERO */}
+<div
+    className="
+        w-full min-h-[70vh]
+        flex flex-col items-center justify-center
+        px-6 gap-10
+        bg-[#ff66c4]
+        overflow-x-hidden
 
-                <section className="flex flex-col w-80 max-w-6xl gap-6 justify-center
-                                    md: md:w-[50%] md:ml-10
-                                    xl:ml-[5%]">
-                    
-                    <img src="../public/me adota.png" alt="" className=""/>
+        sm:min-h-[60vh]
 
-                    <button
-                        onClick={() => navigate("/Pets")}
-                        className="px-6 py-3 bg-[#0097b2] text-white rounded-full text-xl hover:bg-[#33AEC4] w-40 mx-auto md:mx-0
-                                    xl:text-3xl xl:w-[20vw]
-                                    2xl:text-5xl">
-                        Adotar!
-                    </button>
-                </section>
+        md:flex-row
+        md:min-h-[30vh]
 
-                {/* Img cachorro */}
-                <div className="w-full h-full flex items-end justify-center overflow-hidden leading-none">
-                    <img
-                        src="../public/cachorro pirata.png"
-                        className="max-h-full w-auto object-contain block"
-                    />
-                </div>
+        lg:h-[40vh]
+    "
+>
+    {/* TEXTO */}
+    <section
+        className="
+            w-full max-w-xl
+            flex flex-col gap-6
+            items-center text-center
 
-            </div>
+            md:w-1/2
+        "
+    >
+        <img
+            src="/me adota.png"
+            alt="Adote um pet"
+            className="
+                w-full max-w-sm
 
-            {/* SECOND SECTION */}
-            <div className="w-full bg-white flex flex-col md:flex-row items-center justify-center gap-[15%] px-6 py-10 mt-10
-                sm:mt-3
-                md:mt-13
-                xl:mt-20">
-                
-                <section className="w-full max-w-md flex flex-col items-center justify-center
-                    2xl:w-[90vw]">
+                sm:w-[55vw]
+
+                md:w-[40vw]
+            "
+        />
+
+        <button
+            onClick={() => navigate('/Pets')}
+            className="
+                px-6 py-3
+                bg-[#0097b2]
+                text-white
+                rounded-full
+                text-lg
+                hover:bg-[#33AEC4]
+
+                w-full max-w-xs
+
+                sm:text-3xl
+
+                md:text-xl
+            "
+        >
+            Adotar!
+        </button>
+    </section>
+
+    {/* IMAGEM */}
+    <div
+        className="
+            w-full
+            md:w-1/2
+
+            flex justify-center
+
+            lg:justify-end
+        "
+    >
+        <img
+            src="/cachorro pirata.png"
+            alt="Cachorro"
+            className="
+                w-full max-w-md
+                object-contain
+
+                sm:w-[80vw]
+
+                md:w-[50vw]
+            "
+        />
+    </div>
+</div>
+
+            {/* SOBRE */}
+            <div className="w-full bg-white flex flex-col md:flex-row items-center justify-center gap-10 px-6 py-16
+                sm:text-2xl">
+
+                <section className="w-full max-w-md flex flex-col items-center text-center">
                     <div className="bg-[#0097b2] text-white text-xl h-14 flex items-center justify-center rounded-t-2xl w-full
-                        sm:text-3xl
+                        sm:text-2xl
                         md:text-2xl
-                        lg:text-3xl
-                        xl:text-4xl">
+                        lg:text-3xl">
                         Quem Somos?
                     </div>
 
-                    <div className="border-2 border-[#0097b2] p-6 rounded-b-2xl flex flex-col items-center justify-center gap-6 text-center w-full
-                        md:h-[25vh]
-                        lg:h-[50vh]
-                        2xl:w-[29vw]">
+                    <div className="border-2 border-[#0097b2] p-6 rounded-b-2xl flex flex-col gap-6 w-full
+                        sm:text-2xl">
                         <h1 className="text-xl
-                            sm:text-3xl
+                            sm:text-2xl
                             md:text-2xl
-                            lg:text-3xl
-                            xl:text-4xl">
+                            lg:text-3xl">
                             Bom pra Cachorro!
                         </h1>
 
                         <p className="text-base
-                            sm:text-2xl
+                            sm:text-xl
                             md:text-lg
-                            lg:text-2xl
-                            xl:text-3xl">
+                            lg:text-xl">
                             Somos uma ONG de Curitiba que cuida de mais de 20 animais disponíveis para adoção!
                         </p>
 
-                        <button 
+                        <button
                             onClick={() => navigate("LearnMore")}
-                            className="bg-[#ff66c4] text-white rounded-xl py-2 px-4 hover:bg-[#ff85d1] w-[50%]
-                                sm:text-3xl
-                                lg:text-2xl
-                                xl:text-3xl
-                                2xl:w-[20vw]">
+                            className="bg-[#ff66c4] text-white rounded-xl py-2 px-4 hover:bg-[#ff85d1] w-full max-w-xs mx-auto">
                             Saiba mais
                         </button>
                     </div>
                 </section>
 
-                <section className="w-[80vw] max-w-lg
-                    sm:w-[70vw]
-                    md:w-[50vw]
-                    lg:w-[30vw]
-                    2xl:w-[25vw]">
+                {/* CARROSSEL */}
+                <section className="w-full max-w-md">
                     <div className="overflow-hidden rounded-2xl">
-                        <div 
+                        <div
                             className="flex transition-transform duration-500"
                             style={{ transform: `translateX(-${current * 100}%)` }}
                         >
                             {images.map((img, index) => (
-                                <img key={index} src={img} className="w-full shrink-0" />
+                                <img key={index} src={img} className="w-full shrink-0 object-cover" />
                             ))}
                         </div>
                     </div>
@@ -132,100 +169,80 @@ export const MainPage = () => {
                 </section>
             </div>
 
-            {/* THIRD SECTION */}
-         <div className="bg-[#0097b2] w-full h-screen flex flex-col items-center justify-center px-6 py-10 gap-10
-                md:flex-row md:h-p
-                xl:h-[65vh]
-                2xl:h-[80vh]">
+            {/* AJUDA */}
+            <div className="bg-[#0097b2] w-full h-auto min-h-[60vh] flex flex-col-reverse items-center justify-center px-6 py-16 gap-10
+                md:flex-row">
 
-            <img 
-                src="/polaroid_dog.png" 
-                className="w-[80%] 
-                    md:w-[50%]
-                    lg:w-[45%]
-                    xl:w-[35%]"
-            />
+                <img
+                    src="/polaroid_dog.png"
+                    alt="Dog"
+                    className="w-full max-w-sm 
+                        md:w-[60vw]"
+                />
 
-            <section className="flex flex-col gap-4 items-center justify-center text-center md:text-left max-w-md">
-                <h1 className="text-xl text-white
-                    sm:text-3xl
-                    md:text-2xl
-                    lg:text-3xl
-                    xl:text-4xl">
-                    Saiba como ajudar a ONG
-                </h1>
+                <section className="flex flex-col gap-4 text-center md:text-left max-w-md text-white items-center justify-center">
+                    <h1 className="text-xl
+                        sm:text-3xl
+                        md:text-3xl 
+                        g:text-3xl">
+                        Saiba como ajudar a ONG
+                    </h1>
 
-                <p className="text-white
-                    sm:text-xl
-                    lg:text-xl
-                    xl:text-2xl">
-                    Se você ama os animais tanto quanto a gente, saiba que pode fazer a diferença!
-                </p>
+                    <p className="
+                        sm:text-xl
+                        md:text-xl">
+                        Se você ama os animais tanto quanto a gente, saiba que pode fazer a diferença!
+                    </p>
 
-                <p className="text-white
-                    sm:text-xl
-                    lg:text-xl
-                    xl:text-2xl">
-                    Com a sua contribuição, conseguimos oferecer alimentação, cuidados veterinários e muito carinho.
-                </p>
+                    <p className="
+                        sm:text-xl
+                        md:text-xl">
+                        Com a sua contribuição, conseguimos oferecer alimentação, cuidados veterinários e muito carinho.
+                    </p>
 
-                <button 
-                    onClick={() => navigate("/Help")}
-                    className="px-6 py-3 bg-white text-[#0097b2] rounded-full w-[80%]
-                        sm:text-2xl
-                        md:w-auto
-                        lg:text-2xl">
-                    Saiba como Contribuir!
-                </button>
-            </section>
-        </div>  
+                    <button
+                        onClick={() => navigate("/Help")}
+                        className="px-6 py-3 bg-white text-[#0097b2] rounded-full w-full text-center
+                            sm:text-xl sm:w-[40vw]
+                            md:w-[30vw]">
+                        Contribuir
+                    </button>
+                </section>
+            </div>
 
-            {/* FOURTH SECTION */}
-            <div className="bg-white w-full h-screen flex px-6 py-10 items-center justify-center
-                md:h-[40vh]
-                lg:h-[80vh]
-                xl:h-[75vh]
-                2xl:h-[80vh]">
+            <div className="bg-white w-full min-h-[80vh] flex items-center justify-center px-6 py-16
+                md:min-h-[60vh]">
+                <section className="w-full h-135 bg-[#ffef63] rounded-3xl flex flex-col md:flex-row items-center justify-between p-6 gap-6
+                    md:h-[40vh]">
 
-                <section className="w-full h-full max-w-5xl bg-[#ffef63] rounded-3xl flex flex-col p-6 gap-6 items-center justify-start
-                    md:flex-row md:h-[30vh]
-                    lg:h-[55vh]
-                    2xl:h-[60vh] 2xl:w-[70vw]
-                    relative overflow-visible">
-
-                    <div className="flex flex-col gap-4 text-center relative z-10
-                        md:text-center md:w-[50vw]
-                        2xl:w-[35vw]">
-                        
-                        <h1 className="text-xl
+                    {/* TEXTO */}
+                    <div className="flex flex-col gap-4 text-center md:text-left max-w-md">
+                        <h1 className="text-xl 
                             sm:text-2xl
-                            md:text-2xl
-                            lg:text-3xl
-                            xl:text-4xl">
+                            md:text-2xl 
+                            lg:text-3xl">
                             Violência contra o animal? Denuncie!
                         </h1>
 
                         <hr className="border-black" />
 
                         <p className="text-base
-                            sm:text-xl
-                            md:text-lg
-                            lg:text-2xl
-                            xl:text-3xl">
+                            sm:text-2xl
+                            md:text-2xl
+                            lg:text-xl">
                             Caso presencie qualquer tipo de violência animal, NÃO SEJA CÚMPLICE!
-                            Disque 181 ou 156 para denunciar.
+                            Disque 181 ou 156.
                         </p>
                     </div>
 
-                    <img 
+                    {/* IMAGEM */}
+                    <img
                         src="/heroi_dogo.png"
-                        className="w-[60vw] absolute z-20 -bottom-10 right-15
-                            sm:w-[40vw] sm:right-40
-                            md:w-[25vw] md:-bottom-6 md:right-6
-                            lg:w-[22%] lg:-bottom-8 lg:right-10
-                            xl:w-[30%] xl:-bottom-10 xl:right-0
-                            2xl:w-[17vw] 2xl:right-20"
+                        alt="Herói"
+                        className="w-45
+                            md:w-55"
                     />
+
                 </section>
             </div>
 
