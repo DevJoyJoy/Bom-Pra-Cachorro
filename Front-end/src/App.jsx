@@ -6,6 +6,7 @@ import { FindAnimals } from "./pages/findAnimals"
 import { Help } from "./pages/helpPage"
 import { LearnMore } from "./pages/learnMore"
 import { DetailsPetPage } from "./pages/detailsPet"
+import { WhoWeAre } from "./pages/whoWeAre"
 
 function App() {
   return (
@@ -16,9 +17,10 @@ function App() {
           <Route path='/Login' element={<RegisterLogin />}></Route>
           <Route path='/Register' element={<RegisterPet />}></Route>
           <Route path="/Pets" element={<FindAnimals />}></Route>         
-          <Route path="/teste" element={<DetailsPetPage/>}></Route>
+          <Route path="/DetailsPet" element={<DetailsPetPage/>}></Route>
           <Route path="/Help" element={<Help />}></Route>
           <Route path="/LearnMore" element={<LearnMore />}></Route>
+          <Route path="/WhoWeAre" element={<WhoWeAre />}></Route>
         </Routes>
       </BrowserRouter>
     </>
