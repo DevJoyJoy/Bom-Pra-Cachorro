@@ -109,7 +109,7 @@ export const RegisterPet = () => {
                                 }}
                                 className="absolute top-1 right-1 bg-red-800 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold hover:bg-red-900 z-10"
                                 >
-                                X
+                                <i className="bi-x text-lg text-white"></i>
                             </button>
                         </>
                     ) : (
@@ -142,7 +142,7 @@ export const RegisterPet = () => {
                                 }}
                                 className="absolute top-1 right-1 bg-red-800 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold hover:bg-red-900 z-10"
                                 >
-                                X
+                                <i className="bi-x text-lg text-white"></i>
                             </button>
                         </>
                     ) : (
@@ -167,7 +167,7 @@ export const RegisterPet = () => {
                                 }}
                                 className="absolute top-1 right-1 bg-red-800 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold hover:bg-red-900 z-10"
                                 >
-                                X
+                                <i className="bi-x text-lg text-white"></i>
                             </button>
                         </>
                     ) : (
@@ -193,7 +193,7 @@ export const RegisterPet = () => {
                                 }}
                                 className="absolute top-1 right-1 bg-red-800 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold hover:bg-red-900 z-10"
                                 >
-                                X
+                                <i className="bi-x text-lg text-white"></i>
                             </button>
                         </>
                     ) : (
@@ -249,7 +249,7 @@ export const RegisterPet = () => {
                             </select>
                             <p className="text-[100%] md:text-3xl lg:text-xl">Meses</p>
                             <select className="rounded-xl w-full lg:w-[20%] md:text-3xl lg:text-xl bg-[#cfcccc]">
-                                {Array.from({ length: 26 }, (_, i) => (
+                                {Array.from({ length: 12 }, (_, i) => (
                                     <option key={i} value={i}>
                                     {i}
                                     </option>
@@ -260,9 +260,9 @@ export const RegisterPet = () => {
                         <div className="flex flex-row">
                             <p className="text-[100%] mr-3 md:text-3xl lg:mr-9.5 lg:text-xl">Sexo:</p>
                             <p className="text-[100%] md:text-3xl lg:text-xl">F</p>
-                            <input type="checkbox" onChange={(e) => setSex(e.target.value)} className="rounded-xl w-[30%] bg-[#cfcccc]"/>
+                            <input type="checkbox" onChange={(e) => setSex(e.target.value)} className="rounded-xl w-[30%] accent-[#0097b2] hover:accent-[#007c93] active:accent-[#054e5b]"/>
                             <p className="text-[100%] md:text-3xl lg:text-xl">M</p>
-                            <input type="checkbox" onChange={(e) => setSex(e.target.value)} className=" rounded-xl w-[30%] bg-[#cfcccc]"/>
+                            <input type="checkbox" onChange={(e) => setSex(e.target.value)} className=" rounded-xl w-[30%] bg-[#cfcccc] accent-[#0097b2] hover:accent-[#007c93] active:accent-[#054e5b]"/>
                         </div>
                         <br />
                         <p className="text-[100%] mr-3 md:text-3xl lg:text-xl">Descrição</p>

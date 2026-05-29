@@ -172,13 +172,19 @@ export const DetailsPetPage = () => {
                 <div onClick={() => setAdotarClick(false)} className="absolute inset-0 bg-black opacity-60"></div>
 
                 {/* Modal white box */}
-                <div className="z-1 flex flex-col items-center w-[80%] lg:w-[40%] p-8 bg-white rounded-2xl">
-                    <p className="mb-6 text-center md:text-2xl">Digite o novo animal:</p>
+                <div className="z-1 flex flex-col  w-[80%] lg:w-[40%] p-8 bg-white rounded-2xl">
+                    <p className="text-[#0097b2] text-2xl mb-2">Adotar</p>
+                    <p className="mb-5 md:text-xl">Ao continuar, você será redirecionado para o chat com a responsável pela adoção.</p>
 
                     <br />
-                    <button onClick={() => { }} className="px-6 py-2 text-white font-bold md:text-2xl lg:text-xl rounded-full cursor-pointer transition-colors bg-[#0097b2] hover:bg-[#015b6b] arturo">
-                        Cadastrar animal
-                    </button>
+                    <div className="flex justify-center md:justify-end w-full">
+                        <div className="relative flex flex-row h-15 items-center">
+                            <img className="h-15 absolute -left-5 z-10" src="../../public/WhatsApp_icon.png"></img>
+                            <button onClick={() => { }} className="px-16 py-2 h-max text-white md:text-2xl lg:text-xl rounded-full cursor-pointer transition-color bg-[#0097b2] hover:bg-[#007c93] active:bg-[#00677a]">
+                                Continuar
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>)}
 
