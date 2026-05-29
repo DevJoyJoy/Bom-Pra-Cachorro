@@ -14,15 +14,15 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<MainPage />}></Route>
-          <Route path='/Login' element={<RegisterLogin />}></Route>
-          <Route path='/Register' element={<RegisterPet />}></Route>
-          <Route path="/Register2" element={<RegisterPet2 />}></Route>
-          <Route path="/Pets" element={<FindAnimals />}></Route>         
-          <Route path="/DetailsPet" element={<DetailsPetPage/>}></Route>
-          <Route path="/Help" element={<Help />}></Route>
-          <Route path="/WhoWeAre" element={<WhoWeAre />}></Route>
-          <Route path="/EditPets" element={<AvaliablePets />}></Route>
+          <Route path='/' element={<MainPage />} />
+          <Route path='/Login' element={<RegisterLogin />} />
+          <Route path='/Register' element={<RegisterPet />} />
+          <Route path="/Register2" element={<RegisterPet2 />} />
+          <Route path="/Pets" element={<FindAnimals />} />        
+          <Route path="/details/:id" element={<DetailsPetPage />} />
+          <Route path="/Help" element={<Help />} />
+          <Route path="/WhoWeAre" element={<WhoWeAre />} />
+          <Route path="/EditPets" element={<AvaliablePets />} />
         </Routes>
       </BrowserRouter>
     </>
@@ -30,3 +30,4 @@ function App() {
 }
 
 export default App
+

@@ -2,12 +2,34 @@ import { useState } from "react";
 import { Header } from "../components/header";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { useEffect, useState } from "react";
+import { db } from "../firebaseConfig";
+import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
 
-export const AvaliablePets = () => {
+export const AvailablePets = () => {
     const navigate = useNavigate();
-    const [isDeleting, setIsDeleting] = useState(false);
+    const [pets, setPets] = useState([]);
 
-    const confirmDelete = (petName) => {
+    useEffect(() => {
+        loadPets();
+    }, []);
+
+    const loadPets = async () => {
+        try {
+            const querySnapshot = await getDocs(collection(db, "pets"));
+
+            const petsList = querySnapshot.docs.map((doc) => ({
+                id: doc.id,
+                ...doc.data(),
+            }));
+
+            setPets(petsList);
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
+    const confirmDelete = (petId, petName) => {
         Swal.fire({
             title: `Deletar ${petName}?`,
             text: "Você não poderá reverter esta ação!",
@@ -19,15 +41,29 @@ export const AvaliablePets = () => {
             cancelButtonText: "Cancelar",
             reverseButtons: true,
             borderRadius: "1rem",
-        }).then((result) => {
+        }).then(async (result) => {
             if (result.isConfirmed) {
-                Swal.fire({
-                    title: "Deletado!",
-                    text: "O pet foi deletado da lista.",
-                    icon: "success",
-                    timer: 2000,
-                    showConfirmButton: false,
-                });
+                try {
+                    await deleteDoc(doc(db, "pets", petId));
+
+                    setPets((prev) => prev.filter((pet) => pet.id !== petId));
+
+                    Swal.fire({
+                        title: "Deletado!",
+                        text: "O pet foi deletado da lista.",
+                        icon: "success",
+                        timer: 2000,
+                        showConfirmButton: false,
+                    });
+                } catch (error) {
+                    console.error(error);
+
+                    Swal.fire({
+                        title: "Erro!",
+                        text: "Erro ao deletar pet.",
+                        icon: "error",
+                    });
+                }
             }
         });
     };
@@ -54,63 +90,51 @@ export const AvaliablePets = () => {
                 {/* Animal box*/}
                 <div className="flex flex-col mt-3 gap-4 items-center
             w-full h-max py-8 px-2">
-                    <div className="bg-[#e7e7e7] rounded-2xl gap-2 shadow-xl flex flex-row
-                w-full h-28">
-                        <img src="/dog_WhoWeAre.png" className="rounded-2xl h-full w-auto" alt="" />
-                        <div className="flex flex-col text-[80%] py-3 pl-2">
-                            <p className="font-semibold mb-1 text-xl lg:text-xl">Doguinho</p>
-                            <p className="text-lg lg:text-xl">Idade: </p>
-                            <p className="text-lg lg:text-xl">Porte: </p>
-                        </div>
-                        {/* Box for buttons */}
-                        <div className="flex flex-col justify-between md:flex-row gap-2 ml-auto p-3">
-                            <button onClick={() => navigate("/Register")} className="bg-[#868585] text-white flex items-center justify-center p-1 rounded-[30%] cursor-pointer hover:bg-[#5f5f5f]
-                        w-10 h-full
-                        md:h-10
-                        lg:w-10">
-                                <i className="bi-pencil"></i>
-                            </button>
-                            <button onClick={() => confirmDelete("Doguinho")} className="bg-[#972222] text-white flex items-center justify-center p-1 rounded-[30%] cursor-pointer hover:bg-[#661616]
-                        w-10 h-full
-                        md:h-10
-                        lg:w-10">
-                                <i className="bi-trash text-bg-danger text-lg"></i>
-                            </button>
-                        </div>
-                    </div>
+                    {pets.map((pet) => (
+                        <div
+                            key={pet.id}
+                            className="bg-[#e7e7e7] rounded-2xl gap-2 shadow-xl flex flex-row w-full h-28"
+                        >
+                            <img
+                                src={pet.images?.[0] || "/dog_WhoWeAre.png"}
+                                className="rounded-2xl h-full w-28 object-cover"
+                                alt=""
+                            />
 
-                    <div className="bg-[#e7e7e7] rounded-2xl gap-2 shadow-xl flex flex-row
-                    w-full h-28">
-                        <img src="/dog_WhoWeAre.png" className="rounded-2xl h-full w-auto" alt="" />
-                        <div className="flex flex-col text-[80%] py-3 pl-2">
-                            <p className="font-semibold mb-1 text-xl lg:text-xl">Doguinho</p>
-                            <p className="text-lg lg:text-xl">Idade: </p>
-                            <p className="text-lg lg:text-xl">Porte: </p>
+                            <div className="flex flex-col text-[80%] py-3 pl-2">
+                                <p className="font-semibold mb-1 text-xl lg:text-xl">
+                                    {pet.name}
+                                </p>
+
+                                <p className="text-lg lg:text-xl">
+                                    Porte: {pet.size}
+                                </p>
+
+                                <p className="text-lg lg:text-xl">
+                                    Sexo: {pet.sex}
+                                </p>
+                            </div>
+
+                            <div className="flex flex-col justify-between md:flex-row gap-2 ml-auto p-3">
+                                <button
+                                    onClick={() => navigate(`/details/${pet.id}`)}
+                                    className="bg-[#868585] text-white flex items-center justify-center p-1 rounded-[30%] cursor-pointer hover:bg-[#5f5f5f]
+                                        w-10 h-full md:h-10 lg:w-10"
+                                >
+                                    <i className="bi-pencil"></i>
+                                </button>
+
+                                <button
+                                    onClick={() => confirmDelete(pet.id, pet.name)}
+                                    className="bg-[#972222] text-white flex items-center justify-center p-1 rounded-[30%] cursor-pointer hover:bg-[#661616]
+                                        w-10 h-full md:h-10 lg:w-10"
+                                >
+                                    <i className="bi-trash text-bg-danger text-lg"></i>
+                                </button>
+                            </div>
                         </div>
-                        {/* Box for buttons */}
-                        <div className="flex flex-col justify-between md:flex-row gap-2 ml-auto p-3">
-                            <button onClick={() => navigate("/Register")} className="bg-[#868585] text-white flex items-center justify-center p-1 rounded-[30%] cursor-pointer hover:bg-[#5f5f5f]
-                            w-10 h-full
-                            md:h-10
-                            lg:w-10">
-                                <i className="bi-pencil"></i>
-                            </button>
-                            <button onClick={() => confirmDelete("Doguinho")} className="bg-[#972222] text-white flex items-center justify-center p-1 rounded-[30%] cursor-pointer hover:bg-[#661616]
-                            w-10 h-full
-                            md:h-10
-                            lg:w-10">
-                                <i className="bi-trash text-bg-danger text-lg"></i>
-                            </button>
-                        </div>
-                    </div>
+                    ))}
                 </div>
-
-               
-                    
-
-
-
-
             </div>
         </div>
     );

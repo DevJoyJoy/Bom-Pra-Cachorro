@@ -97,7 +97,7 @@ export const MainPage = () => {
                 </section>
 
                 {/* CARROSSEL */}
-                <section className="w-full max-w-md">
+                {/* <section className="w-full max-w-md"> */}
                 <section className="w-[80vw] max-w-lg
                     sm:w-[70vw]
                     md:w-[65vw]
