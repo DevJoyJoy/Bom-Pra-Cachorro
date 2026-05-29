@@ -1,9 +1,30 @@
 import { Footer } from "../components/footer"
 import { Header } from "../components/header"
-import { useState, useEffect } from "react";
+import { useState, useEffect, use } from "react";
 
 export const DetailsPetPage = () => {
     const [menuOpen, setMenuOpen] = useState(false);
+    const [adotarClick, setAdotarClick] = useState(false);
+
+    const [comportamentoPet, setComportamentoPet] = useState({
+        withDogs: true,
+        withChildren: false,
+        withCats: true
+    })
+
+    function StatusRow({ boolean, ifTrue, ifFalse }) {
+        return (
+            <>
+                <i className={`bi ${boolean
+                    ? "bi-check-circle-fill text-[#43d74d]"
+                    : "bi-x-circle-fill text-red-500"
+                    } text-2xl  mr-3`}>
+                </i>
+                <span className="text-[#4b4b4b] align-super">{boolean ? ifTrue : ifFalse}</span>
+            </>
+        )
+    }
+
 
     return (
         <div id="screen" className="w-full min-h-screen flex flex-col items-center">
@@ -45,16 +66,17 @@ export const DetailsPetPage = () => {
                     </div>
 
 
-                    <button className="bg-[#0097b2] w-full rounded-xl text-xl text-white py-3 my-1 hover:bg-[#007c93] active:bg-[#00677a] ">Quero adotar</button>
-                        <div className="relative group w-full">
-                    <button className="bg-white flex items-center justify-center border-[#0097b2] border-2 text-xl w-full rounded-xl text-[#0097b2] py-3 my-1 hover:bg-[#c8eaf0] active:bg-[#a7dbe5] ">
-                        Quero apadrinhar
-                            <i className="bi bi-info-circle align-middle ml-3"></i>
-                            <div className="absolute left-0 top-full mt-2 w-full hidden group-hover:block bg-white shadow-lg p-4 rounded text-[#4b4b4b] text-lg">
-                                *Explicando o que é apadrinhamento...*
+                    <button onClick={() => setAdotarClick(true)} className="bg-[#0097b2] w-full rounded-xl text-xl text-white py-3 my-1 hover:bg-[#007c93] active:bg-[#00677a] ">Quero adotar</button>
+                    <div className="relative group w-full">
+                        <button className="bg-white flex items-center justify-center border-[#0097b2] border-2 text-xl w-full rounded-xl text-[#0097b2] py-3 my-1 hover:bg-[#c8eaf0] active:bg-[#a7dbe5] ">
+                            Quero apadrinhar
+                            <i className="hidden lg:block  bi bi-info-circle align-middle ml-3"></i>
+                            <div className="absolute left-0 top-full mt-2 w-full hidden lg:group-hover:block bg-white shadow-lg p-4 rounded text-[#4b4b4b] text-lg">
+                                Ajude o pet com cuidados e suporte mensal, mesmo sem precisar adotá-lo.
                             </div>
-                    </button>
-                        </div>
+                        </button>
+                    </div>
+
                     <div className="flex flex-row">
                         <i className="bi-exclamation-triangle text-[#4b4b4b]"></i>
                         <span className="text-[#4b4b4b] ml-2 mb-5">Adoção responsável</span>
@@ -93,16 +115,25 @@ export const DetailsPetPage = () => {
                         <h1 className="text-xl text-[#0097b2]">Comportamentos</h1>
                         <div className="my-4 ml-1 md:my-6 flex flex-col justify-center gap-2">
                             <div className="flex items-center">
-                                <i className="bi bi-check-circle-fill text-2xl text-[#43d74d] mr-3"></i>
-                                <span className="text-[#4b4b4b] align-super">Se dá bem com outros cães</span>
+                                <StatusRow
+                                    boolean={comportamentoPet.withDogs}
+                                    ifTrue="Se dá bem com cães"
+                                    ifFalse="Não se dá bem com cães"
+                                />
                             </div>
                             <div className="flex items-center">
-                                <i className="bi bi-x-circle-fill text-2xl text-red-500 mr-3"></i>
-                                <span className="text-[#4b4b4b] align-super">Não se dá bem com crianças</span>
+                                <StatusRow
+                                    boolean={comportamentoPet.withChildren}
+                                    ifTrue="Se dá bem com crianças"
+                                    ifFalse="Não se dá bem com crianças"
+                                />
                             </div>
                             <div className="flex items-center">
-                                <i className="bi bi-check-circle-fill text-2xl text-[#43d74d] mr-3"></i>
-                                <span className="text-[#4b4b4b] align-super">Se dá bem com gatos</span>
+                                <StatusRow
+                                    boolean={comportamentoPet.withCats}
+                                    ifTrue="Se dá bem com gatos"
+                                    ifFalse="Não se dá bem com gatos"
+                                />
                             </div>
                         </div>
                     </div>
@@ -110,22 +141,54 @@ export const DetailsPetPage = () => {
                         <h1 className="text-xl text-[#0097b2]">Saúde</h1>
                         <div className="my-4 ml-1 md:my-6 flex flex-col justify-center gap-2">
                             <div className="flex items-center">
-                                <i className="bi bi-check-circle-fill text-2xl text-[#43d74d] mr-3"></i>
-                                <span className="text-[#4b4b4b]">Vacinado</span>
+                                <StatusRow
+                                    boolean={comportamentoPet.withChildren}
+                                    ifTrue="Vacinado"
+                                    ifFalse="Não vacinado"
+                                />
                             </div>
                             <div className="flex items-center">
-                                <i className="bi bi-check-circle-fill text-2xl text-[#43d74d] mr-3"></i>
-                                <span className="text-[#4b4b4b] align-super">Vermifugado</span>
+                                <StatusRow
+                                    boolean={comportamentoPet.withDogs}
+                                    ifTrue="Vermifugado"
+                                    ifFalse="Não vermifugado"
+                                />
                             </div>
                             <div className="flex items-center">
-                                <i className="bi bi-x-circle-fill text-2xl text-red-500 mr-3"></i>
-                                <span className="text-[#4b4b4b] align-super">Não castrado</span>
+                                <StatusRow
+                                    boolean={comportamentoPet.withChildren}
+                                    ifTrue="Castrado"
+                                    ifFalse="Não castrado"
+                                />
                             </div>
                         </div>
                     </div>
                     <div className="h-10 w-full"></div>
                 </div>
             </div >
+
+            {adotarClick && (<div className="fixed inset-0 z-1 flex items-center justify-center">
+                {/* Dark background */}
+                <div onClick={() => setAdotarClick(false)} className="absolute inset-0 bg-black opacity-60"></div>
+
+                {/* Modal white box */}
+                <div className="z-1 flex flex-col  w-[80%] lg:w-[40%] p-8 bg-white rounded-2xl">
+                    <p className="text-[#0097b2] text-2xl mb-2">Adotar</p>
+                    <p className="mb-5 md:text-xl">Ao continuar, você será redirecionado para o chat com a responsável pela adoção.</p>
+
+                    <br />
+                    <div className="flex justify-center md:justify-end w-full">
+                        <div className="relative flex flex-row h-15 items-center">
+                            <img className="h-15 absolute -left-5 z-10" src="../../public/WhatsApp_icon.png"></img>
+                            <button onClick={() => { }} className="px-16 py-2 h-max text-white md:text-2xl lg:text-xl rounded-full cursor-pointer transition-color bg-[#0097b2] hover:bg-[#007c93] active:bg-[#00677a]">
+                                Continuar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>)}
+
+
             <Footer></Footer>
         </div >
     )

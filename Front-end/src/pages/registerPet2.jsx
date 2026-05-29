@@ -1,0 +1,138 @@
+import { useState } from "react";
+import { Header } from "../components/header";
+import { useNavigate } from "react-router-dom";
+
+export const RegisterPet2 = () => {
+    const navigate = useNavigate();
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const [valor, setValor] = useState("0");
+
+    const text = {
+        "0": "Pouca energia",
+        "1": "Energia moderada",
+        "2": "Muita energia"
+    };
+
+    return (
+        <div className="flex flex-col bg-white 
+        w-full h-max 
+        md:h-auto">
+        {/* Header */}
+        <Header/>
+        
+        {/* White box */}
+        <div className="flex flex-col items-center justify-start p-3
+        w-auto h-[90vh] max-h-[95vh] 
+        lg:pl-10
+        ">
+            <h1 className="pt-3 lg:pb-3 font-bold breeSerif
+            text-2xl 
+            md:text-4xl 
+            lg:text-3xl">
+                Cadastro de animais
+            </h1>
+            
+            {/* Box for all the inputs */}
+            <div className="flex flex-col mt-3 gap-4 
+            w-full h-full overflow-y-scroll
+            lg:flex-row lg:h-[80%] lg:mt-[-5%] lg:items-center">
+
+                {/* Second box for inputs */}
+                <div className="flex flex-col 
+                w-[93vw] h-full 
+                lg:w-[75vw] lg:h-[60%] lg:gap-5 lg:pl-10 lg:flex-row lg:items-center">
+                    {/* Box for energy level */}
+                    <div>
+                        <p className="text-[100%] md:text-3xl lg:text-2xl lg:mb-3">Nível de energia</p>
+                        <div className="bg-[#9cd7e1] rounded-2xl flex items-center justify-center flex-col
+                        w-full h-[20vh]
+                        lg:w-[30vw] lg:h-[30vh]">
+                            <input type="range" min="0" max="2" value={valor} onChange={(e) => setValor(e.target.value)} className="w-[70vw] lg:w-[25vw]"/>
+                            <br />
+                            <p className="lg:text-xl">{text[valor]}</p>
+                        </div>
+                    </div>
+                    {/* Box for behavior */}
+                    <div>
+                        <p className="text-[100%] md:text-3xl lg:text-2xl lg:mb-3">Comportamentos</p>
+                        <div className="bg-[#9cd7e1] rounded-2xl flex items-center justify-center flex-col
+                        w-full h-[20vh] gap-2
+                        lg:w-[25vw] lg:h-[30vh] lg:items-start lg:justify-center">
+                            <section className="flex flex-row">
+                                <input type="checkbox" className="rounded-xl w-[8vw] bg-[#cfcccc]"/>
+                                <p className="text-[80%] lg:text-[110%]">Se dá bem com crianças</p>
+                            </section>
+                            <section className="flex flex-row">
+                                <input type="checkbox" className="rounded-xl w-[8vw] bg-[#cfcccc]"/>
+                                <p className="text-[80%] lg:text-[110%]">Se dá bem com outros cães</p>
+                            </section>
+                            <section className="flex flex-row">
+                                <input type="checkbox" className="rounded-xl w-[8vw] bg-[#cfcccc]"/>
+                                <p className="text-[80%] lg:text-[110%]">Se dá bem com outros animais</p>
+                            </section>
+                        </div>
+                    </div>
+                    {/* Box for health */}
+                    <div>
+                        <p className="text-[100%] md:text-3xl lg:text-2xl lg:mb-3">Saúde</p>
+                        <div className="bg-[#9cd7e1] rounded-2xl flex items-center justify-center flex-row
+                        w-full h-[10vh] gap-2
+                        lg:w-[30vw] lg:h-[30vh] lg:gap-6 lg:flex-col lg:items-start lg:justify-center">
+                            <section className="flex flex-row">
+                                <input type="checkbox" className="rounded-xl w-[8vw] bg-[#cfcccc]"/>
+                                <p className="text-[80%] lg:text-xl">Castrado</p>
+                            </section>
+                            <section className="flex flex-row">
+                                <input type="checkbox" className="rounded-xl w-[8vw] bg-[#cfcccc]"/>
+                                <p className="text-[80%] lg:text-xl">Vacinado</p>
+                            </section>
+                            <section className="flex flex-row">
+                                <input type="checkbox" className="rounded-xl w-[8vw] bg-[#cfcccc]"/>
+                                <p className="text-[80%] lg:text-xl">Vermifugado</p>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <div className="flex justify-center w-full h-[8%] md:h-22 lg:h-[10%] lg:mt-7 lg:w-[50%]">
+                    <button onClick={() => setIsModalOpen(true)} className="px-6 py-2 md:w-[70%] lg:w-[70%] md:h-full text-white font-bold md:text-4xl lg:text-xl rounded-full cursor-pointer transition-colors bg-[#0097b2] hover:bg-[#015b6b] arturo">
+                    Salvar e continuar
+                    </button>
+                </div>
+            </div>
+        
+
+        {/* Main modal for after register*/}
+        {isModalOpen && (
+        <div className="fixed inset-0 z-1 flex items-center justify-center">
+            {/* Dark background */}
+            <div className="absolute inset-0 bg-black opacity-60"></div>
+
+            {/* Modal white box */}
+            <div className="z-1 flex flex-col items-center p-8 bg-white rounded-2xl
+            w-[80%] 
+            lg:w-[40%]">
+            <h2 className="mb-4 lg:text-2xl font-bold">Sucesso!</h2>
+            <p className="mb-6 text-center">
+                O pet foi cadastrado com sucesso!
+            </p>
+            <div className="flex flex-col items-center justify-between w-full">
+                <button onClick={() => {setIsModalOpen(false); navigate('/EditPets')} } className="px-6 py-2 text-white font-bold rounded-full cursor-pointer transition-colors bg-[#0097b2] hover:bg-[#015b6b] arturo
+                md:text-2xl 
+                lg:text-xl  lg:w-[70%]">
+                Voltar aos pets
+                </button>
+                <br />
+                <button onClick={() => {setIsModalOpen(false); navigate('/Register')}} className="px-6 py-2 text-white font-bold rounded-full cursor-pointer transition-colors bg-[#0097b2] hover:bg-[#015b6b] arturo
+                md:text-2xl 
+                lg:text-xl lg:w-[70%]">
+                Continuar cadastro
+                </button>
+            </div>
+            </div>
+        </div>
+        )}
+        </div>
+    );
+};
