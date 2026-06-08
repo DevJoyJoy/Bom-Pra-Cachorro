@@ -8,8 +8,6 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<IPetService, PetService>();
-
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
