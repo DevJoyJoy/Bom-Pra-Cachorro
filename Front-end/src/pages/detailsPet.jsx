@@ -2,7 +2,7 @@ import { Footer } from "../components/footer"
 import { Header } from "../components/header"
 import { useState, useEffect, use } from "react";
 import { useParams } from "react-router-dom";
-import { db } from "../firebaseConfig";
+import { db } from "../../firebaseConfig";
 import { doc, getDoc } from "firebase/firestore";
 
 export const DetailsPetPage = () => {

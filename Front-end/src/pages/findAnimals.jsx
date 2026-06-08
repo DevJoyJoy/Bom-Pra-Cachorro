@@ -2,7 +2,7 @@ import { Header } from "../components/header"
 import { Footer } from "../components/footer"
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { db } from "../firebaseConfig";
+import { db } from "../../firebaseConfig";
 import { collection, getDocs } from "firebase/firestore";
 
 export const FindAnimals = () => {
