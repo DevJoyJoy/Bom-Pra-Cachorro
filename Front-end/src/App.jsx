@@ -7,7 +7,8 @@ import { Help } from "./pages/helpPage"
 import { DetailsPetPage } from "./pages/detailsPet"
 import { WhoWeAre } from "./pages/whoWeAre"
 import { RegisterPet2 } from "./pages/registerPet2"
-import { AvaliablePets } from "./pages/availablePets"
+import { AvailablePets } from "./pages/availablePets"
+// import { AvaliablePets } from "./pages/availablePets"
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
           <Route path="/DetailsPet/:id" element={<DetailsPetPage />} />
           <Route path="/Help" element={<Help />} />
           <Route path="/WhoWeAre" element={<WhoWeAre />} />
-          <Route path="/EditPets" element={<AvaliablePets />} />
+          <Route path="/EditPets" element={<AvailablePets />} />
         </Routes>
       </BrowserRouter>
     </>

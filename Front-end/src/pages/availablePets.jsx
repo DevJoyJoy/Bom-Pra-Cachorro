@@ -1,9 +1,8 @@
-import { useState } from "react";
 import { Header } from "../components/header";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { useEffect, useState } from "react";
-import { db } from "../firebaseConfig";
+import { db } from "../../firebaseConfig";
 import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
 
 export const AvailablePets = () => {

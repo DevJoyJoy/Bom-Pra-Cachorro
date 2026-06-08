@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Header } from "../components/header";
 import { useState } from "react";
-import { auth, db } from "../firebaseConfig";
+import { auth, db } from "../../firebaseConfig";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { collection, query, where, getDocs } from "firebase/firestore";
 
