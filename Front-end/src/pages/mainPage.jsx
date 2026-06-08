@@ -22,64 +22,70 @@ export const MainPage = () => {
             <Header open={menuOpen} setOpen={setMenuOpen} />
 
             {/* HERO */}
-<div
-    className="
-        w-full min-h-[70vh]
-        flex flex-col items-center justify-center
-        px-6 gap-10
-        bg-[#ff66c4]
-        overflow-x-hidden
+            <div
+                className="
+                    w-full min-h-[70vh]
+                    flex flex-col items-center justify-center
+                    px-6 gap-10
+                    bg-[#ff66c4]
+                    overflow-x-hidden
 
-        sm:min-h-[60vh]
+                    sm:min-h-[60vh]
 
-        md:flex-row
-        md:min-h-[30vh]
+                    md:flex-row
+                    md:min-h-[30vh]
 
-        lg:h-[40vh]
-    "
->
-    {/* TEXTO */}
-    <section
-        className="
-            w-full max-w-xl
-            flex flex-col gap-6
-            items-center text-center
+                    lg:h-[30vh]
 
-            md:w-1/2
-        "
-    >
-        <img
-            src="/me adota.png"
-            alt="Adote um pet"
-            className="
-                w-full max-w-sm
+                    xl:min-h-[50vh]
 
-                sm:w-[55vw]
+                    2xl:min-h-[70vh]
+                "
+            >
+                {/* TEXTO */}
+                <section
+                    className="
+                        w-full max-w-xl
+                        flex flex-col gap-6
+                        items-center text-center
 
-                md:w-[40vw]
-            "
-        />
+                        md:w-1/2
+                    "
+                >
+                <img
+                    src="/me adota.png"
+                    alt="Adote um pet"
+                    className="
+                        w-full max-w-sm
 
-        <button
-            onClick={() => navigate('/Pets')}
-            className="
-                px-6 py-3
-                bg-[#0097b2]
-                text-white
-                rounded-full
-                text-lg
-                hover:bg-[#33AEC4]
+                        sm:w-[55vw]
 
-                w-full max-w-xs
+                        md:w-[40vw]
 
-                sm:text-3xl
+                        xl:w-[35vw]
+                    "
+                />
 
-                md:text-xl
-            "
-        >
-            Adotar!
-        </button>
-    </section>
+                <button
+                    onClick={() => navigate('/Pets')}
+                    className="
+                        px-6 py-3
+                        bg-[#0097b2]
+                        text-white
+                        rounded-full
+                        text-lg
+                        hover:bg-[#33AEC4]
+
+                        w-full max-w-xs
+
+                        sm:text-3xl
+
+                        md:text-xl
+                    "
+                >
+                    Adotar!
+                </button>
+            </section>
 
     {/* IMAGEM */}
     <div
@@ -90,6 +96,8 @@ export const MainPage = () => {
             flex justify-center
 
             lg:justify-end
+
+            xl:w-screen
         "
     >
         <img
@@ -102,6 +110,10 @@ export const MainPage = () => {
                 sm:w-[80vw]
 
                 md:w-[50vw]
+
+                xl:w-[90vw]
+
+                2xl:max-w-[35vw]
             "
         />
     </div>
@@ -109,7 +121,9 @@ export const MainPage = () => {
 
             {/* SOBRE */}
             <div className="w-full bg-white flex flex-col md:flex-row items-center justify-center gap-10 px-6 py-16
-                sm:text-2xl">
+                sm:text-2xl
+                xl:min-h-[20vh]
+                2xl:gap-40">
 
                 <section className="w-full max-w-md flex flex-col items-center text-center">
                     <div className="bg-[#0097b2] text-white text-xl h-14 flex items-center justify-center rounded-t-2xl w-full
@@ -144,7 +158,9 @@ export const MainPage = () => {
                 </section>
 
                 {/* CARROSSEL */}
-                <section className="w-full max-w-md">
+                <section className="w-full max-w-md
+                    lg:w-[40vw]
+                    xl:w-[30vw]">
                     <div className="overflow-hidden rounded-2xl">
                         <div
                             className="flex transition-transform duration-500"
@@ -171,7 +187,9 @@ export const MainPage = () => {
 
             {/* AJUDA */}
             <div className="bg-[#0097b2] w-full h-auto min-h-[60vh] flex flex-col-reverse items-center justify-center px-6 py-16 gap-10
-                md:flex-row">
+                md:flex-row
+                lg:min-h-[30vh]
+                2xl:gap-50">
 
                 <img
                     src="/polaroid_dog.png"
@@ -184,19 +202,22 @@ export const MainPage = () => {
                     <h1 className="text-xl
                         sm:text-3xl
                         md:text-3xl 
-                        g:text-3xl">
+                        g:text-3xl
+                        lg:text-4xl">
                         Saiba como ajudar a ONG
                     </h1>
 
                     <p className="
                         sm:text-xl
-                        md:text-xl">
+                        md:text-xl
+                        lg:text-2xl">
                         Se você ama os animais tanto quanto a gente, saiba que pode fazer a diferença!
                     </p>
 
                     <p className="
                         sm:text-xl
-                        md:text-xl">
+                        md:text-xl
+                        lg:text-2xl">
                         Com a sua contribuição, conseguimos oferecer alimentação, cuidados veterinários e muito carinho.
                     </p>
 
@@ -204,23 +225,33 @@ export const MainPage = () => {
                         onClick={() => navigate("/Help")}
                         className="px-6 py-3 bg-white text-[#0097b2] rounded-full w-full text-center
                             sm:text-xl sm:w-[40vw]
-                            md:w-[30vw]">
+                            md:w-[30vw]
+                            lg:text-3xl">
                         Contribuir
                     </button>
                 </section>
             </div>
 
             <div className="bg-white w-full min-h-[80vh] flex items-center justify-center px-6 py-16
-                md:min-h-[60vh]">
+                md:min-h-[60vh]
+                lg:min-h-[30vh]
+                xl:min-h-[70vh]
+                2xl:min-h-[80vh]">
                 <section className="w-full h-135 bg-[#ffef63] rounded-3xl flex flex-col md:flex-row items-center justify-between p-6 gap-6
-                    md:h-[40vh]">
+                    md:h-[40vh]
+                    lg:h-[55vh]
+                    xl:justify-around
+                    2xl:h-[70vh]">
 
                     {/* TEXTO */}
-                    <div className="flex flex-col gap-4 text-center md:text-left max-w-md">
+                    <div className="flex flex-col gap-4 text-center md:text-left max-w-md
+                    2xl:max-w-[45vw]">
                         <h1 className="text-xl 
                             sm:text-2xl
                             md:text-2xl 
-                            lg:text-3xl">
+                            lg:text-5xl
+                            xl:text-4xl
+                            2xl:text-5xl">
                             Violência contra o animal? Denuncie!
                         </h1>
 
@@ -229,7 +260,9 @@ export const MainPage = () => {
                         <p className="text-base
                             sm:text-2xl
                             md:text-2xl
-                            lg:text-xl">
+                            lg:text-3xl
+                            xl:text-3xl
+                            2xl:text-4xl">
                             Caso presencie qualquer tipo de violência animal, NÃO SEJA CÚMPLICE!
                             Disque 181 ou 156.
                         </p>
@@ -240,7 +273,10 @@ export const MainPage = () => {
                         src="/heroi_dogo.png"
                         alt="Herói"
                         className="w-45
-                            md:w-55"
+                            md:w-55
+                            lg:w-75
+                            xl:w-60
+                            2xl:w-65"
                     />
 
                 </section>
