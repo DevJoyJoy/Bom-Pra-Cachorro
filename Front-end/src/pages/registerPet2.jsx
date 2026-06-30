@@ -1,12 +1,49 @@
 import { useState } from "react";
 import { Header } from "../components/header";
 import { useNavigate } from "react-router-dom";
+import { db } from "../../firebaseConfig";
+import { doc, updateDoc } from "firebase/firestore";
+import { useParams } from "react-router-dom";
 
 export const RegisterPet2 = () => {
     const navigate = useNavigate();
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const [valor, setValor] = useState("0");
+
+    const { id } = useParams();
+    const [withChildren, setWithChildren] = useState(false);
+    const [withDogs, setWithDogs] = useState(false);
+    const [withAnimals, setWithAnimals] = useState(false);
+
+    const [vaccinated, setVaccinated] = useState(false);
+    const [dewormed, setDewormed] = useState(false);
+    const [castrated, setCastrated] = useState(false);
+
+    const handleSave = async () => {
+        try {
+            await updateDoc(doc(db, "pets", id), {
+                energyLevel: valor,
+    
+                behavior: {
+                    withChildren,
+                    withDogs,
+                    withAnimals,
+                },
+    
+                health: {
+                    vaccinated,
+                    dewormed,
+                    castrated,
+                },
+            });
+    
+            setIsModalOpen(true);
+        } catch (error) {
+            console.error(error);
+            alert("Erro ao salvar.");
+        }
+    };
 
     const text = {
         "0": "Pouca energia",
@@ -96,7 +133,7 @@ export const RegisterPet2 = () => {
                 </div>
             </div>
                 <div className="flex justify-center w-full h-[8%] md:h-22 lg:h-[10%] lg:mt-7 lg:w-[50%]">
-                    <button onClick={() => setIsModalOpen(true)} className="px-6 py-2 md:w-[70%] lg:w-[70%] md:h-full text-white font-bold md:text-4xl lg:text-xl rounded-full cursor-pointer transition-colors bg-[#0097b2] hover:bg-[#015b6b] arturo">
+                    <button onClick={handleSave} className="px-6 py-2 md:w-[70%] lg:w-[70%] md:h-full text-white font-bold md:text-4xl lg:text-xl rounded-full cursor-pointer transition-colors bg-[#0097b2] hover:bg-[#015b6b] arturo">
                     Salvar e continuar
                     </button>
                 </div>

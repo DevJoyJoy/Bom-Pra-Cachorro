@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Header } from "../components/header";
 import { useState } from "react";
-import { auth, db } from "../firebaseConfig";
+import { auth, db } from "../../firebaseConfig";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { collection, query, where, getDocs } from "firebase/firestore";
 
@@ -46,6 +46,7 @@ export const RegisterLogin = () => {
       <Header />
 
       {/* Main content box */}
+<<<<<<< HEAD
       <div
         className="flex
         w-screen h-[91vh] items-center justify-center
@@ -65,6 +66,20 @@ export const RegisterLogin = () => {
           </p>
           <br />
           <br />
+=======
+      <div className="flex
+        w-full h-[91vh] items-center justify-center
+        lg:flex-row">
+          {/* Texts box */}
+          <div className="flex flex-col items-center justify-center 
+            lg:h-[87.5vh] lg:w-[70%]"
+            >
+            <p className="text-3xl lg:text-3xl md:text-5xl">Cadastro de animais:</p>
+            <br />
+            <p className=" text-2xl lg:text-2xl md:text-3xl text-center">Faça login para realizar o cadastro de animais!</p>
+            <br />
+            <br />
+>>>>>>> 40f23c293825002bad2634f1b4db09fd1b8815eb
 
           {/* Inputs box */}
           <div className="flex flex-col">
