@@ -125,6 +125,7 @@ export const MainPage = () => {
                         ))}
                     </div>
                 </section>
+                </section>
             </div>
 
             {/* THIRD SECTION */}
