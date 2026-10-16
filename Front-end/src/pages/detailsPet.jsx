@@ -1,221 +1,103 @@
-import { Footer } from "../components/footer"
-import { Header } from "../components/header"
-import { useState, useEffect, use } from "react";
-import { useParams } from "react-router-dom";
-import { db } from "../../firebaseConfig";
+import { Footer } from "../components/footer";
+import { Header } from "../components/header";
+import { Modal } from "../components/modal";
+import { PageState } from "../components/pageState";
+import { useState, useEffect, useCallback } from "react";
+import { Link, useParams } from "react-router-dom";
 import { doc, getDoc } from "firebase/firestore";
+import { getFirebaseClient } from "../lib/firebaseClient";
+
+const StatusRow = ({ value, positive, negative }) => (
+    <li className="flex items-start gap-3">
+        <i aria-hidden="true" className={`bi shrink-0 text-xl ${value === true ? "bi-check-circle-fill text-green-700" : value === false ? "bi-x-circle-fill text-red-700" : "bi-question-circle text-gray-600"}`} />
+        <span className="min-w-0 pt-0.5">{value === true ? positive : value === false ? negative : `${positive}: não informado`}</span>
+    </li>
+);
+
+const energyLabels = { 0: "Pouca energia", 1: "Energia moderada", 2: "Muita energia" };
 
 export const DetailsPetPage = () => {
-    const [menuOpen, setMenuOpen] = useState(false);
-    const [adotarClick, setAdotarClick] = useState(false);
-
     const { id } = useParams();
     const [pet, setPet] = useState(null);
-
-    const [comportamentoPet, setComportamentoPet] = useState({
-        withDogs: true,
-        withChildren: false,
-        withCats: true
-    })
-
+    const [loading, setLoading] = useState(true);
+    const [loadedId, setLoadedId] = useState(null);
+    const [error, setError] = useState("");
+    const [attempt, setAttempt] = useState(0);
+    const [contactType, setContactType] = useState(null);
+    const closeModal = useCallback(() => setContactType(null), []);
     useEffect(() => {
+        let active = true;
+        const loadPet = async () => {
+            try {
+                const { db } = await getFirebaseClient();
+                const snapshot = await getDoc(doc(db, "pets", id));
+                if (active) { setError(""); setPet(snapshot.exists() ? { ...snapshot.data(), id: snapshot.id } : null); }
+            } catch (cause) {
+                console.error(cause);
+                if (active) setError("Não foi possível carregar este pet. Tente novamente em instantes.");
+            } finally { if (active) { setLoadedId(id); setLoading(false); } }
+        };
         loadPet();
-    }, []);
+        return () => { active = false; };
+    }, [id, attempt]);
+    const retry = () => { setError(""); setLoading(true); setAttempt((value) => value + 1); };
+    // Avoid displaying a previous pet while React Router loads a different ID.
+    const currentPet = pet?.id === id ? pet : null;
+    const pending = loading || loadedId !== id;
+    const behavior = currentPet?.behavior || {};
+    const health = currentPet?.health || {};
+    const contactMessage = `Olá! Gostaria de saber mais sobre ${contactType === "sponsor" ? "o apadrinhamento" : "a adoção"} de ${currentPet?.name || "um pet"}.`;
 
-    const loadPet = async () => {
-        try {
-            const docRef = doc(db, "pets", id);
-            const docSnap = await getDoc(docRef);
-
-            if (docSnap.exists()) {
-                setPet({
-                    id: docSnap.id,
-                    ...docSnap.data(),
-                });
-            }
-        } catch (error) {
-            console.error(error);
-        }
-    };
-
-    function StatusRow({ boolean, ifTrue, ifFalse }) {
-        return (
-            <>
-                <i className={`bi ${boolean
-                    ? "bi-check-circle-fill text-[#43d74d]"
-                    : "bi-x-circle-fill text-red-500"
-                    } text-2xl  mr-3`}>
-                </i>
-                <span className="text-[#4b4b4b] align-super">{boolean ? ifTrue : ifFalse}</span>
-            </>
-        )
-    }
-
-    if (!pet) {
-        return <p>Carregando...</p>;
-    } else {
-        return (
-            <div id="screen" className="w-full min-h-screen flex flex-col items-center">
-                <Header open={menuOpen} setOpen={setMenuOpen}></Header>
-
-                <div id="container" className="w-[85%] md:mt-6 flex flex-1 flex-col md:flex-row md:gap-8">
-                    {/* Titulo principal / Nome do pet */}
-                    <div className=" flex flex-col h-max md:hidden ">
-                        <div id="name-pet" className="flex flex-row items-center">
-                            <img src="../../public/patinha.png" className="h-6 mr-4 mt-3"></img>
-                            <h1 className="mt-4 text-2xl text-[#4b4b4b]">{pet.name}</h1>
-                        </div>
-                        <div className="my-3 h-0.5 w-full bg-[#9cd7e1]"></div>
+    return (
+        <div className="page-shell">
+            <Header />
+            <main id="main-content" className="page-container section-space" aria-busy={pending}>
+                <Link to="/Pets" className="mb-6 inline-flex min-h-11 items-center gap-2 rounded-lg text-[#00677a] underline"><span aria-hidden="true">←</span>Voltar aos animais</Link>
+                {pending || error || !currentPet ? <PageState loading={pending} error={pending ? "" : error} empty="Este pet não foi encontrado ou não está mais disponível." onRetry={retry} /> : <>
+                    <div className="mb-8 flex items-center gap-3 border-b-2 border-[#9cd7e1] pb-5">
+                        <img src="/patinha.png" alt="" className="h-8 w-8 shrink-0 object-contain" />
+                        <h1 className="page-title pet-name">{currentPet.name || "Conheça este pet"}</h1>
                     </div>
-                    {/* Coluna 1 da pagina md / coluna normal em mobile */}
-                    <div className="order-1 flex items-center flex-col md:w-70 md:mr-5 lg:w-80">
-                        <img src="../../public/exampleDog.jpg" className="w-full m-3 rounded-2xl border-5 border-[#0097b2]"></img>
-                        <div className="bg-[#daeef5] grid grid-cols-2 grid-rows-2 rounded-2xl my-4 w-full aspect-square  ">
-                            <div className="flex flex-col items-center justify-center p-3">
-                                <img src="../../public/icon-birthday.png" className="w-16 h-max"></img>
-                                <label className="text-[#4b4b4b]">Idade:</label>
-                                <label className="text-[#4b4b4b]">{pet.birthDate}</label>
+                    <div className="grid items-start gap-8 md:grid-cols-[minmax(0,0.85fr)_minmax(0,1.3fr)] lg:gap-12">
+                        <aside className="min-w-0 space-y-5" aria-label="Fotos e informações do pet">
+                            <img src={currentPet.images?.[0] || "/exampleDog.jpg"} alt={currentPet.name || "Pet disponível para adoção"} className="aspect-square w-full rounded-2xl border-4 border-[#0097b2] object-cover" />
+                            <dl className="grid grid-cols-2 gap-3 rounded-2xl bg-[#daeef5] p-4 sm:p-6">
+                                {[["Nascimento", currentPet.birthDate, "/icon-birthday.png"], ["Porte", currentPet.size, "/icon-regua.png"], ["Raça", currentPet.breed, "/icon-dna.png"], ["Sexo", currentPet.sex, "/icon-sex.png"]].map(([label, value, image]) => <div key={label} className="flex min-w-0 flex-col items-center gap-1 py-3 text-center">
+                                    <img src={image} alt="" className="mb-2 h-12 w-12 object-contain" />
+                                    <dt>{label}</dt><dd className="max-w-full break-words font-semibold">{value || "Não informado"}</dd>
+                                </div>)}
+                            </dl>
+                            <div className="flex flex-col gap-3">
+                                <button type="button" onClick={() => setContactType("adopt")} className="primary-button w-full text-lg">Quero adotar</button>
+                                <button type="button" onClick={() => setContactType("sponsor")} className="min-h-12 w-full rounded-xl border-2 border-[#007f96] px-4 py-3 text-lg text-[#00677a] hover:bg-[#e3f6f9]">Quero apadrinhar</button>
+                                <p className="text-sm leading-relaxed">Apadrinhar é ajudar com cuidados e suporte mensal, mesmo sem adotar.</p>
+                                <p className="flex items-center justify-center gap-2 py-2"><i className="bi bi-exclamation-triangle" aria-hidden="true" />Adoção responsável</p>
                             </div>
-                            <div className="flex flex-col items-center justify-center p-3">
-                                <img src="../../public/icon-regua.png" className="w-16 h-max"></img>
-                                <label className="text-[#4b4b4b]">Porte:</label>
-                                <label className="text-[#4b4b4b]">{pet.size}</label>
-                            </div>
-                            <div className="flex flex-col items-center justify-center p-3">
-                                <img src="../../public/icon-dna.png" className="w-16  h-max"></img>
-                                <label className="text-[#4b4b4b]">Raça:</label>
-                                <label className="text-[#4b4b4b]">{pet.breed}</label>
-                            </div>
-                            <div className="flex flex-col items-center justify-center p-3">
-                                <img src="../../public/icon-sex.png" className="w-16 h-max"></img>
-                                <label className="text-[#4b4b4b]">Sexo:</label>
-                                <label className="text-[#4b4b4b]">{pet.sex}</label>
-                            </div>
-                        </div>
-
-
-                        <button onClick={() => setAdotarClick(true)} className="bg-[#0097b2] w-full rounded-xl text-xl text-white py-3 my-1 hover:bg-[#007c93] active:bg-[#00677a] ">Quero adotar</button>
-                        <div className="relative group w-full">
-                            <button className="bg-white flex items-center justify-center border-[#0097b2] border-2 text-xl w-full rounded-xl text-[#0097b2] py-3 my-1 hover:bg-[#c8eaf0] active:bg-[#a7dbe5] ">
-                                Quero apadrinhar
-                                <i className="hidden lg:block  bi bi-info-circle align-middle ml-3"></i>
-                                <div className="absolute left-0 top-full mt-2 w-full hidden lg:group-hover:block bg-white shadow-lg p-4 rounded text-[#4b4b4b] text-lg">
-                                    Ajude o pet com cuidados e suporte mensal, mesmo sem precisar adotá-lo.
-                                </div>
-                            </button>
-                        </div>
-
-                        <div className="flex flex-row">
-                            <i className="bi-exclamation-triangle text-[#4b4b4b]"></i>
-                            <span className="text-[#4b4b4b] ml-2 mb-5">Adoção responsável</span>
+                        </aside>
+                        <div className="min-w-0 space-y-6">
+                            <section className="space-y-4 pb-4" aria-labelledby="description-title"><h2 id="description-title" className="text-2xl text-[#00677a]">Sobre mim</h2><p className="body-copy whitespace-pre-line break-words">{currentPet.description || "Em breve, mais informações sobre este pet."}</p></section>
+                            <section className="space-y-4 rounded-2xl bg-[#daeef5] p-5 sm:p-6" aria-labelledby="energy-title">
+                                <h2 id="energy-title" className="text-2xl text-[#00677a]">Nível de energia</h2>
+                                <p className="text-lg">{energyLabels[currentPet.energyLevel] || "Não informado"}</p>
+                                {energyLabels[currentPet.energyLevel] && <div className="flex gap-2" aria-hidden="true">{[0, 1, 2].map((level) => <span key={level} className={`h-3 flex-1 rounded-full ${level <= Number(currentPet.energyLevel) ? "bg-[#007f96]" : "bg-white"}`} />)}</div>}
+                            </section>
+                            <section className="space-y-4 rounded-2xl bg-[#daeef5] p-5 sm:p-6" aria-labelledby="behavior-title">
+                                <h2 id="behavior-title" className="text-2xl text-[#00677a]">Comportamentos</h2>
+                                <ul className="space-y-3"><StatusRow value={behavior.withDogs} positive="Se dá bem com cães" negative="Não se dá bem com cães" /><StatusRow value={behavior.withChildren} positive="Se dá bem com crianças" negative="Não se dá bem com crianças" /><StatusRow value={behavior.withAnimals ?? behavior.withCats} positive="Se dá bem com outros animais" negative="Não se dá bem com outros animais" /></ul>
+                            </section>
+                            <section className="space-y-4 rounded-2xl bg-[#daeef5] p-5 sm:p-6" aria-labelledby="health-title">
+                                <h2 id="health-title" className="text-2xl text-[#00677a]">Saúde</h2>
+                                <ul className="space-y-3"><StatusRow value={health.vaccinated} positive="Vacinado" negative="Não vacinado" /><StatusRow value={health.dewormed} positive="Vermifugado" negative="Não vermifugado" /><StatusRow value={health.castrated ?? currentPet.isCastrated} positive="Castrado" negative="Não castrado" /></ul>
+                            </section>
                         </div>
                     </div>
-                    <div className="h-max order-2 flex-1">
-                        <div className="hidden md:flex ">
-                            <div className="h-max flex flex-col flex-1">
-                                <div id="name-pet" className="flex flex-row items-center">
-                                    <img src="../../public/patinha.png" className="h-6 mr-4 mt-3"></img>
-                                    <h1 className="mt-4 text-2xl text-[#4b4b4b]">{pet.name}</h1>
-                                </div>
-                                <div className="my-3 h-0.5 w-full bg-[#9cd7e1]"></div>
-                            </div>
-                        </div>
-                        <div className="w-full h-max min-h-30 mb-3">
-                            <div className="md:hidden my-5 h-0.5 w-full bg-[#9cd7e1]"></div>
-                            <h1 className="mt-4 mb-4 text-xl text-[#0097b2] text-center md:text-start">Sobre mim</h1>
-                            <p className="text-[#4b4b4b] text-center md:text-start">
-                                {pet.description}
-                            </p>
-                        </div>
-                        <div className="h-6 flex items-center">
-                            <div className="h-0.5 w-full bg-[#9cd7e1]"></div>
-                        </div>
-                        <div className="w-full bg-[#daeef5] rounded-2xl min-h-20 h-max py-3 px-5 my-5">
-                            <h1 className="text-xl text-[#0097b2]">Nivel de energia</h1>
-                            <div className="h-10 my-4 md:h-15 md:my-6 flex flex-row justify-center">
-                                src={pet.images?.[0]}
-                            </div>
-                        </div>
-                        <div className="w-full bg-[#daeef5] rounded-2xl min-h-20 h-max py-3 px-5 my-5">
-                            <h1 className="text-xl text-[#0097b2]">Comportamentos</h1>
-                            <div className="my-4 ml-1 md:my-6 flex flex-col justify-center gap-2">
-                                <div className="flex items-center">
-                                    <StatusRow
-                                        boolean={comportamentoPet.withDogs}
-                                        ifTrue="Se dá bem com cães"
-                                        ifFalse="Não se dá bem com cães"
-                                    />
-                                </div>
-                                <div className="flex items-center">
-                                    <StatusRow
-                                        boolean={comportamentoPet.withChildren}
-                                        ifTrue="Se dá bem com crianças"
-                                        ifFalse="Não se dá bem com crianças"
-                                    />
-                                </div>
-                                <div className="flex items-center">
-                                    <StatusRow
-                                        boolean={comportamentoPet.withCats}
-                                        ifTrue="Se dá bem com gatos"
-                                        ifFalse="Não se dá bem com gatos"
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                        <div className="w-full bg-[#daeef5] rounded-2xl min-h-20 h-max py-3 px-5 my-5">
-                            <h1 className="text-xl text-[#0097b2]">Saúde</h1>
-                            <div className="my-4 ml-1 md:my-6 flex flex-col justify-center gap-2">
-                                <div className="flex items-center">
-                                    <StatusRow
-                                        boolean={comportamentoPet.withChildren}
-                                        ifTrue="Vacinado"
-                                        ifFalse="Não vacinado"
-                                    />
-                                </div>
-                                <div className="flex items-center">
-                                    <StatusRow
-                                        boolean={comportamentoPet.withDogs}
-                                        ifTrue="Vermifugado"
-                                        ifFalse="Não vermifugado"
-                                    />
-                                </div>
-                                <div className="flex items-center">
-                                    <StatusRow
-                                        boolean={comportamentoPet.withChildren}
-                                        ifTrue="Castrado"
-                                        ifFalse="Não castrado"
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                        <div className="h-10 w-full"></div>
-                    </div>
-                </div >
-
-                {adotarClick && (<div className="fixed inset-0 z-1 flex items-center justify-center">
-                    {/* Dark background */}
-                    <div onClick={() => setAdotarClick(false)} className="absolute inset-0 bg-black opacity-60"></div>
-
-                    {/* Modal white box */}
-                    <div className="z-1 flex flex-col  w-[80%] lg:w-[40%] p-8 bg-white rounded-2xl">
-                        <p className="text-[#0097b2] text-2xl mb-2">Adotar</p>
-                        <p className="mb-5 md:text-xl">Ao continuar, você será redirecionado para o chat com a responsável pela adoção.</p>
-
-                        <br />
-                        <div className="flex justify-center md:justify-end w-full">
-                            <div className="relative flex flex-row h-15 items-center">
-                                <img className="h-15 absolute -left-5 z-10" src="../../public/WhatsApp_icon.png"></img>
-                                <button onClick={() => { }} className="px-16 py-2 h-max text-white md:text-2xl lg:text-xl rounded-full cursor-pointer transition-color bg-[#0097b2] hover:bg-[#007c93] active:bg-[#00677a]">
-                                    Continuar
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>)}
-
-
-                <Footer></Footer>
-            </div >
-        )
-    }
-}
+                </>}
+            </main>
+            {contactType && <Modal title={contactType === "sponsor" ? "Apadrinhar" : "Adotar"} onClose={closeModal}>
+                <p className="mb-6 text-lg leading-relaxed">Ao continuar, você será redirecionado para o WhatsApp da responsável pela {contactType === "sponsor" ? "ONG para conversar sobre o apadrinhamento" : "adoção"}.</p>
+                <a href={`https://wa.me/5541996602943?text=${encodeURIComponent(contactMessage)}`} target="_blank" rel="noopener noreferrer" className="primary-button w-full"><img src="/WhatsApp_icon.png" className="h-7 w-7 shrink-0 object-contain" alt="" />Continuar no WhatsApp<span className="sr-only"> (abre em nova aba)</span></a>
+            </Modal>}
+            <Footer />
+        </div>
+    );
+};

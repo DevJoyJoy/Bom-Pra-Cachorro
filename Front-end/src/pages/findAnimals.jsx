@@ -1,82 +1,54 @@
-import { Header } from "../components/header"
-import { Footer } from "../components/footer"
+import { Header } from "../components/header";
+import { Footer } from "../components/footer";
+import { PageState } from "../components/pageState";
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { db } from "../../firebaseConfig";
+import { Link } from "react-router-dom";
 import { collection, getDocs } from "firebase/firestore";
+import { getFirebaseClient } from "../lib/firebaseClient";
 
 export const FindAnimals = () => {
-    const [menuOpen, setMenuOpen] = useState(false);
-    const navigate = useNavigate();
     const [pets, setPets] = useState([]);
     const [loading, setLoading] = useState(true);
-
+    const [error, setError] = useState("");
+    const [attempt, setAttempt] = useState(0);
     useEffect(() => {
+        let active = true;
         const fetchPets = async () => {
             try {
-                const querySnapshot = await getDocs(collection(db, "pets"));
-
-                const petsList = querySnapshot.docs.map((doc) => ({
-                    id: doc.id,
-                    ...doc.data(),
-                }));
-
-                setPets(petsList);
-            } catch (error) {
-                console.error(error);
-            } finally {
-                setLoading(false);
-            }
+                const { db } = await getFirebaseClient();
+                const snapshot = await getDocs(collection(db, "pets"));
+                if (active) setPets(snapshot.docs.map((document) => ({ ...document.data(), id: document.id })));
+            } catch (cause) {
+                console.error(cause);
+                if (active) setError("Não foi possível carregar os animais. Tente novamente em instantes.");
+            } finally { if (active) setLoading(false); }
         };
-
         fetchPets();
-    }, []);
+        return () => { active = false; };
+    }, [attempt]);
+    const retry = () => { setError(""); setLoading(true); setAttempt((value) => value + 1); };
 
     return (
-        <>
-            <div className="w-full min-h-screen flex flex-col">
-
-                <Header open={menuOpen} setOpen={setMenuOpen} />
-
-                {/* Box title */}
-                <div className="w-[90%] m-5">
-                    <h1 className="text-2xl">Encontre seu novo amigo</h1>
-                </div>
-
-                {/* Box for all the animals */}
-                <div className="w-full flex flex-1 items-start justify-center">
-                    <div className="w-full max-w-4xl mx-auto p-4 md:px-9 lg:px-0 flex flex-wrap items-start justify-center gap-5 sm:gap-10">
-                        {pets.map((pet) => (
-                            <div
-                                key={pet.id}
-                                className="h-[30%] w-[90%] p-2 sm:w-[27%] lg:h-[25%] lg:w-[30%] rounded-2xl cursor-pointer transition-all duration-150 hover:-translate-y-1 hover:shadow-lg active:scale-95 active:translate-y-1 active:shadow-sm"
-                                onClick={() => navigate(`/DetailsPet/${pet.id}`)}
-                            >
-                                <div className="relative w-full h-[60%] group">
-                                    <img
-                                        src="../fundo_grid_pet.png"
-                                        className="w-full rounded-2xl transition-transform duration-300 group-hover:-rotate-10"
-                                    />
-
-                                    <img
-                                        src={pet.images?.[0] || "../exampleDog.jpg"}
-                                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[88%] rounded-2xl transition-transform duration-300 group-hover:scale-105"
-                                    />
-                                </div>
-
-                                <div className="pl-3">
-                                    <span className="text-lg">{pet.name}</span>
-                                    <br />
-                                    <span className="text-lg">{pet.birthDate}</span>
-                                </div>
+        <div className="page-shell">
+            <Header />
+            <main id="main-content" className="page-container section-space" aria-busy={loading}>
+                <h1 className="page-title mb-8">Encontre seu novo amigo</h1>
+                {loading || error || !pets.length ? <PageState loading={loading} error={error} empty="Nenhum animal disponível no momento. Volte em breve!" onRetry={retry} /> :
+                    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-8">
+                        {pets.map((pet) => <Link key={pet.id} to={`/DetailsPet/${pet.id}`} className="group min-w-0 rounded-2xl border border-[#b6e7ef] bg-white p-3 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+                            <div className="relative aspect-square overflow-hidden rounded-xl bg-[#daeef5]">
+                                <img src="/fundo_grid_pet.png" alt="" className="absolute inset-0 h-full w-full object-cover" />
+                                <img src={pet.images?.[0] || "/exampleDog.jpg"} alt={pet.name || "Animal disponível para adoção"} loading="lazy" className="absolute inset-[6%] h-[88%] w-[88%] rounded-xl object-cover transition-transform group-hover:scale-105" />
                             </div>
-                        ))}
-                    </div>
-                </div>
-
-                {/* Futer */}
-                <Footer />
-            </div>
-        </>
-    )
-}
+                            <div className="space-y-1 p-3">
+                                <h2 className="pet-name text-2xl text-[#00677a]">{pet.name || "Pet sem nome"}</h2>
+                                {pet.birthDate && <p className="break-words">Nascimento: {pet.birthDate}</p>}
+                                <span className="mt-2 inline-block text-[#00677a] underline">Conheça este pet <span aria-hidden="true">→</span></span>
+                            </div>
+                        </Link>)}
+                    </div>}
+            </main>
+            <Footer />
+        </div>
+    );
+};

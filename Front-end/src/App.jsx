@@ -8,12 +8,14 @@ import { DetailsPetPage } from "./pages/detailsPet"
 import { WhoWeAre } from "./pages/whoWeAre"
 import { RegisterPet2 } from "./pages/registerPet2"
 import { AvailablePets } from "./pages/availablePets"
+import { RouteScroll } from "./components/routeScroll"
 // import { AvaliablePets } from "./pages/availablePets"
 
 function App() {
   return (
     <>
       <BrowserRouter>
+        <RouteScroll />
         <Routes>
           <Route path='/' element={<MainPage />} />
           <Route path='/Login' element={<RegisterLogin />} />
