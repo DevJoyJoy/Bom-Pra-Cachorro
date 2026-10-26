@@ -1,50 +1,36 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 export const Header = ({ open, setOpen }) => {
     const navigate = useNavigate();
+    const [internalOpen, setInternalOpen] = useState(false);
+    const menuOpen = open ?? internalOpen;
+    const setMenuOpen = setOpen ?? setInternalOpen;
+    const links = [["/Pets", "Adote"], ["/Help", "Como ajudar"], ["/WhoWeAre", "Saiba mais"]];
 
     return (
-        <div className="w-full bg-[#ff66c4] text-white">
-            <div className="h-18 flex items-center pr-5 md:pr-10">
-                {/* O botão tem double click para levar para pagina secreta de login */}
-                <button onDoubleClick={() => navigate('/login')} className="w-7 h-full"></button>
-                <div className="flex justify-between w-full items-center">
-
-                    <section
-                        className="flex gap-2 items-center cursor-pointer"
-                        onClick={() => navigate("/")}
-                    >
-                        <img src="/icon paw.png" className="w-12   " />
-                        <h1 className="text-lg md:text-2xl lg:text-3xl font-arturo">
-                            Bom pra Cachorro
-                        </h1>
-                    </section>
-
-                    {/* MENU DESKTOP */}
-                    <section className="hidden md:flex gap-6 text-lg">
-                        <Link to="/Pets">Adote</Link>
-                        <Link to="/Help">Como Ajudar</Link>
-                        <Link to="/WhoWeAre">Saiba Mais</Link>
-                    </section>
-
-                    {/* BOTÃO MOBILE */}
-                    <div className="md:hidden text-3xl cursor-pointer" onClick={() => setOpen(!open)}
-                    >
-                        ☰
-                    </div>
+        <header className="w-full shrink-0 bg-[#ff66c4] text-[#4b2540]">
+            <a href="#main-content" className="skip-link">Pular para o conteúdo</a>
+            <div className="page-container flex min-h-20 items-center justify-between gap-3 py-3">
+                <div className="flex min-w-0 items-center gap-2">
+                    <span className="relative h-10 w-10 shrink-0 sm:h-12 sm:w-12">
+                        <img src="/icon paw.png" className="h-full w-full" alt="" />
+                        <button type="button" onClick={() => navigate('/Login')} className="absolute left-[36%] top-[50%] h-[28%] w-[28%] rounded-full" aria-label="Ir para login" title="Login" />
+                    </span>
+                    <Link to="/" onClick={() => setMenuOpen(false)} className="arturo min-w-0 rounded-lg text-lg leading-tight sm:text-2xl lg:text-3xl" aria-label="Bom pra Cachorro — início">Bom pra Cachorro</Link>
                 </div>
+                <nav aria-label="Navegação principal" className="hidden items-center gap-2 md:flex lg:gap-4">
+                    {links.map(([to, label]) => <NavLink key={to} to={to} className={({ isActive }) => `rounded-lg px-3 py-3 text-lg hover:bg-white/25 ${isActive ? "bg-white/30 underline underline-offset-4" : ""}`}>{label}</NavLink>)}
+                </nav>
+                <button type="button" className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-current text-2xl md:hidden" aria-label={menuOpen ? "Fechar menu" : "Abrir menu"} aria-expanded={menuOpen} aria-controls="mobile-navigation" onClick={() => setMenuOpen(!menuOpen)} onKeyDown={(event) => { if (event.key === "Escape") setMenuOpen(false); }}>
+                    <span aria-hidden="true">{menuOpen ? "✕" : "☰"}</span>
+                </button>
             </div>
-
-            {/* MENU MOBILE */}
-            {open && (
-                <div className="md:hidden flex flex-col items-center gap-4 pb-5 text-lg bg-[#ff66c4]">
-                    <Link to="/Pets" onClick={() => setOpen(false)}>Adote</Link>
-                    <Link to="/Help" onClick={() => setOpen(false)}>Como Ajudar</Link>
-                    <Link to="/LearnMore" onClick={() => setOpen(false)}>Saiba Mais</Link>
-                </div>
+            {menuOpen && (
+                <nav id="mobile-navigation" aria-label="Navegação móvel" className="page-container flex flex-col gap-1 border-t border-white/40 py-3 md:hidden" onKeyDown={(event) => { if (event.key === "Escape") setMenuOpen(false); }}>
+                    {links.map(([to, label]) => <NavLink key={to} to={to} onClick={() => setMenuOpen(false)} className="rounded-lg px-3 py-3 text-lg hover:bg-white/25">{label}</NavLink>)}
+                </nav>
             )}
-
-        </div>
+        </header>
     )
 }

@@ -1,288 +1,77 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { Footer } from "../components/footer";
 import { Header } from "../components/header";
-import { useNavigate } from "react-router-dom";
+
+const images = ["/dogo_teste.png", "/segundo_dog.png", "/dogo_teste.png", "/segundo_dog.png"];
 
 export const MainPage = () => {
-    const navigate = useNavigate();
-    const [menuOpen, setMenuOpen] = useState(false);
-
-    const images = ["/dogo_teste.png", "/segundo_dog.png", "/dogo_teste.png", "/segundo_dog.png"];
     const [current, setCurrent] = useState(0);
-
     useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrent((prev) => (prev + 1) % images.length);
-        }, 3000);
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        const interval = setInterval(() => setCurrent((prev) => (prev + 1) % images.length), 5000);
         return () => clearInterval(interval);
     }, []);
 
     return (
-        <>
-            <Header open={menuOpen} setOpen={setMenuOpen} />
-
-            {/* HERO */}
-            <div
-                className="
-                    w-full min-h-[70vh]
-                    flex flex-col items-center justify-center
-                    px-6 gap-10
-                    bg-[#ff66c4]
-                    overflow-x-hidden
-
-                    sm:min-h-[60vh]
-
-                    md:flex-row
-                    md:min-h-[30vh]
-
-                    lg:h-[30vh]
-
-                    xl:min-h-[50vh]
-
-                    2xl:min-h-[70vh]
-                "
-            >
-                {/* TEXTO */}
-                <section
-                    className="
-                        w-full max-w-xl
-                        flex flex-col gap-6
-                        items-center text-center
-
-                        md:w-1/2
-                    "
-                >
-                <img
-                    src="/me adota.png"
-                    alt="Adote um pet"
-                    className="
-                        w-full max-w-sm
-
-                        sm:w-[55vw]
-
-                        md:w-[40vw]
-
-                        xl:w-[35vw]
-                    "
-                />
-
-                <button
-                    onClick={() => navigate('/Pets')}
-                    className="
-                        px-6 py-3
-                        bg-[#0097b2]
-                        text-white
-                        rounded-full
-                        text-lg
-                        hover:bg-[#33AEC4]
-
-                        w-full max-w-xs
-
-                        sm:text-3xl
-
-                        md:text-xl
-                    "
-                >
-                    Adotar!
-                </button>
-            </section>
-
-    {/* IMAGEM */}
-    <div
-        className="
-            w-full
-            md:w-1/2
-
-            flex justify-center
-
-            lg:justify-end
-
-            xl:w-screen
-        "
-    >
-        <img
-            src="/cachorro pirata.png"
-            alt="Cachorro"
-            className="
-                w-full max-w-md
-                object-contain
-
-                sm:w-[80vw]
-
-                md:w-[50vw]
-
-                xl:w-[90vw]
-
-                2xl:max-w-[35vw]
-            "
-        />
-    </div>
-</div>
-
-            {/* SOBRE */}
-            <div className="w-full bg-white flex flex-col md:flex-row items-center justify-center gap-10 px-6 py-16
-                sm:text-2xl
-                xl:min-h-[20vh]
-                2xl:gap-40">
-
-                <section className="w-full max-w-md flex flex-col items-center text-center">
-                    <div className="bg-[#0097b2] text-white text-xl h-14 flex items-center justify-center rounded-t-2xl w-full
-                        sm:text-2xl
-                        md:text-2xl
-                        lg:text-3xl">
-                        Quem Somos?
-                    </div>
-
-                    <div className="border-2 border-[#0097b2] p-6 rounded-b-2xl flex flex-col gap-6 w-full
-                        sm:text-2xl">
-                        <h1 className="text-xl
-                            sm:text-2xl
-                            md:text-2xl
-                            lg:text-3xl">
-                            Bom pra Cachorro!
-                        </h1>
-
-                        <p className="text-base
-                            sm:text-xl
-                            md:text-lg
-                            lg:text-xl">
-                            Somos uma ONG de Curitiba que cuida de mais de 20 animais disponíveis para adoção!
-                        </p>
-
-                        <button
-                            onClick={() => navigate("LearnMore")}
-                            className="bg-[#ff66c4] text-white rounded-xl py-2 px-4 hover:bg-[#ff85d1] w-full max-w-xs mx-auto">
-                            Saiba mais
-                        </button>
+        <div className="page-shell">
+            <Header />
+            <main id="main-content">
+                <section className="bg-[#ff66c4]">
+                    <div className="page-container grid items-end gap-8 md:grid-cols-2 md:pt-14">
+                        <div className="flex min-w-0 flex-col items-center gap-6 text-center py-20">
+                            <h1 className="w-full max-w-sm"><img src="/me adota.png" alt="Me adota! Encontre seu novo melhor amigo." className="w-full object-contain" /></h1>
+                            <Link to="/Pets" className="primary-button w-full max-w-xs text-xl">Adotar!</Link>
+                        </div>
+                        <img src="/cachorro pirata.png" alt="Cachorro à espera de um lar" className="mx-auto max-h-[30rem] w-full max-w-lg self-end object-contain object-bottom" />
                     </div>
                 </section>
 
-                {/* CARROSSEL */}
-                <section className="w-full max-w-md
-                    lg:w-[40vw]
-                    xl:w-[30vw]">
-                    <div className="overflow-hidden rounded-2xl">
-                        <div
-                            className="flex transition-transform duration-500"
-                            style={{ transform: `translateX(-${current * 100}%)` }}
-                        >
-                            {images.map((img, index) => (
-                                <img key={index} src={img} className="w-full shrink-0 object-cover" />
-                            ))}
+                <section className="page-container section-space grid items-center gap-10 md:grid-cols-2 lg:gap-20" aria-labelledby="about-title">
+                    <div className="overflow-hidden rounded-2xl border-2 border-[#0097b2] text-center">
+                        <h2 id="about-title" className="bg-[#007f96] px-5 py-4 text-2xl text-white">Quem somos?</h2>
+                        <div className="flex flex-col items-center gap-6 p-6 sm:p-8">
+                            <h3 className="section-title">Bom pra Cachorro!</h3>
+                            <p className="body-copy">Somos uma ONG de Curitiba que cuida de mais de 20 animais disponíveis para adoção!</p>
+                            <Link to="/WhoWeAre" className="w-full rounded-xl bg-[#ff66c4] px-5 py-3 text-lg text-[#4b2540] hover:bg-[#ff85d1]">Saiba mais</Link>
                         </div>
                     </div>
+                    <section className="min-w-0" aria-label="Fotos dos nossos animais" aria-roledescription="carrossel">
+                        <div className="mx-auto aspect-square w-full max-w-xs overflow-hidden rounded-2xl bg-[#daeef5] sm:max-w-sm">
+                            <div className="flex h-full w-full transition-transform duration-500" style={{ transform: `translateX(-${current * 100}%)` }}>
+                                {images.map((image, index) => <img key={index} src={image} alt={`Animal da ONG — foto ${index + 1}`} aria-hidden={current !== index} className="h-full w-full basis-full shrink-0 object-cover object-bottom" loading="lazy" />)}
+                            </div>
+                        </div>
+                        <div className="mt-3 flex flex-wrap items-center justify-center gap-1">
+                            {images.map((_, index) => <button key={index} type="button" aria-label={`Mostrar foto ${index + 1}`} aria-pressed={current === index} onClick={() => setCurrent(index)} className="flex h-11 w-11 items-center justify-center rounded-full"><span className={`h-3 w-3 rounded-full ${current === index ? "bg-[#bf2689]" : "bg-gray-400"}`} /></button>)}
+                        </div>
+                    </section>
+                </section>
 
-                    <div className="flex justify-center gap-2 mt-4">
-                        {images.map((_, index) => (
-                            <div
-                                key={index}
-                                onClick={() => setCurrent(index)}
-                                className={`w-3 h-3 rounded-full cursor-pointer
-                                ${current === index ? "bg-[#ff66c4] scale-125" : "bg-gray-300"}`}
-                            />
-                        ))}
+                <section className="bg-[#007f96] text-white" aria-labelledby="help-title">
+                    <div className="page-container section-space grid items-center gap-10 md:grid-cols-2 lg:gap-20">
+                        <img src="/polaroid_dog.png" alt="Um dos cães cuidados pela ONG" loading="lazy" className="order-2 mx-auto max-h-[30rem] w-full max-w-sm object-contain md:order-1" />
+                        <div className="order-1 flex flex-col items-center gap-5 text-center md:order-2 md:items-start md:text-left">
+                            <h2 id="help-title" className="section-title">Saiba como ajudar a ONG</h2>
+                            <p className="body-copy">Se você ama os animais tanto quanto a gente, saiba que pode fazer a diferença!</p>
+                            <p className="body-copy">Com a sua contribuição, conseguimos oferecer alimentação, cuidados veterinários e muito carinho.</p>
+                            <Link to="/Help" className="mt-2 w-full rounded-full bg-white px-6 py-3 text-center text-xl text-[#007084] hover:bg-[#e3f6f9] sm:max-w-xs">Contribuir</Link>
+                        </div>
                     </div>
                 </section>
-            </div>
 
-            {/* AJUDA */}
-            <div className="bg-[#0097b2] w-full h-auto min-h-[60vh] flex flex-col-reverse items-center justify-center px-6 py-16 gap-10
-                md:flex-row
-                lg:min-h-[30vh]
-                2xl:gap-50">
-
-                <img
-                    src="/polaroid_dog.png"
-                    alt="Dog"
-                    className="w-full max-w-sm 
-                        md:w-[60vw]"
-                />
-
-                <section className="flex flex-col gap-4 text-center md:text-left max-w-md text-white items-center justify-center">
-                    <h1 className="text-xl
-                        sm:text-3xl
-                        md:text-3xl 
-                        g:text-3xl
-                        lg:text-4xl">
-                        Saiba como ajudar a ONG
-                    </h1>
-
-                    <p className="
-                        sm:text-xl
-                        md:text-xl
-                        lg:text-2xl">
-                        Se você ama os animais tanto quanto a gente, saiba que pode fazer a diferença!
-                    </p>
-
-                    <p className="
-                        sm:text-xl
-                        md:text-xl
-                        lg:text-2xl">
-                        Com a sua contribuição, conseguimos oferecer alimentação, cuidados veterinários e muito carinho.
-                    </p>
-
-                    <button
-                        onClick={() => navigate("/Help")}
-                        className="px-6 py-3 bg-white text-[#0097b2] rounded-full w-full text-center
-                            sm:text-xl sm:w-[40vw]
-                            md:w-[30vw]
-                            lg:text-3xl">
-                        Contribuir
-                    </button>
-                </section>
-            </div>
-
-            <div className="bg-white w-full min-h-[80vh] flex items-center justify-center px-6 py-16
-                md:min-h-[60vh]
-                lg:min-h-[30vh]
-                xl:min-h-[70vh]
-                2xl:min-h-[80vh]">
-                <section className="w-full h-135 bg-[#ffef63] rounded-3xl flex flex-col md:flex-row items-center justify-between p-6 gap-6
-                    md:h-[40vh]
-                    lg:h-[55vh]
-                    xl:justify-around
-                    2xl:h-[70vh]">
-
-                    {/* TEXTO */}
-                    <div className="flex flex-col gap-4 text-center md:text-left max-w-md
-                    2xl:max-w-[45vw]">
-                        <h1 className="text-xl 
-                            sm:text-2xl
-                            md:text-2xl 
-                            lg:text-5xl
-                            xl:text-4xl
-                            2xl:text-5xl">
-                            Violência contra o animal? Denuncie!
-                        </h1>
-
-                        <hr className="border-black" />
-
-                        <p className="text-base
-                            sm:text-2xl
-                            md:text-2xl
-                            lg:text-3xl
-                            xl:text-3xl
-                            2xl:text-4xl">
-                            Caso presencie qualquer tipo de violência animal, NÃO SEJA CÚMPLICE!
-                            Disque 181 ou 156.
-                        </p>
+                <section className="page-container section-space" aria-labelledby="report-title">
+                    <div className="grid items-center gap-8 rounded-3xl bg-[#ffef63] p-6 sm:p-10 md:grid-cols-[minmax(0,1fr)_minmax(0,0.6fr)] lg:p-14">
+                        <div className="min-w-0 space-y-6 text-center md:text-left">
+                            <h2 id="report-title" className="section-title">Violência contra o animal? Denuncie!</h2>
+                            <hr className="border-[#4b4b4b]/40" />
+                            <p className="body-copy">Caso presencie qualquer tipo de violência animal, NÃO SEJA CÚMPLICE! Disque <a className="underline" href="tel:181">181</a> ou <a className="underline" href="tel:156">156</a>.</p>
+                        </div>
+                        <img src="/heroi_dogo.png" alt="Cachorro vestido de super-herói" loading="lazy" className="mx-auto max-h-80 w-full max-w-60 object-contain" />
                     </div>
-
-                    {/* IMAGEM */}
-                    <img
-                        src="/heroi_dogo.png"
-                        alt="Herói"
-                        className="w-45
-                            md:w-55
-                            lg:w-75
-                            xl:w-60
-                            2xl:w-65"
-                    />
-
                 </section>
-            </div>
-
+            </main>
             <Footer />
-        </>
+        </div>
     );
 };
