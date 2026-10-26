@@ -7,24 +7,23 @@ const images = ["/dogo_teste.png", "/segundo_dog.png", "/dogo_teste.png", "/segu
 
 export const MainPage = () => {
     const [current, setCurrent] = useState(0);
-    const [paused, setPaused] = useState(false);
     useEffect(() => {
-        if (paused || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
         const interval = setInterval(() => setCurrent((prev) => (prev + 1) % images.length), 5000);
         return () => clearInterval(interval);
-    }, [paused]);
+    }, []);
 
     return (
         <div className="page-shell">
             <Header />
             <main id="main-content">
                 <section className="bg-[#ff66c4]">
-                    <div className="page-container grid items-center gap-8 py-10 md:grid-cols-2 md:py-14">
-                        <div className="flex min-w-0 flex-col items-center gap-6 text-center">
+                    <div className="page-container grid items-end gap-8 md:grid-cols-2 md:pt-14">
+                        <div className="flex min-w-0 flex-col items-center gap-6 text-center py-20">
                             <h1 className="w-full max-w-sm"><img src="/me adota.png" alt="Me adota! Encontre seu novo melhor amigo." className="w-full object-contain" /></h1>
                             <Link to="/Pets" className="primary-button w-full max-w-xs text-xl">Adotar!</Link>
                         </div>
-                        <img src="/cachorro pirata.png" alt="Cachorro à espera de um lar" className="mx-auto max-h-[30rem] w-full max-w-lg object-contain" />
+                        <img src="/cachorro pirata.png" alt="Cachorro à espera de um lar" className="mx-auto max-h-[30rem] w-full max-w-lg self-end object-contain object-bottom" />
                     </div>
                 </section>
 
@@ -38,14 +37,13 @@ export const MainPage = () => {
                         </div>
                     </div>
                     <section className="min-w-0" aria-label="Fotos dos nossos animais" aria-roledescription="carrossel">
-                        <div className="overflow-hidden rounded-2xl bg-[#daeef5]">
-                            <div className="flex transition-transform duration-500" style={{ transform: `translateX(-${current * 100}%)` }}>
-                                {images.map((image, index) => <img key={index} src={image} alt={`Animal da ONG — foto ${index + 1}`} aria-hidden={current !== index} className="aspect-[4/3] w-full shrink-0 object-cover" loading="lazy" />)}
+                        <div className="mx-auto aspect-square w-full max-w-xs overflow-hidden rounded-2xl bg-[#daeef5] sm:max-w-sm">
+                            <div className="flex h-full w-full transition-transform duration-500" style={{ transform: `translateX(-${current * 100}%)` }}>
+                                {images.map((image, index) => <img key={index} src={image} alt={`Animal da ONG — foto ${index + 1}`} aria-hidden={current !== index} className="h-full w-full basis-full shrink-0 object-cover object-bottom" loading="lazy" />)}
                             </div>
                         </div>
                         <div className="mt-3 flex flex-wrap items-center justify-center gap-1">
-                            {images.map((_, index) => <button key={index} type="button" aria-label={`Mostrar foto ${index + 1}`} aria-pressed={current === index} onClick={() => { setCurrent(index); setPaused(true); }} className="flex h-11 w-11 items-center justify-center rounded-full"><span className={`h-3 w-3 rounded-full ${current === index ? "bg-[#bf2689]" : "bg-gray-400"}`} /></button>)}
-                            <button type="button" className="min-h-11 rounded-lg px-3 text-sm underline" aria-pressed={paused} onClick={() => setPaused(!paused)}>{paused ? "Reproduzir" : "Pausar"}</button>
+                            {images.map((_, index) => <button key={index} type="button" aria-label={`Mostrar foto ${index + 1}`} aria-pressed={current === index} onClick={() => setCurrent(index)} className="flex h-11 w-11 items-center justify-center rounded-full"><span className={`h-3 w-3 rounded-full ${current === index ? "bg-[#bf2689]" : "bg-gray-400"}`} /></button>)}
                         </div>
                     </section>
                 </section>

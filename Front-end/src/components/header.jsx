@@ -12,10 +12,13 @@ export const Header = ({ open, setOpen }) => {
         <header className="w-full shrink-0 bg-[#ff66c4] text-[#4b2540]">
             <a href="#main-content" className="skip-link">Pular para o conteúdo</a>
             <div className="page-container flex min-h-20 items-center justify-between gap-3 py-3">
-                <Link to="/" onClick={() => setMenuOpen(false)} onDoubleClick={() => navigate('/Login')} className="flex min-w-0 items-center gap-2 rounded-lg" aria-label="Bom pra Cachorro — início">
-                    <img src="/icon paw.png" className="h-10 w-10 shrink-0 sm:h-12 sm:w-12" alt="" />
-                    <span className="arturo text-lg leading-tight sm:text-2xl lg:text-3xl">Bom pra Cachorro</span>
-                </Link>
+                <div className="flex min-w-0 items-center gap-2">
+                    <span className="relative h-10 w-10 shrink-0 sm:h-12 sm:w-12">
+                        <img src="/icon paw.png" className="h-full w-full" alt="" />
+                        <button type="button" onClick={() => navigate('/Login')} className="absolute left-[36%] top-[50%] h-[28%] w-[28%] rounded-full" aria-label="Ir para login" title="Login" />
+                    </span>
+                    <Link to="/" onClick={() => setMenuOpen(false)} className="arturo min-w-0 rounded-lg text-lg leading-tight sm:text-2xl lg:text-3xl" aria-label="Bom pra Cachorro — início">Bom pra Cachorro</Link>
+                </div>
                 <nav aria-label="Navegação principal" className="hidden items-center gap-2 md:flex lg:gap-4">
                     {links.map(([to, label]) => <NavLink key={to} to={to} className={({ isActive }) => `rounded-lg px-3 py-3 text-lg hover:bg-white/25 ${isActive ? "bg-white/30 underline underline-offset-4" : ""}`}>{label}</NavLink>)}
                 </nav>
