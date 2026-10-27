@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 // import { auth, db, storage } from "../../firebaseConfig";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { getFirebaseClient } from "../lib/firebaseClient";
 
 export const RegisterPet = () => {
   const navigate = useNavigate();
@@ -24,6 +25,9 @@ export const RegisterPet = () => {
     file: null,
   });
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [createdPetId, setCreatedPetId] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
   const [isAnimalsOpen, setIsAnimalsOpen] = useState(false);
   const [isBreedsOpen, setIsBreedsOpen] = useState(false);
   const [name, setName] = useState("");
@@ -36,23 +40,28 @@ export const RegisterPet = () => {
   const [description, setDescription] = useState("");
 
   const handleRegisterPet = async () => {
+    if (submitting) return;
+    setError("");
+    setSubmitting(true);
     try {
+      const { auth, db, storage } = getFirebaseClient();
       const user = auth.currentUser;
 
       if (!user) {
-        alert("Faça login primeiro.");
+        setError("Faça login antes de cadastrar um pet.");
         return;
       }
 
       const uid = user.uid;
 
       if (!name || !animal || !breed) {
-        alert("Preencha os campos obrigatórios.");
+        setError("Preencha nome, animal e raça.");
         return;
       }
 
       const uploadImage = async (imageObj, index) => {
         if (!imageObj.file) return null;
+        if (!storage) throw new Error("Configure VITE_FIREBASE_STORAGE_BUCKET para enviar fotos.");
 
         const imageRef = ref(storage, `pets/${uid}/${Date.now()}_${index}`);
 
@@ -70,7 +79,7 @@ export const RegisterPet = () => {
 
       const filteredImages = imageUrls.filter(Boolean);
 
-      await addDoc(collection(db, "pets"), {
+      const petRef = await addDoc(collection(db, "pets"), {
         uid,
         name,
         animal,
@@ -84,10 +93,15 @@ export const RegisterPet = () => {
         createdAt: serverTimestamp(),
       });
 
+      setCreatedPetId(petRef.id);
       setIsModalOpen(true);
     } catch (error) {
       console.error(error);
-      alert("Erro ao cadastrar pet");
+      setError(error.message?.startsWith("Firebase config is missing:") || error.message?.startsWith("Configure VITE_FIREBASE_STORAGE_BUCKET")
+        ? error.message
+        : "Não foi possível cadastrar o pet. Confira a conexão e as regras do Firebase e tente novamente.");
+    } finally {
+      setSubmitting(false);
     }
   };
 
@@ -260,6 +274,8 @@ export const RegisterPet = () => {
               <p className="text-[100%] md:text-3xl lg:text-xl">Nome</p>
               <input
                 type="text"
+                required
+                value={name}
                 onChange={(e) => setName(e.target.value)}
                 className="rounded-xl w-[110%] lg:w-[90%] md:text-3xl lg:text-xl bg-[#cfcccc]"
               />
@@ -274,8 +290,12 @@ export const RegisterPet = () => {
                   +
                 </button>
               </div>
-              <select
+              <input
                 type="text"
+                required
+                value={animal}
+                onChange={(e) => setAnimal(e.target.value)}
+                placeholder="Ex.: Cachorro"
                 className="rounded-xl w-[110%] md:w-[110%] lg:w-[90%] md:text-3xl lg:text-xl bg-[#cfcccc]"
               />
               <br />
@@ -289,17 +309,22 @@ export const RegisterPet = () => {
                   +
                 </button>
               </div>
-              <select
+              <input
                 type="text"
+                required
+                value={breed}
+                onChange={(e) => setBreed(e.target.value)}
+                placeholder="Ex.: Sem raça definida"
                 className="rounded-xl w-[110%] lg:w-[90%] md:text-3xl lg:text-xl bg-[#cfcccc]"
               />
               <br />
               <br />
               <p className="text-[100%] md:text-3xl lg:text-xl">Porte</p>
-              <select className="rounded-xl w-[110%] lg:w-[90%] md:text-3xl lg:text-xl bg-[#cfcccc]">
-                <option value="">Grande</option>
-                <option value="">Médio</option>
-                <option value="">Pequeno</option>
+              <select value={size} onChange={(e) => setSize(e.target.value)} className="rounded-xl w-[110%] lg:w-[90%] md:text-3xl lg:text-xl bg-[#cfcccc]">
+                <option value="">Selecione</option>
+                <option value="Grande">Grande</option>
+                <option value="Médio">Médio</option>
+                <option value="Pequeno">Pequeno</option>
               </select>
               <br />
             </div>
@@ -327,18 +352,24 @@ export const RegisterPet = () => {
                 <p className="text-[100%] mr-3 md:text-3xl lg:mr-9.5 lg:text-xl">
                   Sexo
                 </p>
-                <p className="text-[100%] md:text-3xl lg:text-xl">F</p>
                 <input
-                  type="checkbox"
+                  type="radio"
+                  name="sex"
+                  value="Fêmea"
+                  checked={sex === "Fêmea"}
                   onChange={(e) => setSex(e.target.value)}
                   className="rounded-xl w-[30%] bg-[#cfcccc]"
                 />
-                <p className="text-[100%] ml-2 md:text-3xl lg:text-xl">M</p>
+                <p className="text-[100%] md:text-3xl lg:text-xl">F</p>
                 <input
-                  type="checkbox"
+                  type="radio"
+                  name="sex"
+                  value="Macho"
+                  checked={sex === "Macho"}
                   onChange={(e) => setSex(e.target.value)}
                   className=" rounded-xl w-[30%] bg-[#cfcccc]"
                 />
+                <p className="text-[100%] ml-2 md:text-3xl lg:text-xl">M</p>
               </div>
               <br />
               <p className="text-[100%] mr-3 md:text-3xl lg:text-xl">
@@ -352,14 +383,17 @@ export const RegisterPet = () => {
             </div>
           </div>
         </div>
+        {error && <p role="alert" className="my-3 max-w-2xl rounded-lg bg-red-50 p-3 text-red-800">{error}</p>}
         <div className="flex justify-center w-full h-[8%] md:h-22 lg:h-[10%] lg:mt-7 lg:w-[50%]">
           <button
+            type="button"
+            disabled={submitting}
             onClick={() => {
               handleRegisterPet();
             }}
             className="px-6 py-2 md:w-[70%] lg:w-[70%] md:h-full text-white font-bold md:text-4xl lg:text-xl rounded-full cursor-pointer transition-colors bg-[#0097b2] hover:bg-[#015b6b] arturo"
           >
-            Salvar e cadastrar
+            {submitting ? "Salvando…" : "Salvar e cadastrar"}
           </button>
         </div>
       </div>
@@ -394,7 +428,10 @@ export const RegisterPet = () => {
               </button>
               <br />
               <button
-                onClick={() => setIsModalOpen(false)}
+                onClick={() => {
+                  setIsModalOpen(false);
+                  navigate(`/Register2/${createdPetId}`);
+                }}
                 className="px-6 py-2 text-white font-bold rounded-full cursor-pointer transition-colors bg-[#0097b2] hover:bg-[#015b6b] arturo
                 md:text-2xl 
                 lg:text-xl lg:w-[70%]"

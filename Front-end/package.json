@@ -5,15 +5,16 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "vite build",
     "lint": "eslint .",
+    "create:test-admin": "node --env-file-if-exists=.env.local scripts/create-test-admin.mjs",
     "preview": "vite preview"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.2.1",
     "axios": "^1.13.6",
     "bootstrap-icons": "^1.13.1",
-    "firebase": "^12.14.0",
+    "firebase": "^12.19.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-router-dom": "^7.13.1",

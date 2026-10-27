@@ -20,14 +20,20 @@ export const RegisterLogin = () => {
         setError("");
         setSubmitting(true);
         try {
-            const { auth, db } = await getFirebaseClient();
-            const snapshot = await getDocs(query(collection(db, "usuarios"), where("username", "==", username.trim())));
-            if (snapshot.empty) { setError("Usuário ou senha inválidos."); return; }
-            await signInWithEmailAndPassword(auth, snapshot.docs[0].data().email, senha);
-            navigate("/");
+            const { auth, db } = getFirebaseClient();
+            let email = username.trim();
+            if (!email.includes("@")) {
+                const snapshot = await getDocs(query(collection(db, "usuarios"), where("username", "==", email)));
+                email = snapshot.docs[0]?.data().email;
+            }
+            if (!email) { setError("Usuário ou senha inválidos."); return; }
+            await signInWithEmailAndPassword(auth, email, senha);
+            navigate("/Register");
         } catch (cause) {
             console.error(cause);
-            setError("Não foi possível entrar. Verifique seus dados e tente novamente.");
+            setError(cause.message?.startsWith("Firebase config is missing:")
+                ? cause.message
+                : "Não foi possível entrar. Verifique seus dados e tente novamente.");
         } finally { setSubmitting(false); }
     };
 
@@ -40,8 +46,8 @@ export const RegisterLogin = () => {
                     <p className="body-copy mb-8">Faça login para realizar o cadastro de animais!</p>
                     <form onSubmit={handleLogin} className="space-y-5" aria-busy={submitting}>
                         <div className="space-y-2">
-                            <label htmlFor="username" className="block text-lg">Usuário</label>
-                            <input id="username" name="username" autoComplete="username" autoCapitalize="none" required value={username} onChange={(event) => setUsername(event.target.value)} placeholder="Digite seu usuário" className="form-input" />
+                            <label htmlFor="username" className="block text-lg">E-mail ou usuário</label>
+                            <input id="username" name="username" autoComplete="username" autoCapitalize="none" required value={username} onChange={(event) => setUsername(event.target.value)} placeholder="Digite seu e-mail ou usuário" className="form-input" />
                         </div>
                         <div className="space-y-2">
                             <label htmlFor="password" className="block text-lg">Senha</label>

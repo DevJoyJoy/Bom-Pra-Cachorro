@@ -4,10 +4,13 @@ import { useNavigate } from "react-router-dom";
 // import { db } from "../../firebaseConfig";
 import { doc, updateDoc } from "firebase/firestore";
 import { useParams } from "react-router-dom";
+import { getFirebaseClient } from "../lib/firebaseClient";
 
 export const RegisterPet2 = () => {
     const navigate = useNavigate();
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [error, setError] = useState("");
+    const [submitting, setSubmitting] = useState(false);
 
     const [valor, setValor] = useState("0");
 
@@ -21,7 +24,15 @@ export const RegisterPet2 = () => {
     const [castrated, setCastrated] = useState(false);
 
     const handleSave = async () => {
+        if (submitting) return;
+        setError("");
+        setSubmitting(true);
         try {
+            const { auth, db } = getFirebaseClient();
+            if (!auth.currentUser) {
+                setError("Sua sessão expirou. Entre novamente antes de continuar.");
+                return;
+            }
             await updateDoc(doc(db, "pets", id), {
                 energyLevel: valor,
     
@@ -41,7 +52,11 @@ export const RegisterPet2 = () => {
             setIsModalOpen(true);
         } catch (error) {
             console.error(error);
-            alert("Erro ao salvar.");
+            setError(error.message?.startsWith("Firebase config is missing:")
+                ? error.message
+                : "Não foi possível salvar os dados. Confira as regras do Firebase e tente novamente.");
+        } finally {
+            setSubmitting(false);
         }
     };
 
@@ -97,15 +112,15 @@ export const RegisterPet2 = () => {
                         w-full h-[20vh] gap-2
                         lg:w-[25vw] lg:h-[30vh] lg:items-start lg:justify-center">
                             <section className="flex flex-row">
-                                <input type="checkbox" className="rounded-xl w-[8vw] bg-[#cfcccc]"/>
+                                <input type="checkbox" checked={withChildren} onChange={(event) => setWithChildren(event.target.checked)} className="rounded-xl w-[8vw] bg-[#cfcccc]"/>
                                 <p className="text-[80%] lg:text-[110%]">Se dá bem com crianças</p>
                             </section>
                             <section className="flex flex-row">
-                                <input type="checkbox" className="rounded-xl w-[8vw] bg-[#cfcccc]"/>
+                                <input type="checkbox" checked={withDogs} onChange={(event) => setWithDogs(event.target.checked)} className="rounded-xl w-[8vw] bg-[#cfcccc]"/>
                                 <p className="text-[80%] lg:text-[110%]">Se dá bem com outros cães</p>
                             </section>
                             <section className="flex flex-row">
-                                <input type="checkbox" className="rounded-xl w-[8vw] bg-[#cfcccc]"/>
+                                <input type="checkbox" checked={withAnimals} onChange={(event) => setWithAnimals(event.target.checked)} className="rounded-xl w-[8vw] bg-[#cfcccc]"/>
                                 <p className="text-[80%] lg:text-[110%]">Se dá bem com outros animais</p>
                             </section>
                         </div>
@@ -117,24 +132,25 @@ export const RegisterPet2 = () => {
                         w-full h-[10vh] gap-2
                         lg:w-[30vw] lg:h-[30vh] lg:gap-6 lg:flex-col lg:items-start lg:justify-center">
                             <section className="flex flex-row">
-                                <input type="checkbox" className="rounded-xl w-[8vw] bg-[#cfcccc]"/>
+                                <input type="checkbox" checked={castrated} onChange={(event) => setCastrated(event.target.checked)} className="rounded-xl w-[8vw] bg-[#cfcccc]"/>
                                 <p className="text-[80%] lg:text-xl">Castrado</p>
                             </section>
                             <section className="flex flex-row">
-                                <input type="checkbox" className="rounded-xl w-[8vw] bg-[#cfcccc]"/>
+                                <input type="checkbox" checked={vaccinated} onChange={(event) => setVaccinated(event.target.checked)} className="rounded-xl w-[8vw] bg-[#cfcccc]"/>
                                 <p className="text-[80%] lg:text-xl">Vacinado</p>
                             </section>
                             <section className="flex flex-row">
-                                <input type="checkbox" className="rounded-xl w-[8vw] bg-[#cfcccc]"/>
+                                <input type="checkbox" checked={dewormed} onChange={(event) => setDewormed(event.target.checked)} className="rounded-xl w-[8vw] bg-[#cfcccc]"/>
                                 <p className="text-[80%] lg:text-xl">Vermifugado</p>
                             </section>
                         </div>
                     </div>
                 </div>
             </div>
+                {error && <p role="alert" className="my-3 max-w-2xl rounded-lg bg-red-50 p-3 text-red-800">{error}</p>}
                 <div className="flex justify-center w-full h-[8%] md:h-22 lg:h-[10%] lg:mt-7 lg:w-[50%]">
-                    <button onClick={handleSave} className="px-6 py-2 md:w-[70%] lg:w-[70%] md:h-full text-white font-bold md:text-4xl lg:text-xl rounded-full cursor-pointer transition-colors bg-[#0097b2] hover:bg-[#015b6b] arturo">
-                    Salvar e continuar
+                    <button type="button" disabled={submitting} onClick={handleSave} className="px-6 py-2 md:w-[70%] lg:w-[70%] md:h-full text-white font-bold md:text-4xl lg:text-xl rounded-full cursor-pointer transition-colors bg-[#0097b2] hover:bg-[#015b6b] arturo">
+                    {submitting ? "Salvando…" : "Salvar e continuar"}
                     </button>
                 </div>
             </div>
